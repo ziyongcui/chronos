@@ -14,8 +14,15 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        logo.alpha = 1
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 3, animations: {
+            self.logo.alpha = 0
+        }) { (true) in
+            self.performSegue(withIdentifier: "launchToHome", sender: nil)
+        }
     }
     
 
