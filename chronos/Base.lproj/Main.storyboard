@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--LaunchScreen-->
         <scene sceneID="rja-LC-f8Z">
             <objects>
-                <viewController title="LaunchScreen" id="cIF-KP-NAz" customClass="ViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="LaunchScreen" id="cIF-KP-NAz" customClass="LaunchScreenViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6EN-9i-B6h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-296" y="-183"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial View Controller-->
         <scene sceneID="LWr-sR-hXP">
             <objects>
-                <viewController id="Smx-rn-wGs" sceneMemberID="viewController">
+                <viewController id="Smx-rn-wGs" customClass="TutorialViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQ9-Et-SdO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1025" y="-573"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Block View Controller-->
         <scene sceneID="0Nf-AK-Cvv">
             <objects>
-                <viewController id="59r-Yw-tpu" sceneMemberID="viewController">
+                <viewController id="59r-Yw-tpu" customClass="AddBlockViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bih-Ez-fRb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,7 +95,7 @@
         <!--HomeScreen-->
         <scene sceneID="L5U-51-oTk">
             <objects>
-                <viewController title="HomeScreen" id="dlu-cf-5Ef" sceneMemberID="viewController">
+                <viewController title="HomeScreen" id="dlu-cf-5Ef" customClass="HomeViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mu7-BP-Tas">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="184.82142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Analytics View Controller-->
         <scene sceneID="aaL-CB-R9u">
             <objects>
-                <viewController id="qRo-WU-6Qk" sceneMemberID="viewController">
+                <viewController id="qRo-WU-6Qk" customClass="AnalyticsViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oB-93-rHp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="2841" y="185"/>
         </scene>
-        <!--View Controller-->
+        <!--Ideal Schedule View Controller-->
         <scene sceneID="4rM-Om-4pK">
             <objects>
-                <viewController id="zmx-mU-km8" sceneMemberID="viewController">
+                <viewController id="zmx-mU-km8" customClass="IdealScheduleViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zak-kc-j0K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="1861" y="-573"/>
         </scene>
-        <!--View Controller-->
+        <!--Ideal Detail View Controller-->
         <scene sceneID="yiG-4f-ohU">
             <objects>
-                <viewController id="Fxj-fx-ZSe" sceneMemberID="viewController">
+                <viewController id="Fxj-fx-ZSe" customClass="IdealDetailViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SII-j1-Bko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,11 +241,11 @@
             <point key="canvasLocation" x="1025" y="185"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Hu-oM-G23"/>
         <segue reference="zgX-5r-MsS"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-    </resources>
 </document>
