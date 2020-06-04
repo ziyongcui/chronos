@@ -10,6 +10,8 @@ import UIKit
 
 class LaunchScreenViewController: UIViewController {
 
+    @IBOutlet weak var logo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

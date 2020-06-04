@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,6 +35,7 @@
                         <viewLayoutGuide key="safeArea" id="oPw-rw-RGe"/>
                     </view>
                     <connections>
+                        <outlet property="logo" destination="lWb-fe-uqj" id="Yor-yp-aVL"/>
                         <segue destination="Zro-nm-bCx" kind="presentation" identifier="launchToHome" modalPresentationStyle="fullScreen" id="0Hu-oM-G23"/>
                         <segue destination="Smx-rn-wGs" kind="presentation" identifier="launchToTutorial" modalPresentationStyle="fullScreen" id="zgX-5r-MsS"/>
                     </connections>
@@ -245,11 +246,11 @@
             <point key="canvasLocation" x="1025" y="185"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Hu-oM-G23"/>
         <segue reference="zgX-5r-MsS"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-    </resources>
 </document>
