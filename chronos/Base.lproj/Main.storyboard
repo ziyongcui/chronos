@@ -17,6 +17,10 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-fe-uqj">
                                 <rect key="frame" x="82" y="325.5" width="250" height="245.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="0Py-Hy-vU5"/>
+                                    <constraint firstAttribute="width" constant="250" id="iTn-vv-bJ7"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chronos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktS-p1-wob">
                                 <rect key="frame" x="153.5" y="255.5" width="107.5" height="32.5"/>
