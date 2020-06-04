@@ -14,15 +14,24 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logo.alpha = 1
+        logo.alpha = 0.25
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 5, animations: {
-            self.logo.alpha = 0
-        }) { (true) in
+        
+        //logo animation
+        UIView.animateKeyframes(withDuration: 3, delay: 0.1, options: [],animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
+                self.logo.alpha = 1
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.9) {
+                self.logo.alpha = 0
+            }
+            
+        }, completion: { (true) in
             self.performSegue(withIdentifier: "launchToHome", sender: nil)
-        }
+        })
     }
     
 

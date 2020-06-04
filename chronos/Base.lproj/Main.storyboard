@@ -40,7 +40,7 @@
                     </view>
                     <connections>
                         <outlet property="logo" destination="lWb-fe-uqj" id="Yor-yp-aVL"/>
-                        <segue destination="Zro-nm-bCx" kind="presentation" identifier="launchToHome" modalPresentationStyle="fullScreen" id="0Hu-oM-G23"/>
+                        <segue destination="Zro-nm-bCx" kind="presentation" identifier="launchToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0Hu-oM-G23"/>
                         <segue destination="Smx-rn-wGs" kind="presentation" identifier="launchToTutorial" modalPresentationStyle="fullScreen" id="zgX-5r-MsS"/>
                     </connections>
                 </viewController>
