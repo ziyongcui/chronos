@@ -24,7 +24,7 @@ class TutorialItemViewController: UIViewController, Storyboarded {
             fatalError("Attempted to create a TourItemViewController with no tour item.")
         }
 
-        //imageView.image = UIImage(bundleName: item.image)
+        //imageView.image = UIImage(bundleName: item.image)//buggy
         heading.text = item.title
         body.text = item.text
 

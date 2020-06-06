@@ -153,9 +153,8 @@
                                     <segue destination="lkD-Yx-t5k" kind="embed" id="BlC-Xh-Dfh"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbq-gc-Epa" userLabel="Dismiss">
-                                <rect key="frame" x="305" y="579" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbq-gc-Epa" userLabel="Dismiss">
+                                <rect key="frame" x="301" y="567" width="54" height="30"/>
                                 <state key="normal" title="Dismiss"/>
                                 <connections>
                                     <action selector="skipTour:" destination="dlu-cf-5Ef" eventType="touchUpInside" id="mga-xq-o5J"/>
@@ -167,12 +166,14 @@
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="bottom" secondItem="d16-cg-2gR" secondAttribute="bottom" constant="20" id="90X-LG-gRb"/>
                             <constraint firstItem="cAZ-Wf-cJQ" firstAttribute="centerX" secondItem="mu7-BP-Tas" secondAttribute="centerX" id="DlK-Ga-ymh"/>
                             <constraint firstItem="cAZ-Wf-cJQ" firstAttribute="leading" secondItem="ZLR-rT-9dk" secondAttribute="leading" id="GrB-QE-G88"/>
+                            <constraint firstItem="ZLR-rT-9dk" firstAttribute="bottom" secondItem="Bbq-gc-Epa" secondAttribute="bottom" constant="70" id="HGR-um-nGs"/>
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="trailing" secondItem="cAZ-Wf-cJQ" secondAttribute="trailing" id="K10-eT-NKc"/>
                             <constraint firstItem="cAZ-Wf-cJQ" firstAttribute="top" secondItem="ZLR-rT-9dk" secondAttribute="top" constant="16" id="VM7-yd-cwO"/>
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="bottom" secondItem="cAZ-Wf-cJQ" secondAttribute="bottom" constant="50" id="Vwp-0P-Cgz"/>
                             <constraint firstItem="ZbT-Rx-N4T" firstAttribute="centerY" secondItem="mu7-BP-Tas" secondAttribute="centerY" id="W1r-O2-BmM"/>
                             <constraint firstItem="d16-cg-2gR" firstAttribute="centerX" secondItem="mu7-BP-Tas" secondAttribute="centerX" id="j4Q-7G-D7s"/>
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="trailing" secondItem="hvw-0E-1kR" secondAttribute="trailing" constant="20" id="mj0-Qz-GeY"/>
+                            <constraint firstItem="ZLR-rT-9dk" firstAttribute="trailing" secondItem="Bbq-gc-Epa" secondAttribute="trailing" constant="20" id="pLp-uI-fz1"/>
                             <constraint firstItem="ZbT-Rx-N4T" firstAttribute="centerX" secondItem="mu7-BP-Tas" secondAttribute="centerX" id="tUy-vg-q1F"/>
                             <constraint firstItem="hvw-0E-1kR" firstAttribute="top" secondItem="ZLR-rT-9dk" secondAttribute="top" constant="20" id="uXb-4M-iHE"/>
                         </constraints>
@@ -367,8 +368,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Main Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-s5-LHR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" editable="NO" text="Main Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-s5-LHR">
                                 <rect key="frame" x="20" y="274" width="335" height="393"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
