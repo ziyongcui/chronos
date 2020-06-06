@@ -307,7 +307,7 @@
         <!--Tutorial Host View Controller-->
         <scene sceneID="7DJ-nV-6qC">
             <objects>
-                <viewController title="Tutorial Host View Controller" id="lkD-Yx-t5k" sceneMemberID="viewController">
+                <viewController title="Tutorial Host View Controller" id="lkD-Yx-t5k" customClass="TutorialHostViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nb7-ed-4cy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,7 +322,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9EU-0e-vz8" firstAttribute="top" secondItem="Nb7-ed-4cy" secondAttribute="topMargin" constant="5" id="0qq-bf-ZGa"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Xk3-fv-fya" secondAttribute="bottom" constant="20" id="6Jk-3C-d1P"/>
@@ -334,6 +334,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YSn-Oa-YOd"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="Xk3-fv-fya" id="LdY-Yo-Bry"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgG-0n-KbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,7 +345,7 @@
         <!--Tutorial Page View Controller-->
         <scene sceneID="lQC-0h-I4g">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Tutorial Page View Controller" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="UKg-47-nXp" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Tutorial Page View Controller" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="UKg-47-nXp" customClass="TutorialPageViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veX-Us-CPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861" y="1497"/>
@@ -350,12 +353,12 @@
         <!--Tutorial Item View Controller-->
         <scene sceneID="2s2-hC-IPg">
             <objects>
-                <viewController title="Tutorial Item View Controller" id="4wY-uD-QLo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialItemViewController" title="Tutorial Item View Controller" id="4wY-uD-QLo" customClass="TutorialItemViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9Y-4H-h18">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="335" placeholderIntrinsicHeight="224" image="paperplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FKx-0t-I8h">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="335" placeholderIntrinsicHeight="224" image="paperplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FKx-0t-I8h">
                                 <rect key="frame" x="20" y="0.5" width="335" height="223.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-ce-xm5">
@@ -386,6 +389,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L8n-6O-XN0"/>
                     </view>
+                    <connections>
+                        <outlet property="body" destination="ckn-s5-LHR" id="j7p-Ea-OhZ"/>
+                        <outlet property="heading" destination="EJQ-ce-xm5" id="PDg-1I-aAz"/>
+                        <outlet property="imageView" destination="FKx-0t-I8h" id="cas-8N-REN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3T-Go-wXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,6 +20,14 @@
 		8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474E248C27AE00B3F047 /* Storyboarded.swift */; };
 		87094751248C286100B3F047 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094750248C286100B3F047 /* GradientView.swift */; };
 		87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094752248C28CB00B3F047 /* UIView-FadeIn.swift */; };
+		87094755248C328100B3F047 /* Tutorial.json in Resources */ = {isa = PBXBuildFile; fileRef = 87094754248C328100B3F047 /* Tutorial.json */; };
+		87094757248C32F000B3F047 /* Tutorial.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87094756248C32F000B3F047 /* Tutorial.xcassets */; };
+		87094759248C333300B3F047 /* TutorialItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094758248C333300B3F047 /* TutorialItem.swift */; };
+		8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709475A248C337C00B3F047 /* TutorialItemViewController.swift */; };
+		8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709475C248C339900B3F047 /* TutorialHostViewController.swift */; };
+		8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709475E248C33B100B3F047 /* TutorialPageViewController.swift */; };
+		87094761248C354200B3F047 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094760248C354200B3F047 /* BundleExtension.swift */; };
+		87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */; };
 		8AA6D96106AC49EBB4C206B5 /* Pods_chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E18B1F2EE1182A965592DD /* Pods_chronos.framework */; };
 		8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */; };
 		8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */; };
@@ -65,6 +73,14 @@
 		8709474E248C27AE00B3F047 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		87094750248C286100B3F047 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		87094752248C28CB00B3F047 /* UIView-FadeIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-FadeIn.swift"; sourceTree = "<group>"; };
+		87094754248C328100B3F047 /* Tutorial.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tutorial.json; sourceTree = "<group>"; };
+		87094756248C32F000B3F047 /* Tutorial.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tutorial.xcassets; sourceTree = "<group>"; };
+		87094758248C333300B3F047 /* TutorialItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialItem.swift; sourceTree = "<group>"; };
+		8709475A248C337C00B3F047 /* TutorialItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialItemViewController.swift; sourceTree = "<group>"; };
+		8709475C248C339900B3F047 /* TutorialHostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialHostViewController.swift; sourceTree = "<group>"; };
+		8709475E248C33B100B3F047 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		87094760248C354200B3F047 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication-activetraitcollection.swift"; sourceTree = "<group>"; };
 		8B4C0F0224859FAD001DE8B9 /* chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,9 +141,16 @@
 			isa = PBXGroup;
 			children = (
 				8709474B248C221400B3F047 /* Homeview.swift */,
-				8709474E248C27AE00B3F047 /* Storyboarded.swift */,
-				87094750248C286100B3F047 /* GradientView.swift */,
+				87094758248C333300B3F047 /* TutorialItem.swift */,
+				8709475A248C337C00B3F047 /* TutorialItemViewController.swift */,
+				8709475C248C339900B3F047 /* TutorialHostViewController.swift */,
+				8709475E248C33B100B3F047 /* TutorialPageViewController.swift */,
+				87094760248C354200B3F047 /* BundleExtension.swift */,
+				87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */,
 				87094752248C28CB00B3F047 /* UIView-FadeIn.swift */,
+				87094750248C286100B3F047 /* GradientView.swift */,
+				8709474E248C27AE00B3F047 /* Storyboarded.swift */,
+				87094754248C328100B3F047 /* Tutorial.json */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -169,6 +192,7 @@
 				8669239724898FB900D95EC3 /* HomeViewController.swift */,
 				8709474D248C230900B3F047 /* Tutorial */,
 				8B4C0F0E24859FAD001DE8B9 /* Assets.xcassets */,
+				87094756248C32F000B3F047 /* Tutorial.xcassets */,
 				8B4C0F1324859FAD001DE8B9 /* Info.plist */,
 				866923932489887400D95EC3 /* structures.swift */,
 			);
@@ -316,6 +340,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4C0F0F24859FAD001DE8B9 /* Assets.xcassets in Resources */,
+				87094757248C32F000B3F047 /* Tutorial.xcassets in Resources */,
+				87094755248C328100B3F047 /* Tutorial.json in Resources */,
 				8B4C0F0D24859FAD001DE8B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,16 +474,22 @@
 				866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */,
 				866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */,
 				8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */,
+				87094761248C354200B3F047 /* BundleExtension.swift in Sources */,
 				8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */,
 				8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */,
+				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
+				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,
 				8669239A24898FFD00D95EC3 /* TutorialViewController.swift in Sources */,
 				8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */,
+				8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
 				87094751248C286100B3F047 /* GradientView.swift in Sources */,
 				87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */,
+				8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */,
 				8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */,
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
+				8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

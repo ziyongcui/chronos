@@ -1,0 +1,17 @@
+[
+	{
+		"image": "Tutorial1",
+		"title": "Create your Schedule",
+		"text": "Chronos will take your ideal schedule and input to create a recommended daily schedule."
+	},
+	{
+		"image": "Tutorial2",
+		"title": "Fill out what you've done!",
+		"text": "Our algorithm will create a daily schedule for you to slowly push you towards your goals. Fill it out and we'll do the rest."
+	},
+	{
+		"image": "Tutorial3",
+		"title": "Sample slide",
+		"text": "Test slide to fill space for now."
+	}
+]
