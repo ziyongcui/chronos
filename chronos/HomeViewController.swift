@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import SwiftEntryKit
+class HomeViewController: UIViewController, Storyboarded {
+    @IBAction func help(_ sender: Any) {
+        guard let view = self.view as? HomeView else {
+            fatalError("WelcomeViewController doesn't have a WelcomeView as its view.")
+        }
+        view.showTour()
+    }
 
-class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBAction func skipTour(_ sender: Any) {
+        guard let view = self.view as? HomeView else {
+            fatalError("WelcomeViewController doesn't have a WelcomeView as its view.")
+        }
+        view.fadeTour()
     }
     
 

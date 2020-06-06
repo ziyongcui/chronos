@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */; };
 		866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */; };
 		866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923A12489907900D95EC3 /* AddBlockViewController.swift */; };
+		8709474C248C221400B3F047 /* Homeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474B248C221400B3F047 /* Homeview.swift */; };
+		8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474E248C27AE00B3F047 /* Storyboarded.swift */; };
+		87094751248C286100B3F047 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094750248C286100B3F047 /* GradientView.swift */; };
+		87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094752248C28CB00B3F047 /* UIView-FadeIn.swift */; };
 		8AA6D96106AC49EBB4C206B5 /* Pods_chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E18B1F2EE1182A965592DD /* Pods_chronos.framework */; };
 		8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */; };
 		8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */; };
@@ -57,6 +61,10 @@
 		8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealDetailViewController.swift; sourceTree = "<group>"; };
 		866923A12489907900D95EC3 /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
+		8709474B248C221400B3F047 /* Homeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeview.swift; sourceTree = "<group>"; };
+		8709474E248C27AE00B3F047 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		87094750248C286100B3F047 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		87094752248C28CB00B3F047 /* UIView-FadeIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-FadeIn.swift"; sourceTree = "<group>"; };
 		8B4C0F0224859FAD001DE8B9 /* chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +121,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8709474D248C230900B3F047 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				8709474B248C221400B3F047 /* Homeview.swift */,
+				8709474E248C27AE00B3F047 /* Storyboarded.swift */,
+				87094750248C286100B3F047 /* GradientView.swift */,
+				87094752248C28CB00B3F047 /* UIView-FadeIn.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		8B4C0EF924859FAD001DE8B9 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +167,7 @@
 				8669239924898FFD00D95EC3 /* TutorialViewController.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
 				8669239724898FB900D95EC3 /* HomeViewController.swift */,
+				8709474D248C230900B3F047 /* Tutorial */,
 				8B4C0F0E24859FAD001DE8B9 /* Assets.xcassets */,
 				8B4C0F1324859FAD001DE8B9 /* Info.plist */,
 				866923932489887400D95EC3 /* structures.swift */,
@@ -183,7 +203,6 @@
 				F660B37111A056206A957715 /* Pods-chronosTests.debug.xcconfig */,
 				4AF08790546BD9A7AF85BBC3 /* Pods-chronosTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -425,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8709474C248C221400B3F047 /* Homeview.swift in Sources */,
 				866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */,
 				866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */,
 				8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */,
@@ -434,7 +454,10 @@
 				8669239A24898FFD00D95EC3 /* TutorialViewController.swift in Sources */,
 				8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
+				87094751248C286100B3F047 /* GradientView.swift in Sources */,
+				87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */,
 				8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */,
+				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
