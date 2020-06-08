@@ -20,10 +20,13 @@ struct Block : Codable{
     
     var name : String
     var rigid : Bool
+    var priority : Int
     
     //status = "completed", "failed", "postponed", "not attempted" etc.
     var status : String
 }
+
+
 
 //MARK:- IDEAL SCHEDULE
 struct IdealSchedule : Codable{
