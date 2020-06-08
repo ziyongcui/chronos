@@ -1,0 +1,6 @@
+framework module Pods_chronos {
+  umbrella header "Pods-chronos-umbrella.h"
+
+  export *
+  module * { export * }
+}

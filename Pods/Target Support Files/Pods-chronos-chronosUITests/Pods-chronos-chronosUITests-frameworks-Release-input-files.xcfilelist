@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-chronos-chronosUITests/Pods-chronos-chronosUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework
+${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework

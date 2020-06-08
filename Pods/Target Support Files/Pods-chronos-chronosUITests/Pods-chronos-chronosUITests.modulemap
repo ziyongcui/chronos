@@ -1,0 +1,6 @@
+framework module Pods_chronos_chronosUITests {
+  umbrella header "Pods-chronos-chronosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

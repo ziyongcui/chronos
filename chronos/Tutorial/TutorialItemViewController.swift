@@ -31,7 +31,7 @@ class TutorialItemViewController: UIViewController, Storyboarded {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         //imageView.layer.borderColor = UIColor(bundleName: "Secondary").cgColor
-        imageView.layer.borderWidth = 1
+        //imageView.layer.borderWidth = 1
 
         // force the content to go edge to edge
         body.textContainerInset = .zero
