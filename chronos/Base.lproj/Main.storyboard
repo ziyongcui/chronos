@@ -118,7 +118,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-f6-QFX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="56"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
@@ -171,25 +171,26 @@
                             <constraint firstItem="C7c-f6-QFX" firstAttribute="top" secondItem="bih-Ez-fRb" secondAttribute="top" id="6hM-RA-BRA"/>
                             <constraint firstItem="xy4-gT-D2y" firstAttribute="top" secondItem="zLS-xs-MIH" secondAttribute="bottom" id="7mL-dy-KZa"/>
                             <constraint firstItem="xy4-gT-D2y" firstAttribute="top" secondItem="YLL-kK-Ajz" secondAttribute="bottom" constant="4.5" id="AZy-94-ReE"/>
-                            <constraint firstItem="C7c-f6-QFX" firstAttribute="leading" secondItem="mDk-2t-eYF" secondAttribute="leading" id="KA5-g1-kAE"/>
+                            <constraint firstAttribute="trailing" secondItem="C7c-f6-QFX" secondAttribute="trailing" id="EJT-1x-i9s"/>
+                            <constraint firstAttribute="trailing" secondItem="mDk-2t-eYF" secondAttribute="trailing" id="Fsg-bw-Tr0"/>
+                            <constraint firstItem="mDk-2t-eYF" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="Gbz-TY-ahA"/>
+                            <constraint firstAttribute="trailing" secondItem="DGx-j5-F0p" secondAttribute="trailing" id="HPX-vz-h5P"/>
                             <constraint firstItem="mDk-2t-eYF" firstAttribute="top" secondItem="C7c-f6-QFX" secondAttribute="bottom" constant="15" id="OSt-92-XWf"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="DGx-j5-F0p" secondAttribute="trailing" id="Sdm-92-fbj"/>
+                            <constraint firstItem="C7c-f6-QFX" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="SXO-aY-ccE"/>
                             <constraint firstItem="fPY-vu-amP" firstAttribute="top" secondItem="zLS-xs-MIH" secondAttribute="bottom" constant="10" id="WH5-rN-iJV"/>
                             <constraint firstItem="DGx-j5-F0p" firstAttribute="top" secondItem="DwI-iR-vfF" secondAttribute="bottom" id="Wj6-FK-eXE"/>
-                            <constraint firstItem="DGx-j5-F0p" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="X5B-dh-uKn"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="DwI-iR-vfF" secondAttribute="trailing" id="XIy-3v-QBY"/>
+                            <constraint firstItem="xy4-gT-D2y" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="Xes-mx-ILd"/>
                             <constraint firstItem="C7c-f6-QFX" firstAttribute="centerX" secondItem="bih-Ez-fRb" secondAttribute="centerX" id="YSn-T0-qW4"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="zLS-xs-MIH" secondAttribute="trailing" id="a2V-gk-2rC"/>
+                            <constraint firstItem="DwI-iR-vfF" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="ccj-ip-GEa"/>
                             <constraint firstItem="zLS-xs-MIH" firstAttribute="top" secondItem="DGx-j5-F0p" secondAttribute="bottom" id="cns-nr-KJE"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="xy4-gT-D2y" secondAttribute="trailing" id="gKw-Mo-JIy"/>
+                            <constraint firstAttribute="trailing" secondItem="zLS-xs-MIH" secondAttribute="trailing" id="dYu-Ww-9Vi"/>
                             <constraint firstItem="Rpc-aj-M9i" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" constant="10" id="h87-q9-E51"/>
-                            <constraint firstItem="DwI-iR-vfF" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="lN4-Jh-YPY"/>
                             <constraint firstItem="fPY-vu-amP" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" constant="10" id="lP2-ak-KnY"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="mDk-2t-eYF" secondAttribute="trailing" id="maR-6h-Sgm"/>
-                            <constraint firstItem="zLS-xs-MIH" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="pJ6-t3-Zsw"/>
+                            <constraint firstAttribute="trailing" secondItem="DwI-iR-vfF" secondAttribute="trailing" id="mt7-Yo-z6s"/>
+                            <constraint firstItem="DGx-j5-F0p" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="nqQ-Sa-twD"/>
                             <constraint firstItem="YLL-kK-Ajz" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" constant="10" id="pcO-WK-l0C"/>
-                            <constraint firstItem="mDk-2t-eYF" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="ppT-P2-mfm"/>
-                            <constraint firstItem="xy4-gT-D2y" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="xek-VN-gRw"/>
+                            <constraint firstAttribute="trailing" secondItem="xy4-gT-D2y" secondAttribute="trailing" id="vhD-pB-08P"/>
+                            <constraint firstItem="zLS-xs-MIH" firstAttribute="leading" secondItem="bih-Ez-fRb" secondAttribute="leading" id="zKp-Ic-R9P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Gy-zN-h08"/>
                     </view>
