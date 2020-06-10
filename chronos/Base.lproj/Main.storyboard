@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-fe-uqj">
-                                <rect key="frame" x="82" y="325.5" width="250" height="245.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="IMG_8245" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-fe-uqj">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="0Py-Hy-vU5"/>
                                     <constraint firstAttribute="width" constant="250" id="iTn-vv-bJ7"/>
@@ -118,7 +118,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-f6-QFX">
-                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
@@ -220,25 +220,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvw-0E-1kR">
-                                <rect key="frame" x="362" y="108" width="32" height="30"/>
-                                <state key="normal" title="Help"/>
-                                <connections>
-                                    <action selector="help:" destination="dlu-cf-5Ef" eventType="touchUpInside" id="zBY-ko-RWW"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d16-cg-2gR">
-                                <rect key="frame" x="69" y="812" width="276" height="30"/>
+                                <rect key="frame" x="106" y="812" width="202" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJL-n7-1R5">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
-                                        <state key="normal" title="View Ideal Schedule"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
+                                        <state key="normal" title="Ideal Schedule"/>
                                         <connections>
                                             <segue destination="zmx-mU-km8" kind="show" id="y3e-wM-7hF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzM-3y-Nwu">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <rect key="frame" x="101" y="0.0" width="101" height="30"/>
                                         <state key="normal" title="Analytics"/>
                                         <connections>
                                             <segue destination="qRo-WU-6Qk" kind="show" id="9WB-QZ-Sre"/>
@@ -271,10 +264,8 @@
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="bottom" secondItem="cAZ-Wf-cJQ" secondAttribute="bottom" constant="50" id="Vwp-0P-Cgz"/>
                             <constraint firstItem="ZbT-Rx-N4T" firstAttribute="centerY" secondItem="mu7-BP-Tas" secondAttribute="centerY" id="W1r-O2-BmM"/>
                             <constraint firstItem="d16-cg-2gR" firstAttribute="centerX" secondItem="mu7-BP-Tas" secondAttribute="centerX" id="j4Q-7G-D7s"/>
-                            <constraint firstItem="ZLR-rT-9dk" firstAttribute="trailing" secondItem="hvw-0E-1kR" secondAttribute="trailing" constant="20" id="mj0-Qz-GeY"/>
                             <constraint firstItem="ZLR-rT-9dk" firstAttribute="trailing" secondItem="Bbq-gc-Epa" secondAttribute="trailing" constant="20" id="pLp-uI-fz1"/>
                             <constraint firstItem="ZbT-Rx-N4T" firstAttribute="centerX" secondItem="mu7-BP-Tas" secondAttribute="centerX" id="tUy-vg-q1F"/>
-                            <constraint firstItem="hvw-0E-1kR" firstAttribute="top" secondItem="ZLR-rT-9dk" secondAttribute="top" constant="20" id="uXb-4M-iHE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZLR-rT-9dk"/>
                         <userDefinedRuntimeAttributes>
@@ -290,7 +281,13 @@
                             <outlet property="tutorialContainer" destination="cAZ-Wf-cJQ" id="oTB-i0-6SC"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="IG4-aj-nhE"/>
+                    <navigationItem key="navigationItem" id="IG4-aj-nhE">
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="fEm-cZ-8vn">
+                            <connections>
+                                <action selector="help:" destination="dlu-cf-5Ef" id="BPs-Eo-L03"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clv-9x-SrR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,12 +514,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yW6-zc-COu"/>
+        <segue reference="0Hu-oM-G23"/>
         <segue reference="rMT-XS-JdV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="IMG_8245" width="383" height="411"/>
         <image name="Screen Shot 2020-06-10 at 1.16.24 PM" width="1204" height="268"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>
