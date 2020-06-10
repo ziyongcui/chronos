@@ -26,10 +26,10 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var rigid1: UIPickerView?
     @IBOutlet var duration1: UIPickerView?
     @IBOutlet var priority1: UIPickerView?
-    @IBAction func Add(_ sender: UIButton) {
+    @IBAction func Add(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
       }
-    @IBOutlet weak var ADD: UIButton!
+    @IBOutlet weak var ADD: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         createPickerViewRigid()
