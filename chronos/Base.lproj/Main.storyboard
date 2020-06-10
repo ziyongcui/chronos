@@ -84,61 +84,79 @@
             <objects>
                 <viewController id="59r-Yw-tpu" customClass="AddBlockViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bih-Ez-fRb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ouk-OG-bnG">
-                                <rect key="frame" x="0.0" y="386" width="414" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="59r-Yw-tpu" id="YtD-zp-GdJ"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-2t-eYF">
-                                <rect key="frame" x="30" y="322" width="354" height="34"/>
+                                <rect key="frame" x="30" y="276" width="354" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Priority" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xy4-gT-D2y">
-                                <rect key="frame" x="0.0" y="514" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="532" width="414" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rigid" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLS-xs-MIH">
-                                <rect key="frame" x="0.0" y="450" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="468" width="414" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Block" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNs-Ou-uax">
-                                <rect key="frame" x="170.5" y="225" width="73.5" height="67"/>
+                                <rect key="frame" x="170.5" y="179" width="73.5" height="67"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwI-iR-vfF">
+                                <rect key="frame" x="0.0" y="340" width="414" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-pJ-K7r">
+                                <rect key="frame" x="192" y="596" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="Add:" destination="59r-Yw-tpu" eventType="touchUpInside" id="lem-uW-6P2"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DGx-j5-F0p">
+                                <rect key="frame" x="0.0" y="404" width="414" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="DwI-iR-vfF" firstAttribute="top" secondItem="mDk-2t-eYF" secondAttribute="bottom" constant="30" id="4xw-rI-69R"/>
                             <constraint firstItem="xy4-gT-D2y" firstAttribute="top" secondItem="zLS-xs-MIH" secondAttribute="bottom" constant="30" id="7mL-dy-KZa"/>
+                            <constraint firstItem="DAV-pJ-K7r" firstAttribute="top" secondItem="xy4-gT-D2y" secondAttribute="bottom" constant="30" id="BhM-1p-p3y"/>
                             <constraint firstItem="vNs-Ou-uax" firstAttribute="centerX" secondItem="bih-Ez-fRb" secondAttribute="centerX" id="CJZ-LE-tRL"/>
+                            <constraint firstItem="DGx-j5-F0p" firstAttribute="centerY" secondItem="bih-Ez-fRb" secondAttribute="centerY" id="Ejn-PF-ICL"/>
+                            <constraint firstItem="DAV-pJ-K7r" firstAttribute="centerX" secondItem="bih-Ez-fRb" secondAttribute="centerX" id="MZf-RD-WoL"/>
                             <constraint firstItem="mDk-2t-eYF" firstAttribute="top" secondItem="vNs-Ou-uax" secondAttribute="bottom" constant="30" id="SDv-XM-8hg"/>
+                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="DGx-j5-F0p" secondAttribute="trailing" id="Sdm-92-fbj"/>
+                            <constraint firstItem="DGx-j5-F0p" firstAttribute="top" secondItem="DwI-iR-vfF" secondAttribute="bottom" constant="30" id="Wj6-FK-eXE"/>
+                            <constraint firstItem="DGx-j5-F0p" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="X5B-dh-uKn"/>
+                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="DwI-iR-vfF" secondAttribute="trailing" id="XIy-3v-QBY"/>
                             <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="mDk-2t-eYF" secondAttribute="trailing" constant="30" id="Zlg-QI-VnO"/>
                             <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="zLS-xs-MIH" secondAttribute="trailing" id="a2V-gk-2rC"/>
-                            <constraint firstItem="Ouk-OG-bnG" firstAttribute="top" secondItem="mDk-2t-eYF" secondAttribute="bottom" constant="30" id="bw3-sN-tAx"/>
-                            <constraint firstItem="zLS-xs-MIH" firstAttribute="top" secondItem="Ouk-OG-bnG" secondAttribute="bottom" constant="30" id="eN3-UF-4ph"/>
+                            <constraint firstItem="zLS-xs-MIH" firstAttribute="top" secondItem="DGx-j5-F0p" secondAttribute="bottom" constant="30" id="cns-nr-KJE"/>
                             <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="xy4-gT-D2y" secondAttribute="trailing" id="gKw-Mo-JIy"/>
-                            <constraint firstItem="5Gy-zN-h08" firstAttribute="trailing" secondItem="Ouk-OG-bnG" secondAttribute="trailing" id="kEm-2e-rE8"/>
-                            <constraint firstItem="Ouk-OG-bnG" firstAttribute="centerY" secondItem="bih-Ez-fRb" secondAttribute="centerY" constant="-45" id="oh1-kc-jW4"/>
+                            <constraint firstItem="DwI-iR-vfF" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="lN4-Jh-YPY"/>
                             <constraint firstItem="zLS-xs-MIH" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="pJ6-t3-Zsw"/>
                             <constraint firstItem="mDk-2t-eYF" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" constant="30" id="rUI-DL-sOM"/>
                             <constraint firstItem="xy4-gT-D2y" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="xek-VN-gRw"/>
-                            <constraint firstItem="Ouk-OG-bnG" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" id="yWt-MK-Ron"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Gy-zN-h08"/>
                     </view>
                     <navigationItem key="navigationItem" id="sva-fq-3O9"/>
                     <connections>
-                        <outlet property="time" destination="Ouk-OG-bnG" id="QEg-m1-eod"/>
+                        <outlet property="ADD" destination="DAV-pJ-K7r" id="32b-zl-NC8"/>
+                        <outlet property="duration" destination="DGx-j5-F0p" id="gEp-a4-tXL"/>
+                        <outlet property="priority" destination="xy4-gT-D2y" id="htd-NM-Fbv"/>
+                        <outlet property="rigid" destination="zLS-xs-MIH" id="4i7-tA-G1n"/>
+                        <outlet property="time" destination="DwI-iR-vfF" id="95h-JJ-gbo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txK-Zo-dJ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -288,7 +306,9 @@
                     <navigationItem key="navigationItem" id="yaf-sv-gTf">
                         <barButtonItem key="rightBarButtonItem" title="Add Block" id="B05-VP-HdP">
                             <connections>
-                                <segue destination="59r-Yw-tpu" kind="show" id="Nhx-Rt-KCo"/>
+                                <segue destination="59r-Yw-tpu" kind="popoverPresentation" popoverAnchorBarButtonItem="B05-VP-HdP" id="Nhx-Rt-KCo">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -325,7 +345,9 @@
                     <navigationItem key="navigationItem" id="Ggx-eX-qzc">
                         <barButtonItem key="rightBarButtonItem" title="Add Block" id="HiF-4Z-mIM">
                             <connections>
-                                <segue destination="59r-Yw-tpu" kind="show" id="rMT-XS-JdV"/>
+                                <segue destination="59r-Yw-tpu" kind="popoverPresentation" popoverAnchorBarButtonItem="HiF-4Z-mIM" id="rMT-XS-JdV">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
