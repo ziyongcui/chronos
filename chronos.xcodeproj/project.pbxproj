@@ -28,6 +28,7 @@
 		8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709475E248C33B100B3F047 /* TutorialPageViewController.swift */; };
 		87094761248C354200B3F047 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094760248C354200B3F047 /* BundleExtension.swift */; };
 		87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */; };
+		8731AFCA24920C65007D6289 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731AFC924920C65007D6289 /* test.swift */; };
 		8AA6D96106AC49EBB4C206B5 /* Pods_chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E18B1F2EE1182A965592DD /* Pods_chronos.framework */; };
 		8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */; };
 		8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */; };
@@ -81,6 +82,7 @@
 		8709475E248C33B100B3F047 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		87094760248C354200B3F047 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication-activetraitcollection.swift"; sourceTree = "<group>"; };
+		8731AFC924920C65007D6289 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		8B4C0F0224859FAD001DE8B9 /* chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				87094756248C32F000B3F047 /* Tutorial.xcassets */,
 				8B4C0F1324859FAD001DE8B9 /* Info.plist */,
 				866923932489887400D95EC3 /* structures.swift */,
+				8731AFC924920C65007D6289 /* test.swift */,
 			);
 			path = chronos;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				8669239A24898FFD00D95EC3 /* TutorialViewController.swift in Sources */,
 				8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */,
 				8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */,
+				8731AFCA24920C65007D6289 /* test.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
 				87094751248C286100B3F047 /* GradientView.swift in Sources */,
 				87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */,
