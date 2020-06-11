@@ -20,6 +20,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var duration1: UIPickerView?
     @IBOutlet var priority1: UIPickerView?
     @IBOutlet weak var ADD: UIBarButtonItem!
+    @IBOutlet weak var CANCEL: UIBarButtonItem!
     
     var selectedTime: String?
     var timeList = ["8:00", "9:00", "10:00", "11:00", "12:00"]
@@ -45,6 +46,9 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         dismissPickerViewPriority()
         
         // Do any additional setup after loading the view.
+    }
+    @IBAction func Cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func Add(_ sender: UIBarButtonItem) {
