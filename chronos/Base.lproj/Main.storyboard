@@ -197,6 +197,7 @@
                     <connections>
                         <outlet property="ADD" destination="njl-Qn-pT2" id="hcM-yl-Dbt"/>
                         <outlet property="duration" destination="DGx-j5-F0p" id="gEp-a4-tXL"/>
+                        <outlet property="name" destination="mDk-2t-eYF" id="gaf-0s-t4B"/>
                         <outlet property="priority" destination="xy4-gT-D2y" id="htd-NM-Fbv"/>
                         <outlet property="rigid" destination="zLS-xs-MIH" id="4i7-tA-G1n"/>
                         <outlet property="time" destination="DwI-iR-vfF" id="95h-JJ-gbo"/>

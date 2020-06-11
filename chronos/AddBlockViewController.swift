@@ -22,12 +22,14 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var rigid: UITextField!
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var priority: UITextField!
+    @IBOutlet weak var name: UITextField!
     @IBOutlet var time1: UIPickerView?
     @IBOutlet var rigid1: UIPickerView?
     @IBOutlet var duration1: UIPickerView?
     @IBOutlet var priority1: UIPickerView?
     @IBAction func Add(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+        _ = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
       }
     @IBOutlet weak var ADD: UIBarButtonItem!
     override func viewDidLoad() {
