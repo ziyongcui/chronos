@@ -1,28 +1,9 @@
 import Foundation
-/*struct Block : Codable{
-    //time and duration in minutes
-    var time : Int
-    // var completedTime: Int //not sure if we need this
-    var duration : Int
-    // var completionDuration : Int
-    //
-    var name : String
-    // var rigid : Bool
-    var priority : Int
-    //
-    // //status = "completed", "failed", "postponed", "not attempted" etc.
-    var status : String
-}
-
-let math = Block(time: 12, duration: 4, name: "math", priority: 2, status: "not attempted")
-let reading = Block(time: 16, duration: 4, name: "reading", priority: 2, status: "not attempted")
-let swim = Block(time: 20, duration: 4, name: "swim", priority: 2, status: "not attempted")
+let math = Block(time: 12, completedTime: -1, duration: 4, completionDuration: -1, name: "math", rigid: false, priority: 2, status: "not attempted")
+let reading = Block(time: 16, completedTime:-1, duration: 4, completionDuration: -1, name: "reading", rigid: false, priority: 2, status: "not attempted")
+let swim = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: "swim", rigid: false, priority: 2, status: "not attempted")
 
 var schedule = [math, reading, swim]
-
-
-
-
 
 func calcTime(currentTime: Int) {
   print(schedule) //  prints the original schedule for comparison
@@ -65,9 +46,9 @@ func calcTime(currentTime: Int) {
   print(schedule) // prints final schedule for comparison
 }
 
-calcTime(currentTime: 16)
+//calcTime(currentTime: 16)// figure out main.swift
 // let currentDate = Date()
 // let date = Date()
 // let calendar = Calendar.current
 // let hour = calendar.component(.hour, from: date)
- // let minutes = calendar.component(.minute, from: date)*/
+ // let minutes = calendar.component(.minute, from: date)

@@ -94,3 +94,4 @@ struct URLs{
     
     static let user = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("user").appendingPathExtension("plist")
 }
+
