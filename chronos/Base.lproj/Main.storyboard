@@ -359,38 +359,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="hsG-jH-fGg">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="" image="s.square" catalog="system" landscapeImage="s.square" largeContentSizeImage="s.square" selectedImage="calendar.circle" id="3k8-f4-b4z">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem tag="1" title="" image="m.square" catalog="system" selectedImage="calendar.circle" id="lNx-Vw-DKV">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="" image="t.square" catalog="system" selectedImage="calendar.circle" id="KBN-vE-2lm">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="" image="w.square" catalog="system" selectedImage="calendar.circle" id="M9L-nP-3kd">
-                                        <inset key="imageInsets" minX="0.0" minY="100000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="" image="t.square" catalog="system" selectedImage="calendar.circle" id="ZBn-zQ-bhd">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="" image="f.square" catalog="system" selectedImage="calendar.circle" id="cos-pG-C9O">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="" image="s.square" catalog="system" selectedImage="calendar.circle" id="fPq-LA-SR5">
-                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                </items>
-                            </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oDv-cI-3TY">
                                 <rect key="frame" x="20" y="163" width="374" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealBlockCell" rowHeight="97" id="Ewu-nc-mHq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealBlockCell" rowHeight="97" id="Ewu-nc-mHq" customClass="IdealBlockTableViewCell" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ewu-nc-mHq" id="7ng-u5-A6m">
@@ -434,9 +407,41 @@
                                         <constraints>
                                             <constraint firstItem="t8l-h1-qQH" firstAttribute="width" secondItem="Ewu-nc-mHq" secondAttribute="width" multiplier="0.5" id="08L-cB-e7F"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="durationLabel" destination="0KL-dE-pz9" id="Ulq-pz-ZUA"/>
+                                            <outlet property="timeLabel" destination="zY3-G6-IIo" id="qT9-uh-8jv"/>
+                                            <outlet property="titleLabel" destination="t8l-h1-qQH" id="MlB-SZ-oao"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="hsG-jH-fGg">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="" image="s.square" catalog="system" landscapeImage="s.square" largeContentSizeImage="s.square" selectedImage="calendar.circle" id="3k8-f4-b4z">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="1" title="" image="m.square" catalog="system" selectedImage="calendar.circle" id="lNx-Vw-DKV">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="t.square" catalog="system" selectedImage="calendar.circle" id="KBN-vE-2lm">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="w.square" catalog="system" selectedImage="calendar.circle" id="M9L-nP-3kd">
+                                        <inset key="imageInsets" minX="0.0" minY="100000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="t.square" catalog="system" selectedImage="calendar.circle" id="ZBn-zQ-bhd">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="f.square" catalog="system" selectedImage="calendar.circle" id="cos-pG-C9O">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="" image="s.square" catalog="system" selectedImage="calendar.circle" id="fPq-LA-SR5">
+                                        <inset key="imageInsets" minX="0.0" minY="10000" maxX="0.0" maxY="0.0"/>
+                                    </tabBarItem>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -460,6 +465,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="oDv-cI-3TY" id="5Xs-n3-wd7"/>
                         <segue destination="Fxj-fx-ZSe" kind="show" id="8nh-nG-Txa"/>
                     </connections>
                 </viewController>
