@@ -126,7 +126,7 @@
                                     <navigationItem title="New Block" id="kso-0X-XaJ">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="njl-Qn-pT2">
                                             <connections>
-                                                <action selector="Add:" destination="59r-Yw-tpu" id="1xg-cf-BDC"/>
+                                                <action selector="Cancel:" destination="59r-Yw-tpu" id="naR-y4-p0X"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Add" id="P2d-RF-P1k">
@@ -195,7 +195,8 @@
                         <viewLayoutGuide key="safeArea" id="5Gy-zN-h08"/>
                     </view>
                     <connections>
-                        <outlet property="ADD" destination="njl-Qn-pT2" id="hcM-yl-Dbt"/>
+                        <outlet property="ADD" destination="P2d-RF-P1k" id="PFc-Rw-HMb"/>
+                        <outlet property="CANCEL" destination="njl-Qn-pT2" id="DYg-W8-iW9"/>
                         <outlet property="duration" destination="DGx-j5-F0p" id="gEp-a4-tXL"/>
                         <outlet property="name" destination="mDk-2t-eYF" id="gaf-0s-t4B"/>
                         <outlet property="priority" destination="xy4-gT-D2y" id="htd-NM-Fbv"/>
