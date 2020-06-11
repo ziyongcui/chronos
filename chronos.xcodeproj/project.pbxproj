@@ -16,6 +16,7 @@
 		8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */; };
 		866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */; };
 		866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923A12489907900D95EC3 /* AddBlockViewController.swift */; };
+		86E97EF024928FE800E192FA /* IdealBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */; };
 		8709474C248C221400B3F047 /* Homeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474B248C221400B3F047 /* Homeview.swift */; };
 		8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474E248C27AE00B3F047 /* Storyboarded.swift */; };
 		87094751248C286100B3F047 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094750248C286100B3F047 /* GradientView.swift */; };
@@ -70,6 +71,7 @@
 		8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealDetailViewController.swift; sourceTree = "<group>"; };
 		866923A12489907900D95EC3 /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
+		86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealBlockTableViewCell.swift; sourceTree = "<group>"; };
 		8709474B248C221400B3F047 /* Homeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeview.swift; sourceTree = "<group>"; };
 		8709474E248C27AE00B3F047 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		87094750248C286100B3F047 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */,
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
+				86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
@@ -494,6 +497,7 @@
 				8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */,
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
 				8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */,
+				86E97EF024928FE800E192FA /* IdealBlockTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
