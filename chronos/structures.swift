@@ -93,5 +93,7 @@ struct URLs{
     static let log = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("log").appendingPathExtension("plist")
     
     static let user = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("user").appendingPathExtension("plist")
+    
+    static let sampleBlocks = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("sample").appendingPathExtension("plist")
 }
 

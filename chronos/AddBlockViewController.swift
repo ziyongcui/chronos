@@ -10,14 +10,6 @@ import UIKit
 
 class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    var selectedTime: String?
-    var timeList = ["8:00", "9:00", "10:00", "11:00", "12:00"]
-    var selectedRigidity: Bool?
-    var rigidList = [true, false]
-    var selectedPriority: Int?
-    var priorityList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    var selectedDuration: String?
-    var durationList = ["0:00", "0:30", "1:00", "1:30", "2:00"]
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var rigid: UITextField!
     @IBOutlet weak var duration: UITextField!
@@ -27,11 +19,20 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var rigid1: UIPickerView?
     @IBOutlet var duration1: UIPickerView?
     @IBOutlet var priority1: UIPickerView?
-    @IBAction func Add(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-        _ = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
-      }
     @IBOutlet weak var ADD: UIBarButtonItem!
+    
+    var selectedTime: String?
+    var timeList = ["8:00", "9:00", "10:00", "11:00", "12:00"]
+    var selectedRigidity: Bool?
+    var rigidList = [true, false]
+    var selectedPriority: Int?
+    var priorityList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    var selectedDuration: String?
+    var durationList = ["0:00", "0:30", "1:00", "1:30", "2:00"]
+    
+    let propertyListEncoder = PropertyListEncoder()
+    let propertyListDecoder = PropertyListDecoder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createPickerViewRigid()
@@ -45,6 +46,21 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func Add(_ sender: UIBarButtonItem) {
+        //differentiate between the two BarButtonItems that can call this function
+        guard name.text != nil else{return} //add more conditions
+        let createdBlock = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
+        var blockList:Array<Block> = [createdBlock]
+        if let retrievedBlocks = try?Data(contentsOf: URLs.sampleBlocks){
+            blockList = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
+            blockList.append(createdBlock)
+        }
+        let encodedBlock = try!propertyListEncoder.encode(blockList)
+        try!encodedBlock.write(to: URLs.sampleBlocks)
+        dismiss(animated: true, completion: nil) //needs to be improved
+    }
+    
     func createPickerViewTime() {
         
            time1 = UIPickerView()
