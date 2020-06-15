@@ -159,6 +159,17 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
+		8731AFCD2497D3A8007D6289 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */,
+				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
+				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
+				8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		8B4C0EF924859FAD001DE8B9 = {
 			isa = PBXGroup;
 			children = (
@@ -187,11 +198,8 @@
 				8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */,
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
-				86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */,
-				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
-				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
+				8731AFCD2497D3A8007D6289 /* Schedule */,
 				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
-				8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */,
 				8669239924898FFD00D95EC3 /* TutorialViewController.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
 				8669239724898FB900D95EC3 /* HomeViewController.swift */,
