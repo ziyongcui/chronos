@@ -11,7 +11,6 @@
 		866923942489887400D95EC3 /* structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923932489887400D95EC3 /* structures.swift */; };
 		8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */; };
 		8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239724898FB900D95EC3 /* HomeViewController.swift */; };
-		8669239A24898FFD00D95EC3 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239924898FFD00D95EC3 /* TutorialViewController.swift */; };
 		8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */; };
 		8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */; };
 		866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */; };
@@ -66,7 +65,6 @@
 		866923932489887400D95EC3 /* structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structures.swift; sourceTree = "<group>"; };
 		8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		8669239724898FB900D95EC3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8669239924898FFD00D95EC3 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealScheduleViewController.swift; sourceTree = "<group>"; };
 		8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealDetailViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
 				8731AFCD2497D3A8007D6289 /* Schedule */,
 				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
-				8669239924898FFD00D95EC3 /* TutorialViewController.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
 				8669239724898FB900D95EC3 /* HomeViewController.swift */,
 				8709474D248C230900B3F047 /* Tutorial */,
@@ -494,7 +491,6 @@
 				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,
-				8669239A24898FFD00D95EC3 /* TutorialViewController.swift in Sources */,
 				8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */,
 				8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */,
 				8731AFCA24920C65007D6289 /* test.swift in Sources */,
