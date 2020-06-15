@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+var idealSchedules : Array<IdealSchedule> = []
 class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var idealSchedules : Array<IdealSchedule> = []
+    
     var index : Int = 0
     var selectedSchedule : IdealSchedule? = nil
     let propertyListDecoder = PropertyListDecoder()
@@ -22,15 +22,21 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         //load blocks from (sample) save
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+        
         }
-        else{
+        /*else{
             //temporary block
             let tempSchedule = IdealSchedule(name: "testSchedule", blocks: [], days: ["Monday","Friday"], targetDate: "01-04", daysUntilDeadline: 0)
             idealSchedules.append(tempSchedule)
-        }
+        }*/
+        //Add notification to update after dismiss
+        NotificationCenter.default.addObserver(self, selector: #selector(IdealDetailViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    @objc func reload(){
+        tableView.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
@@ -38,6 +44,7 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         }
         tableView.reloadData()
     }
+    
     
     
     //MARK: - TABLE VIEW CONFIGURATION

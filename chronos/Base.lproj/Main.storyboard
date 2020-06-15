@@ -56,7 +56,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Title" minimumFontSize="17" background="Screen Shot 2020-06-10 at 1.16.24 PM" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-2t-eYF">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Block Name" minimumFontSize="17" background="Screen Shot 2020-06-10 at 1.16.24 PM" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-2t-eYF">
                                 <rect key="frame" x="0.0" y="71" width="414" height="35.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -370,7 +370,11 @@
                         <viewLayoutGuide key="safeArea" id="A7I-6M-XHV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your Ideal Schedules" id="yaf-sv-gTf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B05-VP-HdP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B05-VP-HdP">
+                            <connections>
+                                <segue destination="kSs-mR-TwG" kind="presentation" identifier="detailToForm" id="vFf-VK-Il6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0Rd-ow-VvL" id="RoQ-VN-18C"/>
@@ -380,6 +384,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNL-jX-kwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-573.21428571428567"/>
+        </scene>
+        <!--Add Schedule View Controller-->
+        <scene sceneID="o8Q-tV-YDL">
+            <objects>
+                <viewController title="Add Schedule View Controller" id="kSs-mR-TwG" customClass="AddScheduleViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gGi-Hf-9ch">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-rH-DZV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="New Schedule" id="dhl-zV-fa9">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="P1V-VL-sUB">
+                                            <connections>
+                                                <action selector="Cancel:" destination="kSs-mR-TwG" id="dEs-hZ-O7T"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="N8C-3f-JqR">
+                                            <connections>
+                                                <action selector="Add:" destination="kSs-mR-TwG" id="qo6-o4-ehy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Schedule Name" minimumFontSize="17" background="Screen Shot 2020-06-10 at 1.16.24 PM" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-cA-dRi">
+                                <rect key="frame" x="0.0" y="71" width="414" height="35.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Monday" textAlignment="right" minimumFontSize="17" background="Screen Shot 2020-06-10 at 1.16.24 PM" translatesAutoresizingMaskIntoConstraints="NO" id="0kJ-av-vsF">
+                                <rect key="frame" x="0.0" y="136.5" width="414" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdB-mo-lsO">
+                                <rect key="frame" x="5" y="142" width="36" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="12" textAlignment="right" minimumFontSize="17" background="Screen Shot 2020-06-10 at 1.16.24 PM" translatesAutoresizingMaskIntoConstraints="NO" id="d3A-N9-XYK">
+                                <rect key="frame" x="0.0" y="167.5" width="414" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Until Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-yR-Z73">
+                                <rect key="frame" x="5" y="173" width="141" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WdB-mo-lsO" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" constant="5" id="8UW-2Y-Xi3"/>
+                            <constraint firstItem="Wig-yR-Z73" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" constant="5" id="C2A-dh-577"/>
+                            <constraint firstItem="WdB-mo-lsO" firstAttribute="top" secondItem="lpo-cA-dRi" secondAttribute="bottom" constant="35.5" id="I63-08-mhU"/>
+                            <constraint firstItem="l7R-rH-DZV" firstAttribute="leading" secondItem="gGi-Hf-9ch" secondAttribute="leading" id="Kqe-h0-lgo"/>
+                            <constraint firstItem="l7R-rH-DZV" firstAttribute="centerX" secondItem="gGi-Hf-9ch" secondAttribute="centerX" id="RCK-Je-l97"/>
+                            <constraint firstItem="AhW-j1-PRx" firstAttribute="trailing" secondItem="0kJ-av-vsF" secondAttribute="trailing" id="Rga-UR-QBv"/>
+                            <constraint firstItem="0kJ-av-vsF" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" id="XNf-Wo-JZp"/>
+                            <constraint firstItem="AhW-j1-PRx" firstAttribute="trailing" secondItem="lpo-cA-dRi" secondAttribute="trailing" id="ZtY-2J-fCF"/>
+                            <constraint firstItem="lpo-cA-dRi" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" id="bza-uU-ogN"/>
+                            <constraint firstAttribute="trailing" secondItem="l7R-rH-DZV" secondAttribute="trailing" id="cxn-eP-m8c"/>
+                            <constraint firstItem="d3A-N9-XYK" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" id="fuY-Xs-UrG"/>
+                            <constraint firstItem="lpo-cA-dRi" firstAttribute="top" secondItem="l7R-rH-DZV" secondAttribute="bottom" constant="15" id="ksA-w2-kRl"/>
+                            <constraint firstItem="AhW-j1-PRx" firstAttribute="trailing" secondItem="d3A-N9-XYK" secondAttribute="trailing" id="lyJ-V9-QfX"/>
+                            <constraint firstItem="d3A-N9-XYK" firstAttribute="top" secondItem="0kJ-av-vsF" secondAttribute="bottom" id="npP-KP-8Nt"/>
+                            <constraint firstItem="0kJ-av-vsF" firstAttribute="top" secondItem="lpo-cA-dRi" secondAttribute="bottom" constant="30" id="vu8-wy-pPP"/>
+                            <constraint firstItem="Wig-yR-Z73" firstAttribute="top" secondItem="0kJ-av-vsF" secondAttribute="bottom" constant="5.5" id="ynH-2b-ViT"/>
+                            <constraint firstItem="l7R-rH-DZV" firstAttribute="top" secondItem="gGi-Hf-9ch" secondAttribute="top" id="yym-Yt-aT8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AhW-j1-PRx"/>
+                    </view>
+                    <connections>
+                        <outlet property="ADD" destination="N8C-3f-JqR" id="0uW-8Z-kVv"/>
+                        <outlet property="CANCEL" destination="P1V-VL-sUB" id="wVx-Rt-QQU"/>
+                        <outlet property="days" destination="d3A-N9-XYK" id="uTm-um-nFK"/>
+                        <outlet property="name" destination="lpo-cA-dRi" id="Xoa-jR-tBo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8x4-9r-53W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4753.6231884057979" y="-573.21428571428567"/>
         </scene>
         <!--SCHEDULE_Name_Here-->
         <scene sceneID="yiG-4f-ohU">
