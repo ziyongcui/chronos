@@ -10,7 +10,6 @@ import UIKit
 
 class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
     var idealBlocks : Array<Block> = []
     let propertyListDecoder = PropertyListDecoder()
     
