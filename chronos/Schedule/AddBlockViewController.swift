@@ -10,6 +10,7 @@ import UIKit
 
 class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    //UI elements
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var rigid: UITextField!
     @IBOutlet weak var duration: UITextField!
@@ -22,6 +23,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var ADD: UIBarButtonItem!
     @IBOutlet weak var CANCEL: UIBarButtonItem!
     
+    //private var
     var selectedTime: String?
     var timeList = ["8:00", "9:00", "10:00", "11:00", "12:00"]
     var selectedRigidity: Bool?
@@ -31,8 +33,11 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var selectedDuration: String?
     var durationList = ["0:00", "0:30", "1:00", "1:30", "2:00"]
     
+    //decoders and passed information
     let propertyListEncoder = PropertyListEncoder()
     let propertyListDecoder = PropertyListDecoder()
+    var index : Int = 0
+    var idealSchedule : IdealSchedule!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,20 +54,20 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+        
     }
-    
     @IBAction func Add(_ sender: UIBarButtonItem) {
-        //differentiate between the two BarButtonItems that can call this function
-        guard name.text != nil else{return} //add more conditions
+        guard name.text != nil && selectedRigidity != nil && selectedPriority != nil else{return} //add more conditions
+        
+        //saving block
         let createdBlock = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
-        var blockList:Array<Block> = [createdBlock]
-        if let retrievedBlocks = try?Data(contentsOf: URLs.sampleBlocks){
-            blockList = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
-            blockList.append(createdBlock)
+        //Improve Insert func (check for time conflicts etc.)
+        idealSchedule.blocks.append(createdBlock)
+        idealSchedule.save(index: index)
+        
+        dismiss(animated: true){
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
         }
-        let encodedBlock = try!propertyListEncoder.encode(blockList)
-        try!encodedBlock.write(to: URLs.sampleBlocks)
-        dismiss(animated: true, completion: nil) //needs to be improved
     }
     
     func createPickerViewTime() {
@@ -173,8 +178,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
           view.endEditing(true)
     }
 
-   
-
+    
     
     /*
     // MARK: - Navigation

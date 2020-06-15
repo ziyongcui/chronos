@@ -457,7 +457,7 @@
                     <navigationItem key="navigationItem" title="SCHEDULE_Name_Here" id="Ggx-eX-qzc">
                         <barButtonItem key="rightBarButtonItem" title="Add Block" id="HiF-4Z-mIM">
                             <connections>
-                                <segue destination="59r-Yw-tpu" kind="presentation" id="rMT-XS-JdV"/>
+                                <segue destination="59r-Yw-tpu" kind="presentation" identifier="detailToForm" id="rMT-XS-JdV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

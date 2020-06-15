@@ -38,9 +38,19 @@ struct IdealSchedule : Codable{
     var targetDate : String
     var daysUntilDeadline : Int
     
-    func save(){
-        //function to replace (or add) into array of ideal schedules
-        //saves array of ideal schedules
+    func save(index: Int){
+        var decodedSchedules : Array<IdealSchedule> = []
+        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
+            decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+            //implement better algo that maybe doesn't rely on the passed index
+            decodedSchedules[index] = self
+        }
+        else{
+            //a list of decodedSchedules does not exist yet
+            decodedSchedules.append(self)
+        }
+        let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
+        try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
     func generateSchedule(){
         //input includes data from analysis of previous data
@@ -93,7 +103,5 @@ struct URLs{
     static let log = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("log").appendingPathExtension("plist")
     
     static let user = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("user").appendingPathExtension("plist")
-    
-    static let sampleBlocks = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("sample").appendingPathExtension("plist")
 }
 

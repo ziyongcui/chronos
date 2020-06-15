@@ -11,27 +11,26 @@ import UIKit
 class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var idealSchedule : IdealSchedule!
+    var index : Int = 0
     var idealBlocks : Array<Block> = []
     let propertyListDecoder = PropertyListDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //load blocks from (sample) save
-        if let retrievedBlocks = try?Data(contentsOf: URLs.sampleBlocks){
-            idealBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
-        }
+        //setup using passed idealSchedule
+        idealBlocks = idealSchedule.blocks
+        self.navigationItem.title = idealSchedule.name
+        
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Do any additional setup after loading the view.
+        //Add notification to update after dismiss
+        NotificationCenter.default.addObserver(self, selector: #selector(IdealDetailViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
-        if let retrievedBlocks = try?Data(contentsOf: URLs.sampleBlocks){
-            idealBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
-        }
-        tableView.reloadData()
-        print("viewWillAppear")
+        reload()
     }
     
     //MARK: - TABLE VIEW CONFIGURATION
@@ -70,22 +69,26 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func reload(){
-        if let retrievedBlocks = try?Data(contentsOf: URLs.sampleBlocks){
-            idealBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
+    @objc func reload(){
+        if let retrievedIdealSchedule = try?Data(contentsOf: URLs.idealSchedules){
+            let decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedIdealSchedule)
+            idealSchedule = decodedSchedules[index]
         }
+        idealBlocks = idealSchedule.blocks
         tableView.reloadData()
-        self.presentedViewController?.dismiss(animated: true, completion: nil)
     }
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "detailToForm"{
+            let destination = segue.destination as! AddBlockViewController
+            destination.index = self.index
+            destination.idealSchedule = self.idealSchedule
+        }
      }
-     */
+     
     
 }

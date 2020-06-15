@@ -12,8 +12,11 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     var idealSchedules : Array<IdealSchedule> = []
+    var index : Int = 0
+    var selectedSchedule : IdealSchedule? = nil
     let propertyListDecoder = PropertyListDecoder()
     
+    //MARK: -HANDLING VIEW LOADS AND RE-ENTRY
     override func viewDidLoad() {
         super.viewDidLoad()
         //load blocks from (sample) save
@@ -28,18 +31,18 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
         }
         tableView.reloadData()
-        print("viewWillAppear")
     }
     
+    
     //MARK: - TABLE VIEW CONFIGURATION
+    
+    //makes each item an individual section to utilize header spacing
     func numberOfSections(in tableView: UITableView) -> Int {
         return idealSchedules.count
     }
@@ -47,7 +50,7 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         return 1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
@@ -57,22 +60,37 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         headerView.backgroundColor = .clear
         return headerView
     }
+    
+    //Instantiate Reusable Cell for each of the user's ideal schedules
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdealScheduleCell", for: indexPath) as! IdealScheduleTableViewCell
         cell.titleLabel.text = idealSchedules[indexPath.section].name
+        
+        //some small UI enhancing
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
         return cell
     }
+    
+    //code to run when cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSchedule = idealSchedules[indexPath.section]
+        index = indexPath.section
+        self.performSegue(withIdentifier: "IdealScheduleToDetail", sender: nil)
+    }
 
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //pass the selected schedule to the IdealDetailViewController
+        if segue.identifier == "IdealScheduleToDetail"{
+            guard selectedSchedule != nil else{return}
+            let destination = segue.destination as! IdealDetailViewController
+            destination.idealSchedule = self.selectedSchedule
+            destination.index = self.index
+        }
     }
-
+    
 }
