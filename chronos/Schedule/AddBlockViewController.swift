@@ -25,13 +25,13 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //private var
     var selectedTime: String?
-    var timeList = ["8:00", "9:00", "10:00", "11:00", "12:00"]
+    var timeList = ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
     var selectedRigidity: Bool?
     var rigidList = [true, false]
     var selectedPriority: Int?
     var priorityList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var selectedDuration: String?
-    var durationList = ["0:00", "0:30", "1:00", "1:30", "2:00"]
+    var durationList = ["00:00", "00:30", "01:00", "01:30", "02:00"]
     
     //decoders and passed information
     let propertyListEncoder = PropertyListEncoder()
@@ -57,9 +57,26 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     @IBAction func Add(_ sender: UIBarButtonItem) {
         guard name.text != nil && selectedRigidity != nil && selectedPriority != nil else{return} //add more conditions
-        
+        let durationMin = duration.text
+        let timeMin = time.text
+        let dateFormatter = DateFormatter()//calculate minutes of event
+        dateFormatter.dateFormat = "hh:mm" //Your date format
+        dateFormatter.timeZone = TimeZone.current //Current time zone
+        let dateDuration = dateFormatter.date(from: durationMin!) //according to date format your date string
+        let dateTime = dateFormatter.date(from: timeMin!)
+        print(dateDuration ?? "") //Convert String to Date
+        print(dateTime ?? "")
+        let calendar = Calendar.current
+        let compDuration = calendar.dateComponents([.hour, .minute], from: dateDuration!)
+        let compTime = calendar.dateComponents([.hour, .minute], from: dateTime!)
+        let hourDuration = compDuration.hour ?? 0
+        let minuteDuration = compDuration.minute ?? 0
+        let hourTime = compTime.hour ?? 0
+        let minuteTime = compTime.minute ?? 0
+        let finalMinutDuration:Int = (hourDuration * 60) + minuteDuration
+        let finalMinutTime:Int = (hourTime * 60) + minuteTime
         //saving block
-        let createdBlock = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
+        let createdBlock = Block(time: finalMinutTime, completedTime:-1, duration: finalMinutDuration, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
         idealSchedule.save()
