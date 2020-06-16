@@ -12,7 +12,6 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     var idealSchedule : IdealSchedule!
-    var index : Int = 0
     var idealBlocks : Array<Block> = []
     let propertyListDecoder = PropertyListDecoder()
     
@@ -28,9 +27,6 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
         
         //Add notification to update after dismiss
         NotificationCenter.default.addObserver(self, selector: #selector(IdealDetailViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        reload()
     }
     
     //MARK: - TABLE VIEW CONFIGURATION
@@ -65,6 +61,7 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -72,7 +69,11 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func reload(){
         if let retrievedIdealSchedule = try?Data(contentsOf: URLs.idealSchedules){
             let decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedIdealSchedule)
-            idealSchedule = decodedSchedules[index]
+            for schedule in decodedSchedules{
+                if schedule.name == idealSchedule.name{
+                    idealSchedule = schedule
+                }
+            }
         }
         idealBlocks = idealSchedule.blocks
         tableView.reloadData()
@@ -85,7 +86,6 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailToForm"{
             let destination = segue.destination as! AddBlockViewController
-            destination.index = self.index
             destination.idealSchedule = self.idealSchedule
         }
      }

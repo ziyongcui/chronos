@@ -7,13 +7,13 @@
 //
 
 import UIKit
-var idealSchedules : Array<IdealSchedule> = []
+
 class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var index : Int = 0
+
     var selectedSchedule : IdealSchedule? = nil
+    var idealSchedules : Array<IdealSchedule> = []
     let propertyListDecoder = PropertyListDecoder()
     
     //MARK: -HANDLING VIEW LOADS AND RE-ENTRY
@@ -22,30 +22,22 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         //load blocks from (sample) save
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-        
         }
-        /*else{
-            //temporary block
-            let tempSchedule = IdealSchedule(name: "testSchedule", blocks: [], days: ["Monday","Friday"], targetDate: "01-04", daysUntilDeadline: 0)
-            idealSchedules.append(tempSchedule)
-        }*/
+        else{
+            //handle no schedules scenario
+        }
         //Add notification to update after dismiss
-        NotificationCenter.default.addObserver(self, selector: #selector(IdealDetailViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(IdealScheduleViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
     }
     @objc func reload(){
-        tableView.reloadData()
-    }
-    override func viewWillAppear(_ animated: Bool) {
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
         }
         tableView.reloadData()
     }
-    
-    
     
     //MARK: - TABLE VIEW CONFIGURATION
     
@@ -77,26 +69,24 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
+        cell.selectionStyle = .none
         return cell
     }
     
     //code to run when cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedSchedule = idealSchedules[indexPath.section]
-        index = indexPath.section
         self.performSegue(withIdentifier: "IdealScheduleToDetail", sender: nil)
     }
 
     
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //pass the selected schedule to the IdealDetailViewController
         if segue.identifier == "IdealScheduleToDetail"{
             guard selectedSchedule != nil else{return}
             let destination = segue.destination as! IdealDetailViewController
             destination.idealSchedule = self.selectedSchedule
-            destination.index = self.index
         }
     }
     

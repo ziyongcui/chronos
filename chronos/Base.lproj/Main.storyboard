@@ -332,11 +332,11 @@
                                 <rect key="frame" x="20" y="128" width="374" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealScheduleCell" rowHeight="78" id="NpJ-I7-DcC" customClass="IdealScheduleTableViewCell" customModule="chronos" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealScheduleCell" rowHeight="78" id="NpJ-I7-DcC" customClass="IdealScheduleTableViewCell" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NpJ-I7-DcC" id="5QI-XW-Z2K">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ideal Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-jm-xoa">
@@ -469,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8x4-9r-53W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4753.6231884057979" y="-573.21428571428567"/>
+            <point key="canvasLocation" x="1861" y="-1287"/>
         </scene>
         <!--SCHEDULE_Name_Here-->
         <scene sceneID="yiG-4f-ohU">
@@ -483,7 +483,7 @@
                                 <rect key="frame" x="20" y="128" width="374" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealBlockCell" rowHeight="57" id="Ewu-nc-mHq" customClass="IdealBlockTableViewCell" customModule="chronos" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealBlockCell" rowHeight="57" id="Ewu-nc-mHq" customClass="IdealBlockTableViewCell" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ewu-nc-mHq" id="7ng-u5-A6m">

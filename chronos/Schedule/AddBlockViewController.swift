@@ -36,7 +36,6 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     //decoders and passed information
     let propertyListEncoder = PropertyListEncoder()
     let propertyListDecoder = PropertyListDecoder()
-    var index : Int = 0
     var idealSchedule : IdealSchedule!
     
     override func viewDidLoad() {
@@ -63,7 +62,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let createdBlock = Block(time: 20, completedTime:-1, duration: 4, completionDuration:-1, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
-        idealSchedule.save(index: index)
+        idealSchedule.save()
         
         dismiss(animated: true){
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)

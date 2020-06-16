@@ -38,12 +38,21 @@ struct IdealSchedule : Codable{
     var targetDate : String
     var daysUntilDeadline : Int
     
-    func save(index: Int){
+    func save(){
         var decodedSchedules : Array<IdealSchedule> = []
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-            //implement better algo that maybe doesn't rely on the passed index
-            decodedSchedules[index] = self
+            //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
+            var didReplace : Bool = false
+            for i in 0...(decodedSchedules.count-1){
+                if decodedSchedules[i].name == self.name{
+                    decodedSchedules[i] = self
+                    didReplace = true
+                }
+            }
+            if !didReplace{
+                decodedSchedules.append(self)
+            }
         }
         else{
             //a list of decodedSchedules does not exist yet

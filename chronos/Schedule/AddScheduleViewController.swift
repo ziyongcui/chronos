@@ -19,24 +19,7 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     let propertyListEncoder = PropertyListEncoder()
     let propertyListDecoder = PropertyListDecoder()
-    var index : Int = 0
     
-    @IBAction func Cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-        
-    }
-    @IBAction func Add(_ sender: UIBarButtonItem) {
-         //add more conditions
-        guard name.text != nil && selectedDays != nil else{return}
-        //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: ["Monday"], targetDate: "January 7, 2020", daysUntilDeadline: selectedDays!)
-        idealSchedules.append(createdSchedule)
-        
-        
-        dismiss(animated: true){
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         createPickerViewDays()
@@ -44,6 +27,24 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func Cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+    @IBAction func Add(_ sender: UIBarButtonItem) {
+
+        guard name.text != nil && selectedDays != nil else{return}
+        
+        //saving schedule
+        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: ["Monday"], targetDate: "January 7, 2020", daysUntilDeadline: selectedDays!)
+        createdSchedule.save()
+        
+        dismiss(animated: true){
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
+        }
+    }
+    
     func createPickerViewDays() {
         
            days1 = UIPickerView()
