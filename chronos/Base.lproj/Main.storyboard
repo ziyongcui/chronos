@@ -170,7 +170,7 @@
                         <outlet property="name" destination="mDk-2t-eYF" id="gaf-0s-t4B"/>
                         <outlet property="priority" destination="xy4-gT-D2y" id="htd-NM-Fbv"/>
                         <outlet property="rigid" destination="zLS-xs-MIH" id="4i7-tA-G1n"/>
-                        <outlet property="time" destination="DwI-iR-vfF" id="95h-JJ-gbo"/>
+                        <outlet property="time" destination="DwI-iR-vfF" id="usb-Qu-K3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txK-Zo-dJ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

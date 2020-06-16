@@ -11,21 +11,26 @@ import UIKit
 class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     //UI elements
-    @IBOutlet weak var time: UITextField!
+
     @IBOutlet weak var rigid: UITextField!
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var priority: UITextField!
     @IBOutlet weak var name: UITextField!
-    @IBOutlet var time1: UIPickerView?
     @IBOutlet var rigid1: UIPickerView?
     @IBOutlet var duration1: UIPickerView?
     @IBOutlet var priority1: UIPickerView?
     @IBOutlet weak var ADD: UIBarButtonItem!
     @IBOutlet weak var CANCEL: UIBarButtonItem!
-    
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet var time1: UIPickerView?
+
+    var hourList = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+
+    var minuteList = ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]
+    var TODList = [" AM", " PM"]
+    let numberOfComponents = 4
     //private var
     var selectedTime: String?
-    var timeList = ["01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM", "12:00 AM"]
     var selectedRigidity: Bool?
     var rigidList = [true, false]
     var selectedPriority: Int?
@@ -146,45 +151,85 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
        priority.inputAccessoryView = toolBar
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1 // number of session
+        if pickerView == time1{
+            return numberOfComponents
+        }
+        else if pickerView == duration1{
+            return 3
+        }
+        else{
+            return 1 // number of session
+        }
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == time1{
-            return timeList.count
+            if component == 0 {
+                return hourList.count
+            }else if component == 2 {
+                return minuteList.count
+            }else if component == 3 {
+                return TODList.count
+            }else {
+                return 1
+            }
         }
         else if pickerView == rigid1{
             return rigidList.count
         }
         else if pickerView == duration1{
-            return durationList.count
+            if component == 0 {
+                return hourList.count
+            }else if component == 2 {
+                return minuteList.count
+            }else {
+                return 1
+            }
         }
         return priorityList.count
      // number of dropdown items
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == time1{
-            return timeList[row] // dropdown item
+            if component == 0 {
+                return "\(hourList[row])"
+            }else if component == 1 {
+                return ":"
+            }else if component == 2 {
+                return "\(minuteList[row])"
+            }else {
+                return "\(TODList[row])"
+            } // dropdown item
         }
         else if pickerView == rigid1{
             return String(rigidList[row])
         }
         else if pickerView == duration1{
-            return durationList[row]
+            if component == 0 {
+                return "\(hourList[row])"
+            }else if component == 1 {
+                return ":"
+            }else if component == 2 {
+                return "\(minuteList[row])"
+            }
         }
         return String(priorityList[row])
         }
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == time1{
-            selectedTime = timeList[row] // selected item
-            time.text = selectedTime
+            let hourIndex = pickerView.selectedRow(inComponent: 0)
+            let minuteIndex = pickerView.selectedRow(inComponent: 2)
+            let TODIndex = pickerView.selectedRow(inComponent: 3)
+            time.text = "\(hourList[hourIndex]):\(minuteList[minuteIndex])\(TODList[TODIndex])" // selected item
+            
         }
         if pickerView == rigid1{
             selectedRigidity = rigidList[row] // selected item
             rigid.text = String(rigidList[row])
         }
         if pickerView == duration1{
-            selectedDuration = durationList[row] // selected item
-            duration.text = selectedDuration
+            let hourIndex = pickerView.selectedRow(inComponent: 0)
+            let minuteIndex = pickerView.selectedRow(inComponent: 2)
+            duration.text = "\(hourList[hourIndex]):\(minuteList[minuteIndex])" // selected item
         }
         if pickerView == priority1{
             selectedPriority = priorityList[row] // selected item
