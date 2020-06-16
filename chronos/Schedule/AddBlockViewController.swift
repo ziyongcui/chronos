@@ -25,7 +25,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //private var
     var selectedTime: String?
-    var timeList = ["01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
+    var timeList = ["01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM", "12:00 AM"]
     var selectedRigidity: Bool?
     var rigidList = [true, false]
     var selectedPriority: Int?
@@ -59,11 +59,14 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         guard name.text != nil && selectedRigidity != nil && selectedPriority != nil else{return} //add more conditions
         let durationMin = duration.text
         let timeMin = time.text
-        let dateFormatter = DateFormatter()//calculate minutes of event
-        dateFormatter.dateFormat = "hh:mm" //Your date format
-        dateFormatter.timeZone = TimeZone.current //Current time zone
-        let dateDuration = dateFormatter.date(from: durationMin!) //according to date format your date string
-        let dateTime = dateFormatter.date(from: timeMin!)
+        let dateFormatterTime = DateFormatter()//calculate minutes of event
+        dateFormatterTime.dateFormat = "hh:mm a" //Your date format
+        dateFormatterTime.timeZone = TimeZone.current //Current time zone
+        let dateFormatterDuration = DateFormatter()//calculate minutes of event
+        dateFormatterDuration.dateFormat = "hh:mm" //Your date format
+        dateFormatterDuration.timeZone = TimeZone.current //Current time zone
+        let dateDuration = dateFormatterDuration.date(from: durationMin!) //according to date format your date string
+        let dateTime = dateFormatterTime.date(from: timeMin!)
         print(dateDuration ?? "") //Convert String to Date
         print(dateTime ?? "")
         let calendar = Calendar.current
