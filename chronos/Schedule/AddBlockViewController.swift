@@ -25,7 +25,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var time1: UIPickerView?
 
     var hourList = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-
+    var hourListDuration = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     var minuteList = ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]
     var TODList = [" AM", " PM"]
     let numberOfComponents = 4
@@ -178,7 +178,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         else if pickerView == duration1{
             if component == 0 {
-                return hourList.count
+                return hourListDuration.count
             }else if component == 2 {
                 return minuteList.count
             }else {
@@ -205,7 +205,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         else if pickerView == duration1{
             if component == 0 {
-                return "\(hourList[row])"
+                return "\(hourListDuration[row])"
             }else if component == 1 {
                 return ":"
             }else if component == 2 {
@@ -229,7 +229,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if pickerView == duration1{
             let hourIndex = pickerView.selectedRow(inComponent: 0)
             let minuteIndex = pickerView.selectedRow(inComponent: 2)
-            duration.text = "\(hourList[hourIndex]):\(minuteList[minuteIndex])" // selected item
+            duration.text = "\(hourListDuration[hourIndex]):\(minuteList[minuteIndex])" // selected item
         }
         if pickerView == priority1{
             selectedPriority = priorityList[row] // selected item
