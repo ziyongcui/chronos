@@ -458,7 +458,8 @@
                     <connections>
                         <outlet property="ADD" destination="N8C-3f-JqR" id="0uW-8Z-kVv"/>
                         <outlet property="CANCEL" destination="P1V-VL-sUB" id="wVx-Rt-QQU"/>
-                        <outlet property="days" destination="d3A-N9-XYK" id="uTm-um-nFK"/>
+                        <outlet property="day" destination="0kJ-av-vsF" id="esN-0g-6rI"/>
+                        <outlet property="days" destination="d3A-N9-XYK" id="JfY-SQ-9Ev"/>
                         <outlet property="name" destination="lpo-cA-dRi" id="Xoa-jR-tBo"/>
                     </connections>
                 </viewController>
