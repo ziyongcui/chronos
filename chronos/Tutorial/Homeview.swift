@@ -13,8 +13,8 @@ class HomeView: GradientView {
     /// Set up the animation that draws our logo and brings in our two buttons smoothly.
     override func didMoveToSuperview() {
         
-        tutorialContainer.alpha = 0
-        dismiss.alpha = 0
+        //tutorialContainer.alpha = 0
+        //dismiss.alpha = 0
         
     }
     func showTour() {
