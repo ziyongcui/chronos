@@ -10,11 +10,11 @@
 		0CDFC7A96C3B17DDEB2FC75F /* Pods_chronos_chronosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C084F6BF95CA358CB24B7BF5 /* Pods_chronos_chronosUITests.framework */; };
 		866923942489887400D95EC3 /* structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923932489887400D95EC3 /* structures.swift */; };
 		8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */; };
-		8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239724898FB900D95EC3 /* HomeViewController.swift */; };
 		8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */; };
 		8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */; };
 		866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */; };
 		866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923A12489907900D95EC3 /* AddBlockViewController.swift */; };
+		8675874924A3289900D93788 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675874824A3289900D93788 /* HomeViewController.swift */; };
 		86E97EF024928FE800E192FA /* tableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E97EEF24928FE800E192FA /* tableViewCells.swift */; };
 		8709474C248C221400B3F047 /* Homeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474B248C221400B3F047 /* Homeview.swift */; };
 		8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474E248C27AE00B3F047 /* Storyboarded.swift */; };
@@ -65,11 +65,11 @@
 		72F45F85ADB17E2D9B427E9E /* Pods-chronos-chronosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos-chronosUITests.release.xcconfig"; path = "Target Support Files/Pods-chronos-chronosUITests/Pods-chronos-chronosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		866923932489887400D95EC3 /* structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structures.swift; sourceTree = "<group>"; };
 		8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
-		8669239724898FB900D95EC3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealScheduleViewController.swift; sourceTree = "<group>"; };
 		8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealDetailViewController.swift; sourceTree = "<group>"; };
 		866923A12489907900D95EC3 /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
+		8675874824A3289900D93788 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		86E97EEF24928FE800E192FA /* tableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCells.swift; sourceTree = "<group>"; };
 		8709474B248C221400B3F047 /* Homeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeview.swift; sourceTree = "<group>"; };
 		8709474E248C27AE00B3F047 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -199,10 +199,10 @@
 				8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */,
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
-				8731AFCD2497D3A8007D6289 /* Schedule */,
-				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
-				8669239724898FB900D95EC3 /* HomeViewController.swift */,
+				8675874824A3289900D93788 /* HomeViewController.swift */,
+				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
+				8731AFCD2497D3A8007D6289 /* Schedule */,
 				8709474D248C230900B3F047 /* Tutorial */,
 				8B4C0F0E24859FAD001DE8B9 /* Assets.xcassets */,
 				87094756248C32F000B3F047 /* Tutorial.xcassets */,
@@ -491,11 +491,11 @@
 				87094761248C354200B3F047 /* BundleExtension.swift in Sources */,
 				8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */,
 				8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */,
+				8675874924A3289900D93788 /* HomeViewController.swift in Sources */,
 				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				8731AFCF24981685007D6289 /* AddScheduleViewController.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,
-				8669239824898FB900D95EC3 /* HomeViewController.swift in Sources */,
 				8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */,
 				8731AFCA24920C65007D6289 /* test.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
@@ -674,7 +674,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = R4L6G9T2K6;
+				DEVELOPMENT_TEAM = LT3RLS668S;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -682,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = paulmuser.chronos;
+				PRODUCT_BUNDLE_IDENTIFIER = ronnocgnad.chronos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -696,9 +696,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = R4L6G9T2K6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
