@@ -15,7 +15,7 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var CANCEL: UIBarButtonItem!
     @IBOutlet weak var day: UITextField!
     var preSelectedValues : [String] = []
-    
+    var daySelected : [String] = []
     @IBAction func showOptionsAction(_ sender: Any) {
         let pickerData : [[String:String]] = [
             [
@@ -58,6 +58,8 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
             
             let displayValues = values.compactMap {return $0["display"]}
             self.day.text = "\(displayValues.joined(separator: ", "))"
+            self.daySelected = displayValues
+            
         }
     }
     var selectedDays: Int?
@@ -85,7 +87,7 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
         guard name.text != nil && selectedDays != nil else{return}
         
         //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: [day.text!], targetDate: "", daysUntilDeadline: selectedDays!)
+        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: "", daysUntilDeadline: selectedDays!)
         createdSchedule.save()
         
         dismiss(animated: true){
