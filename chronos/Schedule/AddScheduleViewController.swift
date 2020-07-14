@@ -11,11 +11,55 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var days: UITextField!
     @IBOutlet var days1: UIPickerView?
-    @IBOutlet weak var day: UITextField!
-    @IBOutlet var day1: UIPickerView?
     @IBOutlet weak var ADD: UIBarButtonItem!
     @IBOutlet weak var CANCEL: UIBarButtonItem!
+    @IBOutlet weak var day: UITextField!
+    var preSelectedValues : [String] = []
     
+    @IBAction func showOptionsAction(_ sender: Any) {
+        let pickerData : [[String:String]] = [
+            [
+                "value":"Monday",
+                "display":"Monday"
+            ],
+            [
+                "value": "Tuesday",
+                "display":"Tuesday"
+            ],
+            [
+                "value": "Wednesday",
+                "display":"Wednesday"
+            ],
+            [
+                "value":"Thursday",
+                "display":"Thursday"
+            ],
+            [
+                "value": "Friday",
+                "display":"Friday"
+            ],
+            [
+                "value": "Saturday",
+                "display":"Saturday"
+            ],
+            [
+                "value": "Sunday",
+                "display":"Sunday"
+            ]
+            
+        ]
+        
+        
+        
+        MultiPickerDialog().show(title: "Pick Day",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
+            values -> Void in
+            print("callBack \(values)")
+            self.preSelectedValues = values.compactMap {return $0["value"]}
+            
+            let displayValues = values.compactMap {return $0["display"]}
+            self.day.text = "\(displayValues.joined(separator: ", "))"
+        }
+    }
     var selectedDays: Int?
     var daysList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var selectedDay: String?
@@ -27,8 +71,7 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
         super.viewDidLoad()
         createPickerViewDays()
         dismissPickerViewDays()
-        createPickerViewDay()
-        dismissPickerViewDay()
+       
         
         // Do any additional setup after loading the view.
     }
@@ -64,45 +107,26 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
        toolBar.isUserInteractionEnabled = true
        days.inputAccessoryView = toolBar
     }
-    func createPickerViewDay() {
-        
-           day1 = UIPickerView()
-        day1?.delegate = self
-           day.inputView = day1
-    }
-    func dismissPickerViewDay() {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-       toolBar.setItems([button], animated: true)
-       toolBar.isUserInteractionEnabled = true
-       day.inputAccessoryView = toolBar
-    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // number of session
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == days1{
+        
             return daysList.count
-        }
-        return dayList.count
-     // number of dropdown items
+             // number of dropdown items
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == days1{
+
             return String(daysList[row])
-        }
-        return dayList[row]
+       
         }
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == days1{
+        
             selectedDays = daysList[row] // selected item
             days.text = String(daysList[row])
-        }
-            if pickerView == day1{
-                selectedDay = dayList[row] // selected item
-                day.text = dayList[row]
-            }
+        
+            
     }
 
     

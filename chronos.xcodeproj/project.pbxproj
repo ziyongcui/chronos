@@ -30,6 +30,7 @@
 		87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */; };
 		8731AFCA24920C65007D6289 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731AFC924920C65007D6289 /* test.swift */; };
 		8731AFCF24981685007D6289 /* AddScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731AFCE24981685007D6289 /* AddScheduleViewController.swift */; };
+		8731BB4224BD851900167E4F /* MultiPickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8731BB4124BD851900167E4F /* MultiPickerDialog.swift */; };
 		8AA6D96106AC49EBB4C206B5 /* Pods_chronos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E18B1F2EE1182A965592DD /* Pods_chronos.framework */; };
 		8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */; };
 		8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */; };
@@ -85,6 +86,7 @@
 		87094762248C359500B3F047 /* UIApplication-activetraitcollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication-activetraitcollection.swift"; sourceTree = "<group>"; };
 		8731AFC924920C65007D6289 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		8731AFCE24981685007D6289 /* AddScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleViewController.swift; sourceTree = "<group>"; };
+		8731BB4124BD851900167E4F /* MultiPickerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPickerDialog.swift; sourceTree = "<group>"; };
 		8B4C0F0224859FAD001DE8B9 /* chronos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chronos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */,
+				8731BB4124BD851900167E4F /* MultiPickerDialog.swift */,
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8731AFCE24981685007D6289 /* AddScheduleViewController.swift */,
@@ -493,6 +496,7 @@
 				8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */,
 				8675874924A3289900D93788 /* HomeViewController.swift in Sources */,
 				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
+				8731BB4224BD851900167E4F /* MultiPickerDialog.swift in Sources */,
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				8731AFCF24981685007D6289 /* AddScheduleViewController.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,

@@ -643,6 +643,11 @@
                                 <rect key="frame" x="0.0" y="137" width="414" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="primaryActionTriggered" id="F4f-mZ-Gjn"/>
+                                    <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="touchUpInside" id="Lyd-mq-YJp"/>
+                                    <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="Nwy-m3-Lcu"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdB-mo-lsO">
                                 <rect key="frame" x="5" y="142.5" width="36" height="20"/>
@@ -687,7 +692,7 @@
                     <connections>
                         <outlet property="ADD" destination="N8C-3f-JqR" id="0uW-8Z-kVv"/>
                         <outlet property="CANCEL" destination="P1V-VL-sUB" id="wVx-Rt-QQU"/>
-                        <outlet property="day" destination="0kJ-av-vsF" id="esN-0g-6rI"/>
+                        <outlet property="day" destination="0kJ-av-vsF" id="KNg-wQ-dO9"/>
                         <outlet property="days" destination="d3A-N9-XYK" id="JfY-SQ-9Ev"/>
                         <outlet property="name" destination="lpo-cA-dRi" id="Xoa-jR-tBo"/>
                     </connections>
@@ -956,7 +961,6 @@
         <!--Schedules-->
         <scene sceneID="Gzv-l5-DXL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ac-I4-M8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IZW-OO-WeR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Schedules" id="F8g-hQ-0MW"/>
                     <toolbarItems/>
@@ -970,6 +974,7 @@
                         <segue destination="zmx-mU-km8" kind="relationship" relationship="rootViewController" id="nXg-Me-pyE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ac-I4-M8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1003" y="-538"/>
         </scene>
