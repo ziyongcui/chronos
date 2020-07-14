@@ -7,15 +7,74 @@
 //
 
 import UIKit
-class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var days: UITextField!
-    @IBOutlet var days1: UIPickerView?
+    var daysSelected : Int?
     @IBOutlet weak var ADD: UIBarButtonItem!
     @IBOutlet weak var CANCEL: UIBarButtonItem!
     @IBOutlet weak var day: UITextField!
     var preSelectedValues : [String] = []
     var daySelected : [String] = []
+    
+    @IBAction func showOptionsActionDays(_ sender: Any) {
+        let pickerData : [[String:String]] = [
+            [
+                "value": "1",
+                "display": "1"
+            ],
+            [
+                "value": "2",
+                "display": "2"
+            ],
+            [
+                "value": "3",
+                "display": "3"
+            ],
+            [
+                "value": "4",
+                "display": "4"
+            ],
+            [
+                "value": "5",
+                "display": "5"
+            ],
+            [
+                "value": "6",
+                "display": "6"
+            ],
+            [
+                "value": "7",
+                "display": "7"
+            ],
+            [
+                "value": "8",
+                "display": "8"
+            ],
+            [
+                "value": "9",
+                "display": "9"
+            ],
+            [
+                "value": "10",
+                "display": "10"
+            ]
+            
+        ]
+        
+        
+        
+        SinglePickerDialog().show(title: "Pick Days",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
+            values -> Void in
+            print("callBack \(values)")
+            self.preSelectedValues = values.compactMap {return $0["value"]}
+            
+            let displayValues = values.compactMap {return $0["display"]}
+            self.days.text = "\(displayValues.joined(separator: ", "))"
+            self.daysSelected = Int(displayValues[0])
+            
+        }
+    }
     @IBAction func showOptionsAction(_ sender: Any) {
         let pickerData : [[String:String]] = [
             [
@@ -62,17 +121,13 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
             
         }
     }
-    var selectedDays: Int?
-    var daysList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    var selectedDay: String?
-    var dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    
     let propertyListEncoder = PropertyListEncoder()
     let propertyListDecoder = PropertyListDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createPickerViewDays()
-        dismissPickerViewDays()
+        
        
         
         // Do any additional setup after loading the view.
@@ -84,10 +139,10 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     @IBAction func Add(_ sender: UIBarButtonItem) {
 
-        guard name.text != nil && selectedDays != nil else{return}
+        guard name.text != nil && daysSelected != nil else{return}
         
         //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: "", daysUntilDeadline: selectedDays!)
+        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: "", daysUntilDeadline: daysSelected!)
         createdSchedule.save()
         
         dismiss(animated: true){
@@ -95,42 +150,7 @@ class AddScheduleViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    func createPickerViewDays() {
-        
-           days1 = UIPickerView()
-        days1?.delegate = self
-           days.inputView = days1
-    }
-    func dismissPickerViewDays() {
-       let toolBar = UIToolbar()
-       toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
-       toolBar.setItems([button], animated: true)
-       toolBar.isUserInteractionEnabled = true
-       days.inputAccessoryView = toolBar
-    }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1 // number of session
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-            return daysList.count
-             // number of dropdown items
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
-            return String(daysList[row])
-       
-        }
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-            selectedDays = daysList[row] // selected item
-            days.text = String(daysList[row])
-        
-            
-    }
-
     
     @objc func action() {
           view.endEditing(true)

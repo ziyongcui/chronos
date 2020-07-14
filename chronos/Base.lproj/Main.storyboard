@@ -659,6 +659,11 @@
                                 <rect key="frame" x="0.0" y="168" width="414" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="primaryActionTriggered" id="FjY-cC-VwP"/>
+                                    <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="touchUpInside" id="fwr-9d-Jdy"/>
+                                    <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="uBg-ee-Tva"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Until Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-yR-Z73">
                                 <rect key="frame" x="5" y="173.5" width="141" height="20"/>
@@ -693,7 +698,7 @@
                         <outlet property="ADD" destination="N8C-3f-JqR" id="0uW-8Z-kVv"/>
                         <outlet property="CANCEL" destination="P1V-VL-sUB" id="wVx-Rt-QQU"/>
                         <outlet property="day" destination="0kJ-av-vsF" id="KNg-wQ-dO9"/>
-                        <outlet property="days" destination="d3A-N9-XYK" id="JfY-SQ-9Ev"/>
+                        <outlet property="days" destination="d3A-N9-XYK" id="ERR-Bu-6z8"/>
                         <outlet property="name" destination="lpo-cA-dRi" id="Xoa-jR-tBo"/>
                     </connections>
                 </viewController>
