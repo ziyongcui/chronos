@@ -240,40 +240,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="311-P8-VGh">
-                                <rect key="frame" x="18" y="748" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Update"/>
-                                <connections>
-                                    <segue destination="fy2-I7-jKk" kind="presentation" modalPresentationStyle="overFullScreen" id="mUL-fz-4Ap"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru3-xy-PuG">
-                                <rect key="frame" x="165" y="748" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Time"/>
-                                <connections>
-                                    <segue destination="uhr-mk-dHz" kind="presentation" modalPresentationStyle="overCurrentContext" id="qqI-DJ-F19"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-rT-Qjs">
-                                <rect key="frame" x="322" y="748" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Welcome"/>
-                                <connections>
-                                    <segue destination="aoV-ga-GmR" kind="presentation" modalPresentationStyle="overCurrentContext" id="D04-bC-K9q"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vOK-Je-0Ux">
+                                <rect key="frame" x="0.0" y="768" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru3-xy-PuG">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Time"/>
+                                        <connections>
+                                            <segue destination="uhr-mk-dHz" kind="presentation" modalPresentationStyle="overCurrentContext" id="qqI-DJ-F19"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-rT-Qjs">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Welcome"/>
+                                        <connections>
+                                            <segue destination="aoV-ga-GmR" kind="presentation" modalPresentationStyle="overCurrentContext" id="D04-bC-K9q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="311-P8-VGh">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Update"/>
+                                        <connections>
+                                            <segue destination="fy2-I7-jKk" kind="presentation" modalPresentationStyle="overFullScreen" id="mUL-fz-4Ap"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="vOK-Je-0Ux" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" id="3wB-mE-o3e"/>
                             <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="cwd-Ve-tVF" secondAttribute="trailing" constant="20" id="8xN-kR-iJa"/>
+                            <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="vOK-Je-0Ux" secondAttribute="trailing" id="90z-hS-Z0K"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="20" id="9ZB-vg-BEW"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="top" secondItem="iGO-uA-4im" secondAttribute="bottom" constant="5" id="Bgz-xy-SXX"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="100" id="Bv6-yJ-pxA"/>
                             <constraint firstItem="Pqz-sU-Iys" firstAttribute="leading" secondItem="eWU-XT-wFh" secondAttribute="leading" constant="20" id="CSM-0J-3w2"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="centerX" secondItem="eWU-XT-wFh" secondAttribute="centerX" id="QTv-VP-7Qt"/>
+                            <constraint firstItem="hln-zS-FVm" firstAttribute="bottom" secondItem="vOK-Je-0Ux" secondAttribute="bottom" constant="15" id="Rh6-N2-eac"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="centerX" secondItem="eWU-XT-wFh" secondAttribute="centerX" id="Rv4-zm-ubQ"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="top" secondItem="hln-zS-FVm" secondAttribute="top" constant="10" id="UUp-pa-F7N"/>
                             <constraint firstAttribute="trailing" secondItem="Pqz-sU-Iys" secondAttribute="trailing" constant="20" id="dbb-Mg-mwo"/>
