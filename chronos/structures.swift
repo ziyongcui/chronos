@@ -92,7 +92,7 @@ struct GeneratedSchedule : Codable{
 
 //MARK:- USER DATA
 struct User : Codable{
-    //lastLogin is a date, could be represented by an int
+    //lastLogin is a date, could be represented by an int or even a dateObj
     var lastLogin : String
     func save(){
         //save user data

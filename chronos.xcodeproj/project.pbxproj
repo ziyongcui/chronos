@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0CDFC7A96C3B17DDEB2FC75F /* Pods_chronos_chronosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C084F6BF95CA358CB24B7BF5 /* Pods_chronos_chronosUITests.framework */; };
+		0F696ED824C521E400CDA1BA /* WelcomePopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696ED724C521E400CDA1BA /* WelcomePopViewController.swift */; };
+		0F696EDA24C521F200CDA1BA /* ProgressUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */; };
+		0F696EDD24C523FA00CDA1BA /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */; };
+		0F696EDF24C5537200CDA1BA /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */; };
 		866923942489887400D95EC3 /* structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923932489887400D95EC3 /* structures.swift */; };
 		8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */; };
 		8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */; };
@@ -60,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F696ED724C521E400CDA1BA /* WelcomePopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePopViewController.swift; sourceTree = "<group>"; };
+		0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressUpdateViewController.swift; sourceTree = "<group>"; };
+		0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpViewController.swift; sourceTree = "<group>"; };
+		0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A31A66D7409369A1D7C0221 /* Pods_chronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA9A3BFFDEFAD3E41CAFB3A /* Pods-chronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos.release.xcconfig"; path = "Target Support Files/Pods-chronos/Pods-chronos.release.xcconfig"; sourceTree = "<group>"; };
 		42021CB987D19D123F9C30DE /* Pods-chronos-chronosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos-chronosUITests.debug.xcconfig"; path = "Target Support Files/Pods-chronos-chronosUITests/Pods-chronos-chronosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +153,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0F696ED624C5219300CDA1BA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8675874824A3289900D93788 /* HomeViewController.swift */,
+				0F696ED724C521E400CDA1BA /* WelcomePopViewController.swift */,
+				0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */,
+				0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */,
+				0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		8709474D248C230900B3F047 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +226,7 @@
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
-				8675874824A3289900D93788 /* HomeViewController.swift */,
+				0F696ED624C5219300CDA1BA /* Home */,
 				8669239D2489903B00D95EC3 /* AnalyticsViewController.swift */,
 				8731AFCD2497D3A8007D6289 /* Schedule */,
 				8709474D248C230900B3F047 /* Tutorial */,
@@ -496,11 +516,14 @@
 				8731BB4424BE15D700167E4F /* SinglePickerDialog.swift in Sources */,
 				8B4C0F0624859FAD001DE8B9 /* AppDelegate.swift in Sources */,
 				87094761248C354200B3F047 /* BundleExtension.swift in Sources */,
+				0F696ED824C521E400CDA1BA /* WelcomePopViewController.swift in Sources */,
 				8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */,
 				8B4C0F0824859FAD001DE8B9 /* SceneDelegate.swift in Sources */,
 				8675874924A3289900D93788 /* HomeViewController.swift in Sources */,
+				0F696EDF24C5537200CDA1BA /* ScheduleCollectionViewCell.swift in Sources */,
 				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
 				8731BB4224BD851900167E4F /* MultiPickerDialog.swift in Sources */,
+				0F696EDD24C523FA00CDA1BA /* TimesUpViewController.swift in Sources */,
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				8731AFCF24981685007D6289 /* AddScheduleViewController.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,
@@ -509,6 +532,7 @@
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
 				87094751248C286100B3F047 /* GradientView.swift in Sources */,
 				87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */,
+				0F696EDA24C521F200CDA1BA /* ProgressUpdateViewController.swift in Sources */,
 				8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */,
 				8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */,
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
@@ -682,7 +706,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = R4L6G9T2K6;
+				DEVELOPMENT_TEAM = LT3RLS668S;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -690,7 +714,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = paulmuser.chronos;
+				PRODUCT_BUNDLE_IDENTIFIER = ronnocgnad.chronos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -706,7 +730,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = R4L6G9T2K6;
+				DEVELOPMENT_TEAM = LT3RLS668S;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,7 +738,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = paulmuser.chronos;
+				PRODUCT_BUNDLE_IDENTIFIER = ronnocgnad.chronos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
