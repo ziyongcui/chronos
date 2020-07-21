@@ -61,9 +61,9 @@ struct IdealSchedule : Codable{
         let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
         try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
-    func generateSchedule(){
+    func generateSchedule() -> GeneratedSchedule{
         //input includes data from analysis of previous data
-        //output GeneratedSchedule
+        return GeneratedSchedule(name: self.name, blocks: self.blocks, date: "", modifications: ["Add":[],"Removed":[]], accuracy: 0)
     }
 }
 
@@ -101,7 +101,11 @@ struct User : Codable{
     }
 }
 
-
+//MARK:- TIME
+struct Time : Codable{
+    var minute: Int
+    var hour: Int
+}
 
 //MARK:- DATA DIRECTORIES
 struct URLs{

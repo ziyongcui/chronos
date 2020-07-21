@@ -318,21 +318,21 @@
                                             <constraint firstAttribute="height" constant="380" id="52l-TJ-8Ro"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="20" id="J59-Py-Oz1">
-                                            <size key="itemSize" width="267" height="340"/>
+                                            <size key="itemSize" width="190" height="300"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScheduleCell" id="2vz-Q6-k2C" customClass="ScheduleCollectionViewCell" customModule="chronos" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="20" width="267" height="340"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T9w-07-z7o">
-                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="340"/>
+                                                <rect key="frame" x="0.0" y="40" width="190" height="300"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gsH-Pd-y7R">
+                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="300"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLX-nV-tVI">
-                                                            <rect key="frame" x="20" y="10" width="227" height="40"/>
+                                                            <rect key="frame" x="20" y="10" width="150" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="WgV-8G-hIa"/>
                                                             </constraints>
@@ -341,7 +341,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-j8-XHa">
-                                                            <rect key="frame" x="8" y="55" width="251" height="50"/>
+                                                            <rect key="frame" x="8" y="55" width="174" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Kvm-ge-8Qq"/>
                                                             </constraints>
@@ -350,16 +350,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Days: Mon, Tu, Wed, Th, Fri, Sat, Sun" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGE-no-cFj">
-                                                            <rect key="frame" x="8" y="125" width="251" height="45"/>
+                                                            <rect key="frame" x="8" y="125" width="174" height="55"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="45" id="6Rz-hU-fGE"/>
+                                                                <constraint firstAttribute="height" constant="55" id="6Rz-hU-fGE"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7e-yX-byW">
-                                                            <rect key="frame" x="8" y="180" width="251" height="25"/>
+                                                            <rect key="frame" x="8" y="190" width="174" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="nGN-tJ-pdc"/>
                                                             </constraints>
@@ -368,7 +368,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyn-JL-2HU">
-                                                            <rect key="frame" x="8" y="215" width="251" height="25"/>
+                                                            <rect key="frame" x="8" y="225" width="174" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="fRC-Zh-6aW"/>
                                                             </constraints>
@@ -379,24 +379,23 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="KSH-j8-XHa" secondAttribute="trailing" constant="8" id="4ZV-cm-09P"/>
-                                                        <constraint firstItem="wyn-JL-2HU" firstAttribute="leading" secondItem="T9w-07-z7o" secondAttribute="leading" constant="8" id="Ab3-IA-yAh"/>
+                                                        <constraint firstItem="wyn-JL-2HU" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="Ab3-IA-yAh"/>
                                                         <constraint firstItem="wyn-JL-2HU" firstAttribute="top" secondItem="v7e-yX-byW" secondAttribute="bottom" constant="10" id="DCt-TI-plt"/>
-                                                        <constraint firstItem="RLX-nV-tVI" firstAttribute="leading" secondItem="T9w-07-z7o" secondAttribute="leading" constant="20" id="MTb-qz-ty5"/>
-                                                        <constraint firstItem="v7e-yX-byW" firstAttribute="leading" secondItem="T9w-07-z7o" secondAttribute="leading" constant="8" id="OUO-ns-ehC"/>
-                                                        <constraint firstItem="RLX-nV-tVI" firstAttribute="top" secondItem="T9w-07-z7o" secondAttribute="top" constant="10" id="Qfy-gL-LTl"/>
-                                                        <constraint firstItem="BGE-no-cFj" firstAttribute="leading" secondItem="T9w-07-z7o" secondAttribute="leading" constant="8" id="RTM-Je-Xdx"/>
+                                                        <constraint firstItem="RLX-nV-tVI" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="20" id="MTb-qz-ty5"/>
+                                                        <constraint firstItem="v7e-yX-byW" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="OUO-ns-ehC"/>
+                                                        <constraint firstItem="RLX-nV-tVI" firstAttribute="top" secondItem="gsH-Pd-y7R" secondAttribute="top" constant="10" id="Qfy-gL-LTl"/>
+                                                        <constraint firstItem="BGE-no-cFj" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="RTM-Je-Xdx"/>
                                                         <constraint firstAttribute="trailing" secondItem="RLX-nV-tVI" secondAttribute="trailing" constant="20" id="UBA-cN-HJ7"/>
                                                         <constraint firstItem="v7e-yX-byW" firstAttribute="top" secondItem="BGE-no-cFj" secondAttribute="bottom" constant="10" id="VrQ-XV-gCa"/>
                                                         <constraint firstAttribute="trailing" secondItem="BGE-no-cFj" secondAttribute="trailing" constant="8" id="WWG-9L-zwQ"/>
                                                         <constraint firstItem="KSH-j8-XHa" firstAttribute="top" secondItem="RLX-nV-tVI" secondAttribute="bottom" constant="5" id="btv-rh-37s"/>
-                                                        <constraint firstItem="KSH-j8-XHa" firstAttribute="leading" secondItem="T9w-07-z7o" secondAttribute="leading" constant="8" id="gSf-Co-IVo"/>
+                                                        <constraint firstItem="KSH-j8-XHa" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="gSf-Co-IVo"/>
                                                         <constraint firstAttribute="trailing" secondItem="v7e-yX-byW" secondAttribute="trailing" constant="8" id="jD1-UW-daL"/>
                                                         <constraint firstItem="BGE-no-cFj" firstAttribute="top" secondItem="KSH-j8-XHa" secondAttribute="bottom" constant="20" id="rTQ-kg-3np"/>
                                                         <constraint firstAttribute="trailing" secondItem="wyn-JL-2HU" secondAttribute="trailing" constant="8" id="tdh-5E-gAZ"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <size key="customSize" width="267" height="340"/>
                                                 <connections>
                                                     <outlet property="endLabel" destination="wyn-JL-2HU" id="1Je-H9-txH"/>
                                                     <outlet property="scheduleDays" destination="BGE-no-cFj" id="r9b-g1-bap"/>
@@ -472,6 +471,7 @@
                         <viewLayoutGuide key="safeArea" id="dP8-iK-afT"/>
                     </view>
                     <connections>
+                        <outlet property="beginDayButton" destination="LGH-OY-T7g" id="OYn-qG-9Qc"/>
                         <outlet property="popupContainer" destination="3Pv-Uz-Y71" id="hus-2L-1c1"/>
                         <outlet property="scheduleCollectionView" destination="39R-4V-B5I" id="g8S-sU-1rf"/>
                     </connections>
