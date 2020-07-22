@@ -142,7 +142,7 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
         guard name.text != nil && daysSelected != nil else{return}
         
         //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: "", daysUntilDeadline: daysSelected!)
+        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: Date(), daysUntilDeadline: daysSelected!)
         createdSchedule.save()
         
         dismiss(animated: true){

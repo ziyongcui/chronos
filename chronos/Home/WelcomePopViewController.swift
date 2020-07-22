@@ -65,9 +65,10 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         cell.scheduleDays.text = dayString
-        cell.startLabel.text = "Start time: \(generateTimeString(time: schedule.blocks[0].time))"
-        let endTime = schedule.blocks[schedule.blocks.count-1].time+schedule.blocks[schedule.blocks.count-1].duration
-        cell.endLabel.text = "End time: \(generateTimeString(time: endTime))"
+        cell.startLabel.text = "Start time: \(schedule.blocks[0].time.timeText())"
+        let lastBlock = schedule.blocks[schedule.blocks.count-1]
+        let endTime = lastBlock.time.add(otherTime: lastBlock.duration)
+        cell.endLabel.text = "End time: \(endTime.durationText())"
         cell.layer.backgroundColor = UIColor.green.cgColor
         cell.layer.cornerRadius = 15.0
         if selectedIndex==indexPath.item{
@@ -75,14 +76,6 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
             cell.layer.borderColor = UIColor.yellow.cgColor
         }
         return cell
-    }
-    
-    func generateTimeString(time: Int) -> String{
-        let minutes = time%60
-        if minutes<10{
-            return "\(time/60):0\(time%60)"
-        }
-        return "\(time/60):\(time%60)"
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

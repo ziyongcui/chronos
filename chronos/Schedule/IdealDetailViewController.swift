@@ -50,19 +50,8 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdealBlockCell", for: indexPath) as! IdealBlockTableViewCell
         cell.titleLabel.text = idealBlocks[indexPath.section].name
-        let hours: Int = idealBlocks[indexPath.section].time/60
-        var hourNum : String = "\(hours)"
-        if hours < 10{
-            hourNum = "0" + hourNum
-        }
-        let minutes: Int = idealBlocks[indexPath.section].time % 60
-        var minuteNum : String = "\(minutes)"
-        if minutes < 10{
-            minuteNum = "0" + minuteNum
-        }
-
-        cell.timeLabel.text = "\(hourNum):\(minuteNum)"
-        cell.durationLabel.text = "\(idealBlocks[indexPath.section].duration) min."
+        cell.timeLabel.text = idealBlocks[indexPath.section].time.timeText()
+        cell.durationLabel.text = idealBlocks[indexPath.section].duration.durationText()
         cell.layer.cornerRadius = 10
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1

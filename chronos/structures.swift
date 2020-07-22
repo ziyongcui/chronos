@@ -13,10 +13,9 @@ let propertyListDecoder = PropertyListDecoder()
 //MARK:- EVENT BLOCK
 struct Block : Codable{
     //time and duration in minutes
-    var time : Int
-    var completedTime: Int //not sure if we need this
-    var duration : Int
-    var completionDuration : Int
+    var time : Time
+    var duration : Time
+    var completionDuration : Time
     
     var name : String
     var rigid : Bool
@@ -35,7 +34,7 @@ struct IdealSchedule : Codable{
     
     //[Monday,Tuesday] etc.
     var days : Array<String>
-    var targetDate : String
+    var targetDate : Date
     var daysUntilDeadline : Int
     
     func save(){
@@ -63,7 +62,7 @@ struct IdealSchedule : Codable{
     }
     func generateSchedule() -> GeneratedSchedule{
         //input includes data from analysis of previous data
-        return GeneratedSchedule(name: self.name, blocks: self.blocks, date: "", modifications: ["Add":[],"Removed":[]], accuracy: 0)
+        return GeneratedSchedule(name: self.name, blocks: self.blocks, date: Date(), accuracy: 0)
     }
 }
 
@@ -73,10 +72,10 @@ struct GeneratedSchedule : Codable{
     var blocks: Array<Block>
     
     //the date for which this schedule applies to
-    var date : String
+    var date : Date
     
     //user modification to schedule e.g adding,removing blocks
-    var modifications : [String:Array<Block>]
+    var modifications : [String:Array<Block>] = [:]
     
     //accuracy could also be double or float - for analysis
     var accuracy : Int
@@ -85,7 +84,7 @@ struct GeneratedSchedule : Codable{
         //function to save current progress and schedule for the current day
     }
     func log(){
-        //function adds the generatedSchedule to Array<gneratedSchedule>
+        //function adds the generatedSchedule to Array<generatedSchedule>
         //saves the array for analytics purposes
     }
 }
@@ -103,9 +102,50 @@ struct User : Codable{
 
 //MARK:- TIME
 struct Time : Codable{
-    var minute: Int
-    var hour: Int
+    var minute: Int = 0
+    var hour: Int = 0
+    func getCurrentTime(){
+        //updates minute and hour values to match those of the current time
+    }
+    func timeText() -> String{
+        //return a time formatted string
+        if self.hour > 12{
+            return "\(self.hour-12):\(self.minute) P.M"
+        }
+        else if self.hour == 12{
+            return "\(self.hour):\(self.minute) P.M"
+        }
+        else{
+            return "\(self.hour):\(self.minute) A.M"
+        }
+            
+    }
+    func durationText() -> String{
+        //return a duration formatted string
+        var durationString = ""
+        if self.hour > 0{
+            durationString += "\(self.hour) hr"
+        }
+        if self.minute > 0{
+            durationString += " \(self.minute) min"
+        }
+        return durationString
+    }
+    func difference(otherTime: Time) -> Time{
+        //computes the time difference between self and another Time
+        //NOT YET IMPLEMENTED
+        return Time()
+    }
+    func add(otherTime: Time) -> Time{
+        //returns a new Time from adding a time obj to self
+        var new_hour = self.hour + otherTime.hour
+        var new_minute = self.minute + otherTime.minute
+        new_hour += new_minute/60
+        new_minute %= 60
+        return Time(minute: new_minute, hour: new_hour)
+    }
 }
+
 
 //MARK:- DATA DIRECTORIES
 struct URLs{
