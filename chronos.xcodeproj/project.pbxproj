@@ -12,6 +12,7 @@
 		0F696EDA24C521F200CDA1BA /* ProgressUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */; };
 		0F696EDD24C523FA00CDA1BA /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */; };
 		0F696EDF24C5537200CDA1BA /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */; };
+		0F77892424C7CB6700F0CDFF /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77892324C7CB6700F0CDFF /* BlockTableViewCell.swift */; };
 		866923942489887400D95EC3 /* structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923932489887400D95EC3 /* structures.swift */; };
 		8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */; };
 		8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */; };
@@ -68,6 +69,7 @@
 		0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressUpdateViewController.swift; sourceTree = "<group>"; };
 		0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpViewController.swift; sourceTree = "<group>"; };
 		0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F77892324C7CB6700F0CDFF /* BlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
 		3A31A66D7409369A1D7C0221 /* Pods_chronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA9A3BFFDEFAD3E41CAFB3A /* Pods-chronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos.release.xcconfig"; path = "Target Support Files/Pods-chronos/Pods-chronos.release.xcconfig"; sourceTree = "<group>"; };
 		42021CB987D19D123F9C30DE /* Pods-chronos-chronosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos-chronosUITests.debug.xcconfig"; path = "Target Support Files/Pods-chronos-chronosUITests/Pods-chronos-chronosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		0F696ED624C5219300CDA1BA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0F77892324C7CB6700F0CDFF /* BlockTableViewCell.swift */,
 				8675874824A3289900D93788 /* HomeViewController.swift */,
 				0F696ED724C521E400CDA1BA /* WelcomePopViewController.swift */,
 				0F696ED924C521F200CDA1BA /* ProgressUpdateViewController.swift */,
@@ -535,6 +538,7 @@
 				0F696EDA24C521F200CDA1BA /* ProgressUpdateViewController.swift in Sources */,
 				8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */,
 				8669239E2489903B00D95EC3 /* AnalyticsViewController.swift in Sources */,
+				0F77892424C7CB6700F0CDFF /* BlockTableViewCell.swift in Sources */,
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
 				8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */,
 				86E97EF024928FE800E192FA /* tableViewCells.swift in Sources */,
