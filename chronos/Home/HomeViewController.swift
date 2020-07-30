@@ -73,6 +73,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 70
     }
     
+    //consider block attribute for state?
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
 
     /*
     // MARK: - Navigation
