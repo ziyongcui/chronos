@@ -110,8 +110,11 @@ struct Time : Codable{
     var hour: Int = 0
     
     static let empty = Time(minute: -1, hour: -1)
-    func getCurrentTime(){
+    func getCurrentTime() -> Time{
         //updates minute and hour values to match those of the current time
+        let date = Date()
+        let calendar = Calendar.current
+        return Time(minute: calendar.component(.minute, from: date), hour: calendar.component(.hour, from: date))
     }
     func timeText() -> String{
         //return a time formatted string

@@ -186,7 +186,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGO-uA-4im">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGO-uA-4im">
                                 <rect key="frame" x="100" y="54" width="214" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Psb-wk-qm0"/>
@@ -348,6 +348,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="NHV-13-5BM"/>
                     <connections>
                         <outlet property="blockTableView" destination="DtE-Dv-gOh" id="SXf-cD-dTB"/>
+                        <outlet property="clockLabel" destination="cwd-Ve-tVF" id="jra-c6-1Hg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRD-B9-H6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

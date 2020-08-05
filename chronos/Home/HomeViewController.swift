@@ -11,11 +11,17 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var blockTableView: UITableView!
+    @IBOutlet weak var clockLabel: UILabel!
     var current_schedule : GeneratedSchedule = GeneratedSchedule.empty
+    
+    var timer = Timer()
+    var currentTime = Time()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //Initialize clock and currentTime
+        startClock()
         
         //ATTEMPT TO LOAD THE GENERATED SCHEDULE FOR THE DAY. IF NONE EXISTS
         //  SET CURRENT_SCHEDULE TO NIL AND CALL SEGUE IN VIEWDIDAPPEAR
@@ -26,6 +32,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //notification update
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.loadSchedule), name: NSNotification.Name(rawValue: "ScheduleSelected"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startClock()
+        print("View Appeared")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +56,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //save logic here as well as basic setups with notifications and timers
         //function only for loading the views
     }
-    
+    func startClock(){
+        self.currentTime = Time().getCurrentTime()
+        clockLabel.text = self.currentTime.timeText()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.updateClock) , userInfo: nil, repeats: true)
+    }
+    @objc func updateClock(){
+        self.currentTime = Time().getCurrentTime()
+        clockLabel.text = self.currentTime.timeText()
+    }
     func updateSchedule(){
         //UPDATES the view and adjust blocks etc. based on time
         //Called when a block is completed/time expired and when view appears
