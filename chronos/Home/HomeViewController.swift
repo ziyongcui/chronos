@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var blockTableView: UITableView!
-    var current_schedule : GeneratedSchedule! //ADD DEFAULT 'EMPTY' GENERATED SCHEDULE AS STATIC VAR TO BLOCK
+    var current_schedule : GeneratedSchedule = GeneratedSchedule.empty
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //CALL SEGUE TO POP-UP IF CURRENT-SCHEDULE IS NIL
+        //CALL SEGUE TO POP-UP IF CURRENT-SCHEDULE IS GENERATED.EMPTY
         //UPDATE THE ON SCREEN CLOCK
         //UPDATE THE VIEWS ACCORDING TO THE TIME
         //OTHER STUFF THAT NEEDS TO BE DYNAMICALLY CHANGED ON VIEW ENTRY
@@ -38,6 +38,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: SETUP FUNCS
     @objc func loadSchedule(){
+        let retrievedSchedule = try!Data(contentsOf: URLs.currentSchedule)
+        self.current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
         blockTableView.reloadData()
         //save logic here as well as basic setups with notifications and timers
         //function only for loading the views
@@ -58,6 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = blockTableView.dequeueReusableCell(withIdentifier: "BlockCell", for: indexPath) as! BlockTableViewCell
+        //Data
         let repr_block = current_schedule.blocks[indexPath.row]
         cell.titleLabel.text = repr_block.name
         cell.timeLabel.text = repr_block.time.timeText()
@@ -66,16 +69,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //IMPLEMENT SOME LOGIC HERE TO DIFFERENTIATE CELLS BY STATUS
         cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.tophalf.fill")
         
+        //Minor UI Enhancements
+        cell.layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.cornerRadius = 8.0
+        cell.layer.borderWidth = 4.0
         return cell
     }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
-    //consider block attribute for state?
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        return 90
     }
     
 

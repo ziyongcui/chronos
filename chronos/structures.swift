@@ -82,11 +82,15 @@ struct GeneratedSchedule : Codable{
     
     func save(){
         //function to save current progress and schedule for the current day
+        let encodedSchedule = try?propertyListEncoder.encode(self)
+        try?encodedSchedule?.write(to: URLs.currentSchedule)
+        print("current schedule saved")
     }
     func log(){
         //function adds the generatedSchedule to Array<generatedSchedule>
         //saves the array for analytics purposes
     }
+    static let empty = GeneratedSchedule(name: "Blank", blocks: [], date: Date(), accuracy: -1)
 }
 
 //MARK:- USER DATA
@@ -104,19 +108,25 @@ struct User : Codable{
 struct Time : Codable{
     var minute: Int = 0
     var hour: Int = 0
+    
+    static let empty = Time(minute: -1, hour: -1)
     func getCurrentTime(){
         //updates minute and hour values to match those of the current time
     }
     func timeText() -> String{
         //return a time formatted string
+        var minuteString = "\(self.minute)"
+        if self.minute<10{
+            minuteString = "0\(self.minute)"
+        }
         if self.hour > 12{
-            return "\(self.hour-12):\(self.minute) P.M"
+            return "\(self.hour-12):\(minuteString) P.M"
         }
         else if self.hour == 12{
-            return "\(self.hour):\(self.minute) P.M"
+            return "\(self.hour):\(minuteString) P.M"
         }
         else{
-            return "\(self.hour):\(self.minute) A.M"
+            return "\(self.hour):\(minuteString) A.M"
         }
             
     }

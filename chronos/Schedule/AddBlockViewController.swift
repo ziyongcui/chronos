@@ -81,11 +81,13 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let minuteDuration = compDuration.minute ?? 0
         let hourTime = compTime.hour ?? 0
         let minuteTime = compTime.minute ?? 0
-        let finalMinutDuration:Int = (hourDuration * 60) + minuteDuration
-        let finalMinutTime:Int = (hourTime * 60) + minuteTime
+        //let finalMinutDuration:Int = (hourDuration * 60) + minuteDuration
+        //let finalMinutTime:Int = (hourTime * 60) + minuteTime
+        
+        let durationTime = Time(minute: minuteDuration, hour: hourDuration)
+        let startTime = Time(minute: minuteTime, hour: hourTime)
         //saving block
-        let sampleTime = Time(minute: 0, hour: 0)
-        let createdBlock = Block(time: sampleTime, duration: sampleTime, completionDuration: sampleTime, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
+        let createdBlock = Block(time: startTime, duration: durationTime, completionDuration: Time.empty, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
         idealSchedule.save()

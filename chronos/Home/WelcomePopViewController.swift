@@ -27,6 +27,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
         }
+        assert(idealSchedules.count > 0, "Cannot select from no schedules.")
         //ViewDidLoad CollectionView Setup
         
         //for cell sizing
@@ -109,14 +110,19 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
 
 
     
-//MARK: BUTTON FUNCTIONS
+    //MARK: BUTTON FUNCTIONS
     @IBAction func makeAdjustments(_ sender: Any) {
-//        call some segue to another view controller
+        //        call some segue to another view controller
     }
     
     @IBAction func beginDay(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
+        var save_schedule = GeneratedSchedule.empty
+        let selectedSchedule = idealSchedules[selectedIndex]
+        save_schedule = selectedSchedule.generateSchedule()
+        save_schedule.save()
+        dismiss(animated: true){
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ScheduleSelected"), object: nil)
+        }
     }
     
     /*
