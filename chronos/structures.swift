@@ -21,8 +21,11 @@ struct Block : Codable{
     var rigid : Bool
     var priority : Int
     
-    //status = "completed", "failed", "postponed", "not attempted" etc.
+    //status = "notStarted","completed","nil"
     var status : String
+    
+    //static blocks
+    static let empty = Block(time: Time.empty, duration: Time.empty, completionDuration: Time.empty, name: "", rigid: false, priority: -1, status: "nil")
 }
 
 
@@ -73,12 +76,11 @@ struct GeneratedSchedule : Codable{
     
     //the date for which this schedule applies to
     var date : Date
-    
     //user modification to schedule e.g adding,removing blocks
     var modifications : [String:Array<Block>] = [:]
-    
     //accuracy could also be double or float - for analysis
     var accuracy : Int
+    static let empty = GeneratedSchedule(name: "Blank", blocks: [], date: Date(), accuracy: -1)
     
     func save(){
         //function to save current progress and schedule for the current day
@@ -90,7 +92,15 @@ struct GeneratedSchedule : Codable{
         //function adds the generatedSchedule to Array<generatedSchedule>
         //saves the array for analytics purposes
     }
-    static let empty = GeneratedSchedule(name: "Blank", blocks: [], date: Date(), accuracy: -1)
+    func nextBlock() -> Block{
+        //returns the first block in the list of blocks in which status is not "complete"
+        for block in self.blocks{
+            if block.status != "complete"{
+                return block
+            }
+        }
+        return Block.empty
+    }
 }
 
 //MARK:- USER DATA
@@ -108,6 +118,22 @@ struct User : Codable{
 struct Time : Codable{
     var minute: Int = 0
     var hour: Int = 0
+    
+    init(minute: Int, hour: Int){
+        self.minute = minute
+        self.hour = hour
+    }
+    
+    init(minutes: Int) {
+        self.minute = minutes%60
+        self.hour = minute/60
+    }
+    
+    init(){
+        let currentTime = Time.empty.getCurrentTime()
+        self.minute = currentTime.minute
+        self.hour = currentTime.hour
+    }
     
     static let empty = Time(minute: -1, hour: -1)
     func getCurrentTime() -> Time{
@@ -144,10 +170,9 @@ struct Time : Codable{
         }
         return durationString
     }
-    func difference(otherTime: Time) -> Time{
+    func timeUntil(otherTime: Time) -> Time{
         //computes the time difference between self and another Time
-        //NOT YET IMPLEMENTED
-        return Time()
+        return Time(minutes: otherTime.toMinutes() - self.toMinutes())
     }
     func add(otherTime: Time) -> Time{
         //returns a new Time from adding a time obj to self
@@ -156,6 +181,9 @@ struct Time : Codable{
         new_hour += new_minute/60
         new_minute %= 60
         return Time(minute: new_minute, hour: new_hour)
+    }
+    func toMinutes() -> Int{
+        return self.minute + 60*self.hour
     }
 }
 
