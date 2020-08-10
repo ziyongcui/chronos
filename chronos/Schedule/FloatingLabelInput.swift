@@ -64,6 +64,7 @@ class FloatingLabelInput: UITextField {
     
     // Add a floating label to the view on becoming first responder
     @objc func addFloatingLabel() {
+        
         if self.text == "" {
             self.floatingLabel.textColor = floatingLabelColor
             self.floatingLabel.font = floatingLabelFont

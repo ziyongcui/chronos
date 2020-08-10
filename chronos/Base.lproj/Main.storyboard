@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -831,8 +831,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
+                                            <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="touchUpInside" id="B30-hg-beL"/>
                                             <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="primaryActionTriggered" id="F4f-mZ-Gjn"/>
-                                            <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="touchUpInside" id="Lyd-mq-YJp"/>
                                             <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="Nwy-m3-Lcu"/>
                                         </connections>
                                     </textField>

@@ -16,7 +16,10 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var day: UITextField!
     var preSelectedValues : [String] = []
     var daySelected : [String] = []
-    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     @IBAction func showOptionsActionDays(_ sender: Any) {
         let pickerData : [[String:String]] = [
             [
@@ -128,9 +131,13 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        
-        // Do any additional setup after loading the view.
+       //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+
+       //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+       //tap.cancelsTouchesInView = false
+
+       view.addGestureRecognizer(tap)
     }
     
     @IBAction func Cancel(_ sender: UIBarButtonItem) {

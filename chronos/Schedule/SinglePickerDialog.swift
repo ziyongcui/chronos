@@ -48,6 +48,7 @@ class SinglePickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupView() {
+        
         self.dialogView = createContainerView()
         
         self.dialogView!.layer.shouldRasterize = true
@@ -98,6 +99,7 @@ class SinglePickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
     
     /* Create the dialog view, and animate opening the dialog */
     func show(title: String, doneButtonTitle: String = "Select", cancelButtonTitle: String = "Cancel", options: [[String: String]], selected: [String]? = nil, callback: @escaping SinglePickerCallback) {
+        
         self.titleLabel.text = title
         self.pickerData = options
         self.doneButton.setTitle(doneButtonTitle, for: .normal)
