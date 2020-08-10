@@ -13,6 +13,7 @@
 		0F696EDD24C523FA00CDA1BA /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */; };
 		0F696EDF24C5537200CDA1BA /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */; };
 		0F77892424C7CB6700F0CDFF /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F77892324C7CB6700F0CDFF /* BlockTableViewCell.swift */; };
+		0FC2077E24E1CA2800C54935 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC2077D24E1CA2800C54935 /* extensions.swift */; };
 		866923942489887400D95EC3 /* structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923932489887400D95EC3 /* structures.swift */; };
 		8669239624898F3500D95EC3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */; };
 		8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */; };
@@ -71,6 +72,7 @@
 		0F696EDC24C523FA00CDA1BA /* TimesUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesUpViewController.swift; sourceTree = "<group>"; };
 		0F696EDE24C5537200CDA1BA /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F77892324C7CB6700F0CDFF /* BlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
+		0FC2077D24E1CA2800C54935 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		3A31A66D7409369A1D7C0221 /* Pods_chronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA9A3BFFDEFAD3E41CAFB3A /* Pods-chronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos.release.xcconfig"; path = "Target Support Files/Pods-chronos/Pods-chronos.release.xcconfig"; sourceTree = "<group>"; };
 		42021CB987D19D123F9C30DE /* Pods-chronos-chronosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos-chronosUITests.debug.xcconfig"; path = "Target Support Files/Pods-chronos-chronosUITests/Pods-chronos-chronosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				87094756248C32F000B3F047 /* Tutorial.xcassets */,
 				8B4C0F1324859FAD001DE8B9 /* Info.plist */,
 				866923932489887400D95EC3 /* structures.swift */,
+				0FC2077D24E1CA2800C54935 /* extensions.swift */,
 				8731AFC924920C65007D6289 /* test.swift */,
 			);
 			path = chronos;
@@ -533,6 +536,7 @@
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
 				8731AFCF24981685007D6289 /* AddScheduleViewController.swift in Sources */,
 				866923942489887400D95EC3 /* structures.swift in Sources */,
+				0FC2077E24E1CA2800C54935 /* extensions.swift in Sources */,
 				8709475B248C337C00B3F047 /* TutorialItemViewController.swift in Sources */,
 				8731AFCA24920C65007D6289 /* test.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,

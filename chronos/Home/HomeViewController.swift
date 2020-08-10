@@ -12,6 +12,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var blockTableView: UITableView!
     @IBOutlet weak var clockLabel: UILabel!
+    //Current Block
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var startEndButton: UIButton!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var timeLeftLabel: UILabel!
+    
     var current_schedule : GeneratedSchedule = GeneratedSchedule.empty
     
     var timer = Timer()
@@ -107,15 +114,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //alert that schedule starts now
             //change status to "InProgress"
             //schedule notification for block end
+            //OR SHOW START UI
         }
         else{
             //alert when schedule starts = "We'll notify you when to start this schedule, or you can start now and we can add the extra time in"
             //schedule notification for block start
         }
+        //CHANGES FIRST NON-COMPLETE/NOTSTARTED BLOCK TO WILLSTART
+        updateUIState()
+    }
+    
+    func updateUIState(){
+        //Changes UI Based on Status of first non-complete block
+        //WillStart
+        //DidStart (In progress) - Show complete UI
+        //TimeExpired - Show complete UI
     }
     
     func changeBlockStatus(){
-        
+        //NOT YET IMPLEMENTED - CALLS UI TO UPDATE BLOCK STATUS
     }
     
     func updateSchedule(){

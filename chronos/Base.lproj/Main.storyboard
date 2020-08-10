@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -172,9 +172,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-Dv-gOh">
-                                <rect key="frame" x="25" y="145" width="364" height="568.5"/>
+                                <rect key="frame" x="25" y="145" width="364" height="497"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSv-Xd-Un3">
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blocks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSv-Xd-Un3">
                                     <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -278,12 +278,74 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="For Debug Purposes: (popups)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-EL-hFU">
-                                <rect key="frame" x="20" y="743.5" width="337" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Debug Purposes: (popups)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-EL-hFU">
+                                <rect key="frame" x="89" y="743.5" width="236" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-0N-Vzy">
+                                <rect key="frame" x="25" y="651" width="364" height="82.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Task: BlockName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBL-4p-gaV">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3b-vJ-3XJ">
+                                        <rect key="frame" x="302" y="20.5" width="62" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="RYn-lL-yIQ"/>
+                                            <constraint firstAttribute="width" secondItem="x3b-vJ-3XJ" secondAttribute="height" multiplier="1:1" id="eFp-Zl-UPb"/>
+                                            <constraint firstAttribute="width" constant="62" id="vfj-kQ-BSA"/>
+                                        </constraints>
+                                        <state key="normal" title="Start"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-yh-oBH">
+                                        <rect key="frame" x="0.0" y="20.5" width="166.5" height="62"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Start Time:  12:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gZ-Qp-brs">
+                                                <rect key="frame" x="0.0" y="0.0" width="166.5" height="34.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time Left: 0 hr 0 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf0-VZ-Tt1">
+                                                <rect key="frame" x="0.0" y="41.5" width="166.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="uBL-4p-gaV" firstAttribute="top" secondItem="zAb-0N-Vzy" secondAttribute="top" id="8OE-x2-sf9"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBL-4p-gaV" secondAttribute="trailing" id="FGJ-sD-5ge"/>
+                                    <constraint firstItem="uBL-4p-gaV" firstAttribute="width" secondItem="zAb-0N-Vzy" secondAttribute="width" id="O7C-FZ-gas"/>
+                                    <constraint firstItem="IdX-yh-oBH" firstAttribute="leading" secondItem="zAb-0N-Vzy" secondAttribute="leading" id="UeT-x4-jzr"/>
+                                    <constraint firstAttribute="trailing" secondItem="x3b-vJ-3XJ" secondAttribute="trailing" id="apc-Bq-80P"/>
+                                    <constraint firstAttribute="bottom" secondItem="x3b-vJ-3XJ" secondAttribute="bottom" id="cuO-59-ecU"/>
+                                    <constraint firstItem="IdX-yh-oBH" firstAttribute="top" secondItem="uBL-4p-gaV" secondAttribute="bottom" id="f5O-Kb-Pvt"/>
+                                    <constraint firstItem="uBL-4p-gaV" firstAttribute="centerX" secondItem="zAb-0N-Vzy" secondAttribute="centerX" id="jZY-Bo-Qzg"/>
+                                    <constraint firstItem="x3b-vJ-3XJ" firstAttribute="top" secondItem="uBL-4p-gaV" secondAttribute="bottom" id="mng-8i-Wcn"/>
+                                    <constraint firstItem="uBL-4p-gaV" firstAttribute="leading" secondItem="zAb-0N-Vzy" secondAttribute="leading" id="sG0-ms-MB4"/>
+                                    <constraint firstAttribute="bottom" secondItem="IdX-yh-oBH" secondAttribute="bottom" id="t8f-Sr-SHj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -293,20 +355,24 @@
                             <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="vOK-Je-0Ux" secondAttribute="trailing" id="90z-hS-Z0K"/>
                             <constraint firstItem="hln-zS-FVm" firstAttribute="bottom" secondItem="vOK-Je-0Ux" secondAttribute="bottom" constant="15" id="9Iu-Io-w0o"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="20" id="9ZB-vg-BEW"/>
+                            <constraint firstItem="Xxc-EL-hFU" firstAttribute="centerX" secondItem="eWU-XT-wFh" secondAttribute="centerX" id="B2f-3e-EE4"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="top" secondItem="iGO-uA-4im" secondAttribute="bottom" constant="5" id="Bgz-xy-SXX"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="100" id="Bv6-yJ-pxA"/>
                             <constraint firstItem="Pqz-sU-Iys" firstAttribute="leading" secondItem="eWU-XT-wFh" secondAttribute="leading" constant="20" id="CSM-0J-3w2"/>
                             <constraint firstItem="vOK-Je-0Ux" firstAttribute="top" secondItem="Xxc-EL-hFU" secondAttribute="bottom" constant="4" id="FMo-tw-N57"/>
+                            <constraint firstItem="zAb-0N-Vzy" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="25" id="N4P-LE-bPi"/>
+                            <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="zAb-0N-Vzy" secondAttribute="trailing" constant="25" id="Pah-XH-a3C"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="centerX" secondItem="eWU-XT-wFh" secondAttribute="centerX" id="QTv-VP-7Qt"/>
                             <constraint firstItem="hln-zS-FVm" firstAttribute="bottom" secondItem="vOK-Je-0Ux" secondAttribute="bottom" constant="15" id="Rh6-N2-eac"/>
                             <constraint firstItem="cwd-Ve-tVF" firstAttribute="centerX" secondItem="eWU-XT-wFh" secondAttribute="centerX" id="Rv4-zm-ubQ"/>
                             <constraint firstItem="iGO-uA-4im" firstAttribute="top" secondItem="hln-zS-FVm" secondAttribute="top" constant="10" id="UUp-pa-F7N"/>
+                            <constraint firstItem="Xxc-EL-hFU" firstAttribute="top" secondItem="zAb-0N-Vzy" secondAttribute="bottom" constant="10" id="bGp-XD-kQh"/>
                             <constraint firstAttribute="trailing" secondItem="Pqz-sU-Iys" secondAttribute="trailing" constant="20" id="dbb-Mg-mwo"/>
                             <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="DtE-Dv-gOh" secondAttribute="trailing" constant="25" id="fC4-9P-Fgn"/>
-                            <constraint firstItem="Xxc-EL-hFU" firstAttribute="top" secondItem="DtE-Dv-gOh" secondAttribute="bottom" constant="30" id="g94-gh-zv7"/>
                             <constraint firstItem="DtE-Dv-gOh" firstAttribute="leading" secondItem="hln-zS-FVm" secondAttribute="leading" constant="25" id="hkn-be-cax"/>
                             <constraint firstItem="DtE-Dv-gOh" firstAttribute="top" secondItem="Pqz-sU-Iys" secondAttribute="bottom" constant="10" id="nIn-7K-bNr"/>
                             <constraint firstItem="Pqz-sU-Iys" firstAttribute="top" secondItem="cwd-Ve-tVF" secondAttribute="bottom" id="tbA-Ts-eu2"/>
+                            <constraint firstItem="zAb-0N-Vzy" firstAttribute="top" secondItem="DtE-Dv-gOh" secondAttribute="bottom" constant="9" id="ujm-VL-8KD"/>
                             <constraint firstItem="hln-zS-FVm" firstAttribute="trailing" secondItem="iGO-uA-4im" secondAttribute="trailing" constant="100" id="wKa-Ti-il1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hln-zS-FVm"/>
@@ -315,6 +381,11 @@
                     <connections>
                         <outlet property="blockTableView" destination="DtE-Dv-gOh" id="SXf-cD-dTB"/>
                         <outlet property="clockLabel" destination="cwd-Ve-tVF" id="jra-c6-1Hg"/>
+                        <outlet property="containerView" destination="zAb-0N-Vzy" id="Bfa-PM-UEX"/>
+                        <outlet property="nameLabel" destination="uBL-4p-gaV" id="01q-Dw-Ahf"/>
+                        <outlet property="startEndButton" destination="x3b-vJ-3XJ" id="Ml9-V4-90j"/>
+                        <outlet property="startTimeLabel" destination="2gZ-Qp-brs" id="TK6-mi-2Ac"/>
+                        <outlet property="timeLeftLabel" destination="Pf0-VZ-Tt1" id="sOJ-zP-D4z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRD-B9-H6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
