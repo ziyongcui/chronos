@@ -11,7 +11,7 @@ let propertyListEncoder = PropertyListEncoder()
 let propertyListDecoder = PropertyListDecoder()
 
 //MARK:- EVENT BLOCK
-struct Block : Codable{
+struct Block : Codable, Equatable{
     //time and duration in minutes
     var time : Time
     var duration : Time
@@ -21,11 +21,22 @@ struct Block : Codable{
     var rigid : Bool
     var priority : Int
     
-    //status = "notStarted","completed","nil"
+    //status = "notStarted","willStart","didStart","expired","completed","nil"
     var status : String
     
     //static blocks
     static let empty = Block(time: Time.empty, duration: Time.empty, completionDuration: Time.empty, name: "", rigid: false, priority: -1, status: "nil")
+    
+    func endTime() -> Time{
+        return self.time.add(otherTime: self.duration)
+    }
+    
+    static func == (lhs: Block, rhs: Block) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.rigid == rhs.rigid &&
+            lhs.priority == rhs.priority &&
+            lhs.status == rhs.status
+    }
 }
 
 
@@ -65,7 +76,12 @@ struct IdealSchedule : Codable{
     }
     func generateSchedule() -> GeneratedSchedule{
         //input includes data from analysis of previous data
-        return GeneratedSchedule(name: self.name, blocks: self.blocks, date: Date(), accuracy: 0)
+        //reminder: pass ideal schedule with the gen sched - implement later
+        var sched = GeneratedSchedule(name: self.name, blocks: self.blocks, date: Date(), accuracy: 0)
+        for block in sched.blocks{
+            sched.changeStatus(block: block, status: "notStarted")
+        }
+        return sched
     }
 }
 
@@ -86,7 +102,7 @@ struct GeneratedSchedule : Codable{
         //function to save current progress and schedule for the current day
         let encodedSchedule = try?propertyListEncoder.encode(self)
         try?encodedSchedule?.write(to: URLs.currentSchedule)
-        print("current schedule saved")
+        //print("current schedule saved")
     }
     func log(){
         //function adds the generatedSchedule to Array<generatedSchedule>
@@ -95,11 +111,21 @@ struct GeneratedSchedule : Codable{
     func nextBlock() -> Block{
         //returns the first block in the list of blocks in which status is not "complete"
         for block in self.blocks{
-            if block.status != "complete"{
+            if block.status != "completed"{
                 return block
             }
         }
         return Block.empty
+    }
+    mutating func changeStatus(block: Block, status: String){
+        //changes status of block
+        let replaceIndex = self.blocks.firstIndex(of: block)
+        self.blocks[replaceIndex!].status = status
+    }
+    mutating func changeTime(block: Block, time: Time){
+        //changes status of block
+        let replaceIndex = self.blocks.firstIndex(of: block)
+        self.blocks[replaceIndex!].time = time
     }
 }
 
@@ -115,7 +141,7 @@ struct User : Codable{
 }
 
 //MARK:- TIME
-struct Time : Codable{
+struct Time : Codable, Equatable{
     var minute: Int = 0
     var hour: Int = 0
     
@@ -126,22 +152,30 @@ struct Time : Codable{
     
     init(minutes: Int) {
         self.minute = minutes%60
-        self.hour = minute/60
+        self.hour = minutes/60
     }
     
     init(){
-        let currentTime = Time.empty.getCurrentTime()
-        self.minute = currentTime.minute
-        self.hour = currentTime.hour
+        var time = Time(minutes: 0)
+        time.getCurrentTime()
+        self.minute = time.minute
+        self.hour = time.hour
     }
     
     static let empty = Time(minute: -1, hour: -1)
-    func getCurrentTime() -> Time{
+    
+    static func == (lhs: Time, rhs: Time) -> Bool {
+        return lhs.minute == rhs.minute && lhs.hour == rhs.hour
+    }
+    
+    mutating func getCurrentTime(){
         //updates minute and hour values to match those of the current time
         let date = Date()
         let calendar = Calendar.current
-        return Time(minute: calendar.component(.minute, from: date), hour: calendar.component(.hour, from: date))
+        self.minute = calendar.component(.minute, from: date)
+        self.hour = calendar.component(.hour, from: date)
     }
+    
     func timeText() -> String{
         //return a time formatted string
         var minuteString = "\(self.minute)"

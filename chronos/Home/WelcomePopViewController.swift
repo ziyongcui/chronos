@@ -81,7 +81,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let cell = scheduleCollectionView.cellForItem(at: IndexPath(item: selectedIndex, section: 0))
-        cell!.layer.borderColor = UIColor.clear.cgColor
+        cell?.layer.borderColor = UIColor.clear.cgColor
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -96,7 +96,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print(selectedIndex)
+        //print(selectedIndex)
         let cell = scheduleCollectionView.cellForItem(at: IndexPath(item: selectedIndex, section: 0))
         cell?.layer.borderColor = UIColor.yellow.cgColor
         cell?.layer.borderWidth = 3.0
