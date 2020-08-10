@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startClock()
-        print("View Appeared")
+        updateUIState()
         //UPDATE THE ON SCREEN CLOCK
         //UPDATE THE VIEWS ACCORDING TO THE TIME
         //OTHER STUFF THAT NEEDS TO BE DYNAMICALLY CHANGED ON VIEW ENTRY
@@ -66,13 +66,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //load schedule UI
         let retrievedSchedule = try!Data(contentsOf: URLs.currentSchedule)
         self.current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
-        var blockWithStates : Array<Block> = []
-        for block in current_schedule.blocks{
-            var newBlock = block
-            newBlock.status = "notStarted"
-            blockWithStates.append(newBlock)
-        }
-        current_schedule.blocks = blockWithStates
         blockTableView.reloadData()
         
         //request notifications auth
@@ -94,41 +87,132 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         startNextBlock()
     }
     func startClock(){
-        self.currentTime = Time().getCurrentTime()
+        self.currentTime.getCurrentTime()
         clockLabel.text = self.currentTime.timeText()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.updateClock) , userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector:#selector(self.updateTimes) , userInfo: nil, repeats: true)
     }
     
     
     //MARK: MAIN FUNCS
-    @objc func updateClock(){
-        self.currentTime = Time().getCurrentTime()
+    @objc func updateTimes(){
+        //called every 1 second by timer, updates in-app time
+        self.currentTime.getCurrentTime()
         clockLabel.text = self.currentTime.timeText()
+        
+        //Update time left label unless time is up
+        let currentBlock = self.current_schedule.nextBlock()
+        guard currentBlock != Block.empty else {return}
+        guard currentBlock.status != "expired" else{return}
+        //if time completes then change block status and call updateUIState
+        if currentBlock.status == "didStart" && currentBlock.endTime()==currentTime{
+            self.current_schedule.changeStatus(block: currentBlock, status: "expired")
+            self.current_schedule.save()
+        }
+        updateUIState()
     }
     
     func startNextBlock(){
-        var nextBlock = self.current_schedule.nextBlock()
+        let nextBlock = self.current_schedule.nextBlock()
         let timeDiff = currentTime.timeUntil(otherTime: nextBlock.time).toMinutes()
+        //Ensure that block should be "started"
+        guard nextBlock != Block.empty else {
+            //condition fails if schedule reaches end
+            //handle here
+            //alert user that schedule is completed
+            updateUIState()
+            return
+        }
+        assert(nextBlock.status == "notStarted", "Block has been started")
         if timeDiff < 0{
-            //adjust time for all blocks
-            //alert that schedule starts now
-            //change status to "InProgress"
-            //schedule notification for block end
-            //OR SHOW START UI
+            //alert that user is behind schedule
         }
         else{
             //alert when schedule starts = "We'll notify you when to start this schedule, or you can start now and we can add the extra time in"
             //schedule notification for block start
         }
         //CHANGES FIRST NON-COMPLETE/NOTSTARTED BLOCK TO WILLSTART
+        self.current_schedule.changeStatus(block: nextBlock, status: "willStart")
+        self.current_schedule.save()
+        blockTableView.reloadData()
         updateUIState()
     }
     
     func updateUIState(){
         //Changes UI Based on Status of first non-complete block
+        let currentBlock = current_schedule.nextBlock()
+        containerView.isHidden = false
+        nameLabel.text = "Current Task:  \(currentBlock.name)"
         //WillStart
-        //DidStart (In progress) - Show complete UI
+        if currentBlock.status == "willStart"{
+            startEndButton.setTitle("Start", for: .normal)
+            startTimeLabel.text = "Start Time:  \(currentBlock.time.timeText())"
+            var timeUntilStart = "0 min"
+            var timeDiff = currentTime.timeUntil(otherTime: currentBlock.time)
+            if timeDiff.toMinutes() > 0{
+                timeUntilStart = timeDiff.durationText()
+            }
+            else if timeDiff.toMinutes() < 0{
+                timeDiff = currentBlock.time.timeUntil(otherTime: currentTime)
+                timeUntilStart = timeDiff.durationText() + " ago"
+            }
+            timeLeftLabel.text = "Time Until Start:  \(timeUntilStart)"
+        }
+        //DidStart (In progress) - Show complete UI - Temp
         //TimeExpired - Show complete UI
+        else if currentBlock.status == "expired" || currentBlock.status == "didStart"{
+            startEndButton.setTitle("End", for: .normal)
+            let endTime = currentBlock.endTime()
+            startTimeLabel.text = "End Time:  \(endTime.timeText())"
+            var timeUntilEnd = "0 min"
+            let timeDiff = currentTime.timeUntil(otherTime: endTime)
+            if timeDiff.toMinutes() > 0{
+                timeUntilEnd = timeDiff.durationText()
+            }
+            timeLeftLabel.text = "Time Until End:  \(timeUntilEnd)"
+        }
+        //EMPTY
+        else if currentBlock.status == "nil"{
+            containerView.isHidden = true
+            print("Current Block is empty")
+        }
+        else{
+            print("Unexpected Status in updateUIState", currentBlock.status)
+        }
+    }
+    
+    @IBAction func startEnd(_ sender: UIButton) {
+        //starts timer or completes timer for current block
+        //called by button on HomeViewController UI
+        let buttonTitle = sender.title(for: .normal)
+        let currentBlock = current_schedule.nextBlock()
+        guard currentBlock != Block.empty else {return}
+        if buttonTitle == "Start"{
+            //setup here for start of block
+            self.startEndButton.setTitle("End", for: .normal)
+            //set start time of block to current time
+            self.current_schedule.changeTime(block: currentBlock, time: currentTime)
+            //adjust rest of start time of the rest of the blocks if needed
+            //change status to "didStart"
+            self.current_schedule.changeStatus(block: currentBlock, status: "didStart")
+            self.current_schedule.save()
+            //Make call to updateUIState
+            updateUIState()
+            blockTableView.reloadData()
+            //schedule notification for block end
+            //
+            return
+        }
+        else if buttonTitle == "End"{
+            //procedure when block is ended early
+            self.startEndButton.setTitle("Start", for: .normal)
+            //save time spent, completed duration, stats here
+            //change block status to completed - temporary
+            self.current_schedule.changeStatus(block: currentBlock, status: "completed")
+            current_schedule.save()
+            startNextBlock()
+            return
+        }
+        
     }
     
     func changeBlockStatus(){
@@ -166,11 +250,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.durationLabel.text = repr_block.duration.durationText()
         
         //IMPLEMENT SOME LOGIC HERE TO DIFFERENTIATE CELLS BY STATUS
-        cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.tophalf.fill")
+        if repr_block.status == "notStarted"{
+            cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.tophalf.fill")
+            cell.layer.borderColor = UIColor.clear.cgColor
+        }
+        else if repr_block.status == "willStart"{
+            cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.tophalf.fill")
+            cell.layer.borderColor = UIColor.yellow.cgColor
+        }
+        else if repr_block.status == "didStart"{
+            cell.statusIndicatorImage.image = UIImage(systemName: "hourglass")
+            cell.layer.borderColor = UIColor.green.cgColor
+        }
+        else if repr_block.status == "completed"{
+            cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.bottomhalf.fill")
+            cell.layer.borderColor = UIColor.blue.cgColor
+        }
         
         //Minor UI Enhancements
         cell.layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
-        cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.cornerRadius = 8.0
         cell.layer.borderWidth = 4.0
         return cell

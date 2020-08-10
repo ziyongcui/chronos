@@ -215,7 +215,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass.tophalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-8t-xPN">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass.bottomhalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-8t-xPN">
                                                     <rect key="frame" x="314" y="29" width="30" height="27.5"/>
                                                     <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -312,6 +312,9 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="startEnd:" destination="fnv-S3-asq" eventType="touchUpInside" id="ANA-5W-umH"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IdX-yh-oBH">
                                         <rect key="frame" x="0.0" y="20.5" width="166.5" height="62"/>
@@ -1156,7 +1159,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar.circle" catalog="system" width="128" height="121"/>
         <image name="f.square" catalog="system" width="128" height="114"/>
-        <image name="hourglass.tophalf.fill" catalog="system" width="109" height="128"/>
+        <image name="hourglass.bottomhalf.fill" catalog="system" width="109" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="m.square" catalog="system" width="128" height="114"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>
