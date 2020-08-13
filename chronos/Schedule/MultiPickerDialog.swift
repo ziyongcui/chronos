@@ -214,16 +214,17 @@ class MultiPickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
         //Title
         self.titleLabel = UILabel(frame: CGRect.init(x: 10, y: 10, width: 280, height: 30))
         self.titleLabel.textAlignment = NSTextAlignment.center
-        self.titleLabel.textColor = UIColor(hex: 0x333333)
+        self.titleLabel.textColor = UIColor.label
         self.titleLabel.font = UIFont(name: "AvenirNext-Medium", size: 18)
         dialogContainer.addSubview(self.titleLabel)
         
         self.picker = UITableView(frame: CGRect.init(x: 0, y: 30, width: 10, height: 10))
-        //self.picker.setValue(UIColor(hex: 0x333333), forKeyPath: "textColor")
+        //self.picker.setValue(UIColor.black, forKeyPath: "textColor")
         self.picker.autoresizingMask = UIView.AutoresizingMask.flexibleRightMargin
         self.picker.frame.size.width = 300
         self.picker.frame.size.height = 200
         self.picker.backgroundColor = UIColor.clear
+        
         dialogContainer.addSubview(self.picker)
         
         // Add the buttons
@@ -241,8 +242,8 @@ class MultiPickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
         
         
         
-        self.cancelButton.setTitleColor(UIColor(hex: 0x555555), for: .normal)
-        self.cancelButton.setTitleColor(UIColor(hex: 0x555555), for: .highlighted)
+        self.cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        self.cancelButton.setTitleColor(UIColor.systemBlue, for: .highlighted)
         self.cancelButton.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 15)
         self.cancelButton.layer.cornerRadius = kPickerDialogCornerRadius
         self.cancelButton.addTarget(self, action: #selector(MultiPickerDialog.buttonTapped(sender:)), for: UIControl.Event.touchUpInside)
@@ -253,8 +254,8 @@ class MultiPickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
         
         
         self.doneButton.tag = kPickerDialogDoneButtonTag
-        self.doneButton.setTitleColor(UIColor(hex: 0x555555), for: .normal)
-        self.doneButton.setTitleColor(UIColor(hex: 0x555555), for: .highlighted)
+        self.doneButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        self.doneButton.setTitleColor(UIColor.systemBlue, for: .highlighted)
         self.doneButton.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 15)
         self.doneButton.layer.cornerRadius = kPickerDialogCornerRadius
         self.doneButton.addTarget(self, action: #selector(MultiPickerDialog.buttonTapped(sender:)), for: .touchUpInside)

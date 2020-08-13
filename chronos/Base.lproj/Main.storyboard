@@ -59,9 +59,6 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-f6-QFX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </textAttributes>
                                 <items>
                                     <navigationItem title="New Block" id="kso-0X-XaJ">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="njl-Qn-pT2">
