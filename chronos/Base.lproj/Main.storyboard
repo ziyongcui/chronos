@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -118,7 +118,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="c9e-ck-cEV" firstAttribute="leading" secondItem="5Gy-zN-h08" secondAttribute="leading" constant="15" id="4yh-eG-SWF"/>
                             <constraint firstItem="C7c-f6-QFX" firstAttribute="top" secondItem="bih-Ez-fRb" secondAttribute="top" id="6hM-RA-BRA"/>
@@ -852,7 +852,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0ju-I7-t8c" firstAttribute="leading" secondItem="AhW-j1-PRx" secondAttribute="leading" constant="15" id="6bk-6q-Z0S"/>
                             <constraint firstItem="l7R-rH-DZV" firstAttribute="leading" secondItem="gGi-Hf-9ch" secondAttribute="leading" id="Kqe-h0-lgo"/>

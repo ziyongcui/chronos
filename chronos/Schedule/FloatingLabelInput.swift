@@ -29,7 +29,7 @@ class FloatingLabelInput: UITextField {
     var activeBorderColor: UIColor = UIColor.blue
     
     @IBInspectable
-    var floatingLabelBackground: UIColor = UIColor.white.withAlphaComponent(1) {
+    var floatingLabelBackground: UIColor = UIColor.clear{
         didSet {
             self.floatingLabel.backgroundColor = self.floatingLabelBackground
             self.setNeedsDisplay()
@@ -46,7 +46,7 @@ class FloatingLabelInput: UITextField {
     }
     
     @IBInspectable
-    var _backgroundColor: UIColor = UIColor.white {
+    var _backgroundColor: UIColor = UIColor.clear {
         didSet {
             self.layer.backgroundColor = self._backgroundColor.cgColor
         }
@@ -69,7 +69,7 @@ class FloatingLabelInput: UITextField {
             self.floatingLabel.textColor = floatingLabelColor
             self.floatingLabel.font = floatingLabelFont
             self.floatingLabel.text = self._placeholder
-            self.floatingLabel.layer.backgroundColor = UIColor.white.cgColor
+            self.floatingLabel.layer.backgroundColor = UIColor.clear.cgColor
             self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
             self.floatingLabel.clipsToBounds = true
             self.floatingLabel.frame = CGRect(x: 0, y: 0, width: floatingLabel.frame.width+4, height: floatingLabel.frame.height+2)
