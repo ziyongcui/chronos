@@ -190,9 +190,9 @@ class SinglePickerDialog: UIView, UITableViewDelegate, UITableViewDataSource {
         // First, we style the dialog to match the iOS8 UIAlertView >>>
         let gradient: CAGradientLayer = CAGradientLayer(layer: self.layer)
         gradient.frame = dialogContainer.bounds
-        gradient.colors = [UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor,
-                           UIColor(red: 233/255, green: 233/255, blue: 233/255, alpha: 1).cgColor,
-                           UIColor(red: 218/255, green: 218/255, blue: 218/255, alpha: 1).cgColor]
+        gradient.colors = [UIColor.secondarySystemBackground.withAlphaComponent(1).cgColor,
+        UIColor.tertiarySystemBackground.withAlphaComponent(1).cgColor,
+        UIColor.secondarySystemBackground.withAlphaComponent(1).cgColor]
         
         let cornerRadius = kPickerDialogCornerRadius
         gradient.cornerRadius = cornerRadius
