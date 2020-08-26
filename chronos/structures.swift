@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 let propertyListEncoder = PropertyListEncoder()
 let propertyListDecoder = PropertyListDecoder()
 
@@ -29,6 +30,35 @@ struct Block : Codable, Equatable{
     
     func endTime() -> Time{
         return self.time.add(otherTime: self.duration)
+    }
+    
+    func scheduleStartNotif(timeUntil: Time){
+        /* takes in a Time struct representing the time until
+            the block should begin, registers a local notification
+            to remind the user when to begin block
+        */
+        let content = UNMutableNotificationContent()
+        content.title = "Start"
+        content.subtitle = "It is time to begin '\(self.name)'"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (Double(timeUntil.toMinutes())*60)-5, repeats: false)
+        let request = UNNotificationRequest(identifier: "startNotif", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        print("Scheduled a Start Notification")
+    }
+    
+    func scheduleEndNotif(){
+        /* takes in a Time struct representing the time until
+            the block should end, registers a local notification
+            to remind the user when the block is completed
+        */
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Time's Up"
+        content.subtitle = "Time is up for '\(self.name)'."
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (Double(self.duration.toMinutes())*60), repeats: false)
+        let request = UNNotificationRequest(identifier: "endNotif", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        print("Scheduled an End Notification")
     }
     
     static func == (lhs: Block, rhs: Block) -> Bool {

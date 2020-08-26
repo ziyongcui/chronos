@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -47,10 +48,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startClock()
-        updateUIState()
         //UPDATE THE ON SCREEN CLOCK
+        startClock()
         //UPDATE THE VIEWS ACCORDING TO THE TIME
+        updateUIState()
         //OTHER STUFF THAT NEEDS TO BE DYNAMICALLY CHANGED ON VIEW ENTRY
     }
     
@@ -125,10 +126,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         assert(nextBlock.status == "notStarted", "Block has been started")
         if timeDiff < 0{
             //alert that user is behind schedule
+            showAlert(title: "Hmm..", text: "It seems you are a bit behind schedule. Don't worry, just start the next block when you are ready!", actionlabel: "Dismiss")
         }
         else{
             //alert when schedule starts = "We'll notify you when to start this schedule, or you can start now and we can add the extra time in"
+            showAlert(title: "Wow", text: "It seems you have some time before the next block starts. You can start now, or we can notify you when it's time to begin!", actionlabel: "Dismiss")
             //schedule notification for block start
+            nextBlock.scheduleStartNotif(timeUntil: Time(minutes: timeDiff))
         }
         //CHANGES FIRST NON-COMPLETE/NOTSTARTED BLOCK TO WILLSTART
         self.current_schedule.changeStatus(block: nextBlock, status: "willStart")
@@ -198,21 +202,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //Make call to updateUIState
             updateUIState()
             blockTableView.reloadData()
-            //schedule notification for block end
-            //
+            //handle notifications
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["startNotif"])
+            //end notif uses duration of block as the timer
+            currentBlock.scheduleEndNotif()
             return
         }
         else if buttonTitle == "End"{
-            //procedure when block is ended early
+            //check time
+            //show warning if user is ending early
+            //if they confirm, show early end UI
+            //if ending on time, show proper end UI
             self.startEndButton.setTitle("Start", for: .normal)
             //save time spent, completed duration, stats here
             //change block status to completed - temporary
             self.current_schedule.changeStatus(block: currentBlock, status: "completed")
             current_schedule.save()
             startNextBlock()
+            //handle notifications
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["endNotif"])
             return
         }
-        
     }
     
     func changeBlockStatus(){
