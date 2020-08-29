@@ -90,6 +90,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let createdBlock = Block(time: startTime, duration: durationTime, completionDuration: Time.empty, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
+        idealSchedule.blocks = idealSchedule.blocks.sorted(by: {$0.time.toMinutes()<$1.time.toMinutes()})
         idealSchedule.save()
         
         dismiss(animated: true){
