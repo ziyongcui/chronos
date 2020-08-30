@@ -80,7 +80,13 @@ struct IdealSchedule : Codable{
     var days : Array<String>
     var targetDate : Date
     var daysUntilDeadline : Int
-    
+    func delete(indexPath: IndexPath){
+        var decodedSchedules : Array<IdealSchedule> = []
+        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
+            decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+            decodedSchedules.remove(at: indexPath.row)
+    }
+    }
     func save(){
         var decodedSchedules : Array<IdealSchedule> = []
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
@@ -104,6 +110,7 @@ struct IdealSchedule : Codable{
         let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
         try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
+    
     func generateSchedule() -> GeneratedSchedule{
         //input includes data from analysis of previous data
         //reminder: pass ideal schedule with the gen sched - implement later
