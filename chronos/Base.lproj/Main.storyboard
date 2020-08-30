@@ -777,6 +777,7 @@
                         <viewLayoutGuide key="safeArea" id="A7I-6M-XHV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your Ideal Schedules" id="yaf-sv-gTf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gVE-sa-1CM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B05-VP-HdP">
                             <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -947,7 +948,7 @@
                         <viewLayoutGuide key="safeArea" id="uzK-hC-ewQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="SCHEDULE_Name_Here" id="Ggx-eX-qzc">
-                        <barButtonItem key="rightBarButtonItem" title="Add Block" id="HiF-4Z-mIM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HiF-4Z-mIM">
                             <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="59r-Yw-tpu" kind="presentation" identifier="detailToForm" id="rMT-XS-JdV"/>
