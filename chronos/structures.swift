@@ -31,6 +31,13 @@ struct Block : Codable, Equatable{
     func endTime() -> Time{
         return self.time.add(otherTime: self.duration)
     }
+    func delete(indexPath: IndexPath){
+          var decodedBlocks : Array<Block> = []
+          if let retrievedBlocks = try?Data(contentsOf: URLs.currentSchedule){
+              decodedBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
+              decodedBlocks.remove(at: indexPath.row)
+      }
+      }
     
     func scheduleStartNotif(timeUntil: Time){
         /* takes in a Time struct representing the time until

@@ -193,10 +193,10 @@
 		8731AFCD2497D3A8007D6289 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */,
 				E93AAAD424DF0BDC0032ED16 /* FloatingLabelInput.swift */,
 				8731BB4124BD851900167E4F /* MultiPickerDialog.swift */,
 				8731BB4324BE15D700167E4F /* SinglePickerDialog.swift */,
+				8669239B2489901D00D95EC3 /* IdealScheduleViewController.swift */,
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8731AFCE24981685007D6289 /* AddScheduleViewController.swift */,
