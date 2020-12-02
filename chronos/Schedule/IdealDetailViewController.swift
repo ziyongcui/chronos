@@ -52,7 +52,7 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
         cell.titleLabel.text = idealBlocks[indexPath.section].name
         cell.timeLabel.text = idealBlocks[indexPath.section].time.timeText()
         cell.durationLabel.text = idealBlocks[indexPath.section].duration.durationText()
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 0
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
         cell.selectionStyle = .none
@@ -65,12 +65,14 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if editingStyle == .delete {
 
             // remove the item from the data model
-            idealBlocks[indexPath.section].delete(indexPath: indexPath)
+            //idealBlocks[indexPath.section].delete(indexPath: indexPath)
 
             idealBlocks.remove(at: indexPath.row)
                         // delete the table view row
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            idealSchedule.blocks = idealBlocks
+            idealSchedule.save()
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
             
 
         } else if editingStyle == .insert {

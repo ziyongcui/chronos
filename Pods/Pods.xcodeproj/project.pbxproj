@@ -156,13 +156,13 @@
 		277AC125E1A2B6A3A5030CC77B65AE0E /* EntryAppearanceDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntryAppearanceDescriptor.swift; path = Source/MessageViews/MessagesUtils/EntryAppearanceDescriptor.swift; sourceTree = "<group>"; };
 		27BFF9ABC136AB7D609DC9742533C4B7 /* EKStyleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKStyleView.swift; path = Source/Infra/EKStyleView.swift; sourceTree = "<group>"; };
 		2A017AF23305C0BE733BE8CF76D41464 /* Pods-chronos-chronosUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-chronos-chronosUITests-frameworks.sh"; sourceTree = "<group>"; };
-		2A3176879011D83EBCE69038F6B3491A /* QuickLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = QuickLayout.framework; path = QuickLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3176879011D83EBCE69038F6B3491A /* QuickLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30252A5F381B821C39A26239E1F9CB5E /* SwiftEntryKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftEntryKit-umbrella.h"; sourceTree = "<group>"; };
 		333D2D269F4E59038743C06076E454E8 /* SwiftEntryKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftEntryKit-dummy.m"; sourceTree = "<group>"; };
 		35CE7AC38D4DD4D5958348C106C63D27 /* Pods-chronos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-chronos.release.xcconfig"; sourceTree = "<group>"; };
 		39A6FC51531896ADAA6FA2BF73CB486E /* EKButtonBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKButtonBarView.swift; path = Source/MessageViews/MessagesUtils/EKButtonBarView.swift; sourceTree = "<group>"; };
 		3C8CF3789A54929B5E20298FF25FF80A /* EKAttributes+BackgroundStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EKAttributes+BackgroundStyle.swift"; path = "Source/Model/EntryAttributes/EKAttributes+BackgroundStyle.swift"; sourceTree = "<group>"; };
-		406D5BFBE9FC480FE1571C1C15070AE6 /* Pods_chronos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_chronos.framework; path = "Pods-chronos.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		406D5BFBE9FC480FE1571C1C15070AE6 /* Pods_chronos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B8DFD2B4C93A4D70FF6564373FD4C7 /* EKAttributes+WindowLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EKAttributes+WindowLevel.swift"; path = "Source/Model/EntryAttributes/EKAttributes+WindowLevel.swift"; sourceTree = "<group>"; };
 		42D7C6A755E4D2204C1E8DBA70361160 /* QLCompatibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QLCompatibility.swift; path = QuickLayout/QLCompatibility.swift; sourceTree = "<group>"; };
 		46F2E7FD2CD7D97F6F1D070C1147A30B /* EKRootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKRootViewController.swift; path = Source/Infra/EKRootViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		83361E733DB773BA5133CCE715D1A726 /* EKProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKProperty.swift; path = Source/Model/EKProperty.swift; sourceTree = "<group>"; };
 		83EBDDE28C59757B3D63DE7EEE80CF0B /* EKBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKBackgroundView.swift; path = Source/Infra/EKBackgroundView.swift; sourceTree = "<group>"; };
 		85D9F3096A9C19D3CE624F2031A0AC1D /* EKAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKAttributes.swift; path = Source/Model/EntryAttributes/EKAttributes.swift; sourceTree = "<group>"; };
-		873AB9F682CDB4CB3028FC8FDFC15193 /* Pods_chronos_chronosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_chronos_chronosUITests.framework; path = "Pods-chronos-chronosUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		873AB9F682CDB4CB3028FC8FDFC15193 /* Pods_chronos_chronosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronos_chronosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD243B73D84CF95552DF4D7D1E00E31 /* SwiftEntryKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftEntryKit-prefix.pch"; sourceTree = "<group>"; };
 		8DE6096ECB655FCF6E33618513BAD3FC /* EKImageNoteMessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKImageNoteMessageView.swift; path = Source/MessageViews/Notes/EKImageNoteMessageView.swift; sourceTree = "<group>"; };
 		92036F4DF7521F1F641C5B1BF6DFF3BB /* SwiftEntryKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftEntryKit.debug.xcconfig; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 		9A5145804F116F8E3D9B312569AC56DB /* Pods-chronosTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-chronosTests-Info.plist"; sourceTree = "<group>"; };
 		9AC7A0056D6B33D520625581E9D6A81E /* EKButtonView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKButtonView.swift; path = Source/MessageViews/MessagesUtils/EKButtonView.swift; sourceTree = "<group>"; };
 		9B37E4C7372AC4CB09E5119949D9F003 /* EntryCachingHeuristic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntryCachingHeuristic.swift; path = Source/Infra/EntryCachingHeuristic.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC380A4A1E6FCE3A75D34A7AEDEB893 /* EKAccessoryNoteMessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKAccessoryNoteMessageView.swift; path = Source/MessageViews/Notes/EKAccessoryNoteMessageView.swift; sourceTree = "<group>"; };
 		AA366FB6135644508747E1998B44BC7E /* EKMessageContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKMessageContentView.swift; path = Source/MessageViews/EKMessageContentView.swift; sourceTree = "<group>"; };
 		AC09C3128D19BF328018D37A771E148B /* GradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = Source/Utils/GradientView.swift; sourceTree = "<group>"; };
@@ -234,12 +234,12 @@
 		C9AF00501F210D03213F9B6F3B43CCF3 /* EKXStatusBarMessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKXStatusBarMessageView.swift; path = Source/MessageViews/Notes/EKXStatusBarMessageView.swift; sourceTree = "<group>"; };
 		CA86258AA15100C6E061751B65419228 /* EKFormMessageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKFormMessageView.swift; path = Source/MessageViews/EKFormMessageView.swift; sourceTree = "<group>"; };
 		CA97893205A726AB4CB1728A490F00E1 /* EKRatingMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKRatingMessage.swift; path = Source/Model/EKRatingMessage.swift; sourceTree = "<group>"; };
-		CF8831C2891B5A00CB0DCB096ADA3CA9 /* Pods_chronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_chronosTests.framework; path = "Pods-chronosTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8831C2891B5A00CB0DCB096ADA3CA9 /* Pods_chronosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B6CA9B2BF15BEF13987A84FDC37160 /* QuickLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E8815D65D588A97C691CC187F9DC13 /* EKAttributes+PositionConstraints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "EKAttributes+PositionConstraints.swift"; path = "Source/Model/EntryAttributes/EKAttributes+PositionConstraints.swift"; sourceTree = "<group>"; };
 		D8E3715158AC07F0C235900AEB553A80 /* EKTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKTextField.swift; path = Source/MessageViews/MessagesUtils/EKTextField.swift; sourceTree = "<group>"; };
 		D9F6BFC3625A566C0C24E5EBE71CBB54 /* SwiftEntryKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftEntryKit.modulemap; sourceTree = "<group>"; };
-		DA5F7E5AA5A762E4504855EAF3216C8A /* SwiftEntryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftEntryKit.framework; path = SwiftEntryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5F7E5AA5A762E4504855EAF3216C8A /* SwiftEntryKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftEntryKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F3A5031FEFFA4CFA125DA825E4F53 /* UIViewArray+QuickLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewArray+QuickLayout.swift"; path = "QuickLayout/UIViewArray+QuickLayout.swift"; sourceTree = "<group>"; };
 		DD9724A4A15E0D5D69E9F395AE836E6A /* QuickLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QuickLayout-dummy.m"; sourceTree = "<group>"; };
 		DF6FBD08D3B191EA246E5DB744984712 /* EKAlertMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EKAlertMessage.swift; path = Source/Model/EKAlertMessage.swift; sourceTree = "<group>"; };
@@ -462,7 +462,6 @@
 				549C2002F2B3AF312B9B7FE27CE3A798 /* UIView+Utils.swift */,
 				8B146649A99632A28430B47137764ADD /* Support Files */,
 			);
-			name = SwiftEntryKit;
 			path = SwiftEntryKit;
 			sourceTree = "<group>";
 		};
@@ -506,7 +505,6 @@
 				DB6F3A5031FEFFA4CFA125DA825E4F53 /* UIViewArray+QuickLayout.swift */,
 				86349D620BE0FE07F3C748E166D91C33 /* Support Files */,
 			);
-			name = QuickLayout;
 			path = QuickLayout;
 			sourceTree = "<group>";
 		};
@@ -680,7 +678,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -909,7 +907,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftEntryKit/SwiftEntryKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftEntryKit/SwiftEntryKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -954,6 +952,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1119,7 +1118,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/QuickLayout/QuickLayout-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/QuickLayout/QuickLayout-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1154,7 +1153,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/QuickLayout/QuickLayout-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/QuickLayout/QuickLayout-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1268,7 +1267,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftEntryKit/SwiftEntryKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftEntryKit/SwiftEntryKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1352,6 +1351,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

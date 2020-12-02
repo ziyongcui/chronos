@@ -32,12 +32,16 @@ struct Block : Codable, Equatable{
         return self.time.add(otherTime: self.duration)
     }
     func delete(indexPath: IndexPath){
-          var decodedBlocks : Array<Block> = []
-          if let retrievedBlocks = try?Data(contentsOf: URLs.currentSchedule){
-              decodedBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
-              decodedBlocks.remove(at: indexPath.row)
+            
+        var decodedBlocks : Array<Block> = []
+        if let retrievedBlocks = try?Data(contentsOf: URLs.currentSchedule){
+            decodedBlocks = try!propertyListDecoder.decode(Array<Block>.self, from: retrievedBlocks)
+            decodedBlocks.remove(at: indexPath.row)
+            
+            let encodedSchedules = try?propertyListEncoder.encode(decodedBlocks)
+            try?encodedSchedules?.write(to: URLs.currentSchedule)
       }
-      }
+    }
     
     func scheduleStartNotif(timeUntil: Time){
         /* takes in a Time struct representing the time until
@@ -92,6 +96,9 @@ struct IdealSchedule : Codable{
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
             decodedSchedules.remove(at: indexPath.row)
+            
+            let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
+            try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
     }
     func save(){
@@ -100,20 +107,30 @@ struct IdealSchedule : Codable{
             decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
             //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
             var didReplace : Bool = false
-            for i in 0...(decodedSchedules.count-1){
-                if decodedSchedules[i].name == self.name{
-                    decodedSchedules[i] = self
-                    didReplace = true
-                }
-            }
-            if !didReplace{
+            
+            if(decodedSchedules.count-1 <= 0)
+            {
                 decodedSchedules.append(self)
             }
-        }
-        else{
-            //a list of decodedSchedules does not exist yet
-            decodedSchedules.append(self)
-        }
+            else
+            {
+                    for i in 0...(decodedSchedules.count-1){
+                        print(i)
+                        if decodedSchedules[i].name == self.name{
+                            decodedSchedules[i] = self
+                            didReplace = true
+                        }
+                    }
+                    if !didReplace{
+                        decodedSchedules.append(self)
+                    }
+                }
+                
+                    //a list of decodedSchedules does not exist yet
+            
+                
+            }
+            
         let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
         try?encodedSchedules?.write(to: URLs.idealSchedules)
     }

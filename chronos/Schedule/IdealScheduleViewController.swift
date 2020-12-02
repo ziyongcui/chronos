@@ -66,7 +66,8 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         cell.titleLabel.text = idealSchedules[indexPath.section].name
         
         //some small UI enhancing
-        cell.layer.cornerRadius = 10
+    
+        cell.layer.cornerRadius = 0
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 1
         cell.selectionStyle = .none
@@ -82,15 +83,18 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-
+            
             // remove the item from the data model
             idealSchedules[indexPath.section].delete(indexPath: indexPath)
 
-            idealSchedules.remove(at: indexPath.row)
+            
                         // delete the table view row
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
+            print(idealSchedules)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            idealSchedules.remove(at: indexPath.row)
+            print(idealSchedules)
+            tableView.reloadData()
+            //tableView.deleteRows(at: [indexPath], with: .fade)
 
         } else if editingStyle == .insert {
             // Not used in our example, but if you were adding a new row, this is where you would do it.
