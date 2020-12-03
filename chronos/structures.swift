@@ -108,7 +108,7 @@ struct IdealSchedule : Codable{
             //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
             var didReplace : Bool = false
             
-            if(decodedSchedules.count-1 <= 0)
+            if(decodedSchedules.count-1 < 0)
             {
                 decodedSchedules.append(self)
             }

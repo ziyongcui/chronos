@@ -721,7 +721,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Ideal Schedules" id="yaf-sv-gTf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gVE-sa-1CM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B05-VP-HdP">
                             <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
