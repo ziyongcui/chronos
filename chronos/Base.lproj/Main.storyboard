@@ -173,7 +173,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-Dv-gOh">
                                 <rect key="frame" x="25" y="145" width="364" height="497"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blocks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSv-Xd-Un3">
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSv-Xd-Un3">
                                     <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -769,6 +769,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="blockOtherMethods:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="417-Gz-Ub9"/>
+                                            <action selector="enableOtherMethods:" destination="kSs-mR-TwG" eventType="editingDidEnd" id="a6U-o1-xJx"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weekdays" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kJ-av-vsF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="69" width="384" height="21"/>

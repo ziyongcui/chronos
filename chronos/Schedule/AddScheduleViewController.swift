@@ -20,7 +20,22 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    @IBAction func blockOtherMethods(_ sender: Any) {
+        
+            days.isEnabled = false
+            day.isEnabled = false
+        
+       
+    }
+    @IBAction func enableOtherMethods(_ sender: Any) {
+        
+            days.isEnabled = true
+            day.isEnabled = true
+        
+       
+    }
     @IBAction func showOptionsActionDays(_ sender: Any) {
+       
         let pickerData : [[String:String]] = [
             [
                 "value": "1",
@@ -65,7 +80,7 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
             
         ]
         
-        
+       
         
         SinglePickerDialog().show(title: "Pick Days",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
             values -> Void in
@@ -112,7 +127,6 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-        
         MultiPickerDialog().show(title: "Pick Day",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
             values -> Void in
             print("callBack \(values)")
@@ -132,12 +146,20 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
 
+        view.addGestureRecognizer(tap)
+        
+            
+        
+        //if isEditing == true {}
+        
        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
        //tap.cancelsTouchesInView = false
 
-       view.addGestureRecognizer(tap)
+       //view.addGestureRecognizer(tap)
     }
     
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
