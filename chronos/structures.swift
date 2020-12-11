@@ -285,6 +285,7 @@ struct Time : Codable, Equatable{
     func toMinutes() -> Int{
         return self.minute + 60*self.hour
     }
+    
 }
 
 

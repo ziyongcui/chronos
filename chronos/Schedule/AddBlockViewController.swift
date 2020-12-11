@@ -87,6 +87,27 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let durationTime = Time(minute: minuteDuration, hour: hourDuration)
         let startTime = Time(minute: minuteTime, hour: hourTime)
         //saving block
+        //checks if the start time or end time coincides with any other blocks
+        let newStart = startTime.toMinutes()
+        let newMiddle = startTime.toMinutes() + (durationTime.toMinutes()/2)
+        let newEnd = startTime.toMinutes() + durationTime.toMinutes()
+        var doesNotConflict = true
+        for block in idealSchedule.blocks
+        {
+            let blockStart = block.time.toMinutes()
+            let blockEnd = block.time.toMinutes() + block.duration.toMinutes()
+            if newStart >= blockStart && newStart <= blockEnd || newMiddle >= blockStart &&
+                newMiddle <= blockEnd || newEnd >= blockStart &&
+                newEnd <= blockEnd
+            {
+              doesNotConflict = false
+            }
+        }
+        guard doesNotConflict else {
+            print("new block conflicts with pre existing blocks")
+            showAlert(title: "Hmm..", text: "It seems your new block conflicts with pre-existing blocks. Don't worry, just change your start time or duration.", actionlabel: "Dismiss")
+            return
+        }
         let createdBlock = Block(time: startTime, duration: durationTime, completionDuration: Time.empty, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
@@ -246,6 +267,13 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
           view.endEditing(true)
     }
 
+    func showAlert(title: String , text: String, actionlabel: String) {
+        let alert = UIAlertController(title: title, message: text,  preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: actionlabel , style: UIAlertAction.Style.default, handler: { _ in
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     
     /*
