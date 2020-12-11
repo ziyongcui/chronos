@@ -214,6 +214,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //if they confirm, show early end UI
             //if ending on time, show proper end UI
             self.startEndButton.setTitle("Start", for: .normal)
+            //set duration of block to time spent working
+            self.current_schedule.changeDuration(block: currentBlock, duration: currentBlock.time.timeUntil(otherTime: currentTime) )
+            //Make call to updateUIState
+            updateUIState()
+            blockTableView.reloadData()
             //save time spent, completed duration, stats here
             //change block status to completed - temporary
             self.current_schedule.changeStatus(block: currentBlock, status: "completed")

@@ -188,6 +188,11 @@ struct GeneratedSchedule : Codable{
         let replaceIndex = self.blocks.firstIndex(of: block)
         self.blocks[replaceIndex!].time = time
     }
+    mutating func changeDuration(block: Block, duration: Time){
+        //changes duration spent on block
+        let replaceIndex = self.blocks.firstIndex(of: block)
+        self.blocks[replaceIndex!].duration = duration
+    }
 }
 
 //MARK:- USER DATA
