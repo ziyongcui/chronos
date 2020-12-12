@@ -63,11 +63,11 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-
+            print(indexPath.section)
             // remove the item from the data model
             //idealBlocks[indexPath.section].delete(indexPath: indexPath)
 
-            idealBlocks.remove(at: indexPath.row)
+            idealBlocks.remove(at: indexPath.section)
                         // delete the table view row
             idealSchedule.blocks = idealBlocks
             idealSchedule.save()

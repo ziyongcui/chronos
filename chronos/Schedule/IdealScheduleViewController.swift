@@ -91,7 +91,7 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
                         // delete the table view row
             print(idealSchedules)
             //tableView.deleteRows(at: [indexPath], with: .fade)
-            idealSchedules.remove(at: indexPath.row)
+            idealSchedules.remove(at: indexPath.section)
             print(idealSchedules)
             tableView.reloadData()
             //tableView.deleteRows(at: [indexPath], with: .fade)

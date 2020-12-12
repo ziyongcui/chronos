@@ -103,6 +103,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
               doesNotConflict = false
             }
         }
+        
         guard doesNotConflict else {
             print("new block conflicts with pre existing blocks")
             showAlert(title: "Hmm..", text: "It seems your new block conflicts with pre-existing blocks. Don't worry, just change your start time or duration.", actionlabel: "Dismiss")
