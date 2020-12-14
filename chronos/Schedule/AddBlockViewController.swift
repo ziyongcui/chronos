@@ -89,16 +89,15 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //saving block
         //checks if the start time or end time coincides with any other blocks
         let newStart = startTime.toMinutes()
-        let newMiddle = startTime.toMinutes() + (durationTime.toMinutes()/2)
-        let newEnd = startTime.toMinutes() + durationTime.toMinutes()
+                let newEnd = startTime.toMinutes() + durationTime.toMinutes()
         var doesNotConflict = true
         for block in idealSchedule.blocks
         {
             let blockStart = block.time.toMinutes()
             let blockEnd = block.time.toMinutes() + block.duration.toMinutes()
-            if newStart >= blockStart && newStart <= blockEnd || newMiddle >= blockStart &&
-                newMiddle <= blockEnd || newEnd >= blockStart &&
-                newEnd <= blockEnd
+            if (newStart >= blockStart && newStart <= blockEnd) || (newEnd >= blockStart &&
+                newEnd <= blockEnd) || (blockStart >= newStart && blockStart <= newEnd) || (blockEnd >= newStart &&
+                blockEnd <= newEnd)
             {
               doesNotConflict = false
             }

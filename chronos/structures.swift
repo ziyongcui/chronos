@@ -78,9 +78,40 @@ struct Block : Codable, Equatable{
             lhs.priority == rhs.priority &&
             lhs.status == rhs.status
     }
+    
+
 }
 
-
+struct DoubleBlock : Codable, Comparable{
+    static func > (lhs: DoubleBlock, rhs: DoubleBlock) -> Bool {
+      if lhs.priority > rhs.priority{
+        return true
+      }
+      else{
+        return false
+      }
+    }
+    static func < (lhs: DoubleBlock, rhs: DoubleBlock) -> Bool {
+      if lhs.priority < rhs.priority{
+        return true
+      }
+      else{
+        return false
+      }
+    }
+    //time and duration in minutes
+    var time : Double //c
+    // var completedTime: Int //not sure if we need this
+    var duration : Double // c
+    // var completionDuration : Int
+    //
+    var name : String
+    var rigid : Bool
+    var priority : Double
+    //
+    // //status = "completed", "failed", "postponed", "not attempted" etc.
+    var status : String
+}
 
 //MARK:- IDEAL SCHEDULE
 struct IdealSchedule : Codable{
@@ -165,6 +196,9 @@ struct GeneratedSchedule : Codable{
         try?encodedSchedule?.write(to: URLs.currentSchedule)
         //print("current schedule saved")
     }
+    mutating func empty(){
+        self.blocks = []
+    }
     func log(){
         //function adds the generatedSchedule to Array<generatedSchedule>
         //saves the array for analytics purposes
@@ -194,6 +228,12 @@ struct GeneratedSchedule : Codable{
         self.blocks[replaceIndex!].duration = duration
     }
 }
+//MARK:- GENERATED SCHEDULE
+struct Window {
+    var start : Double
+    var end : Double
+}
+
 
 //MARK:- USER DATA
 struct User : Codable{

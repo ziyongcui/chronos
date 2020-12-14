@@ -38,6 +38,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
         }
         
+        
         //set current_schedule
         blockTableView.delegate = self
         blockTableView.dataSource = self
@@ -67,6 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //load schedule UI
         let retrievedSchedule = try!Data(contentsOf: URLs.currentSchedule)
         self.current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
+        updateSchedule()
         blockTableView.reloadData()
         
         //request notifications auth
@@ -116,13 +118,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let nextBlock = self.current_schedule.nextBlock()
         let timeDiff = currentTime.timeUntil(otherTime: nextBlock.time).toMinutes()
         //Ensure that block should be "started"
-        guard nextBlock != Block.empty else {
+        guard nextBlock != Block.empty  else {
             //condition fails if schedule reaches end
             //handle here
             //alert user that schedule is completed
             updateUIState()
             return
         }
+        if nextBlock.status != "missed rigid task" || nextBlock.status != "notCompleted" {
+            updateUIState()
+            return
+        }
+        print(nextBlock.status)
         assert(nextBlock.status == "notStarted", "Block has been started")
         if timeDiff < 0{
             //alert that user is behind schedule
@@ -175,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             timeLeftLabel.text = "Time Until End:  \(timeUntilEnd)"
         }
         //EMPTY
-        else if currentBlock.status == "nil"{
+        else if currentBlock.status == "nil" || currentBlock.status == "missed rigid task" || currentBlock.status == "notCompleted"{
             containerView.isHidden = true
             print("Current Block is empty")
         }
@@ -233,12 +240,146 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func changeBlockStatus(){
         //NOT YET IMPLEMENTED - CALLS UI TO UPDATE BLOCK STATUS
     }
-    
+    //MARK: Algorithm Implementation
+    var schedule: Array<DoubleBlock> = []
     func updateSchedule(){
         //UPDATES the view and adjust blocks etc. based on time
         //Called when a block is completed/time expired and when view appears
+        var doubleTime: Double
+        var doubleDuration: Double
+        var currentDoubleTime: Double
+        schedule = []
+        for block in current_schedule.blocks {
+            doubleTime = Double(block.time.toMinutes()/60) + (Double(block.time.toMinutes()%60)/60)
+            doubleDuration = Double(block.duration.toMinutes()/60) + (Double(block.duration.toMinutes()%60)/60)
+            doubleTime = doubleTime.truncate()
+            doubleDuration = doubleDuration.truncate()
+            schedule.append(DoubleBlock(time: doubleTime, duration: doubleDuration, name: block.name, rigid: block.rigid, priority: Double(block.priority), status: block.status))
+        }
+        currentDoubleTime = Double(currentTime.toMinutes()/60) + (Double(currentTime.toMinutes()%60)/60)
+        calcTime(currentTime: currentDoubleTime)
+        var windows = [Window(start: currentDoubleTime, end: 24)]
+        
+        for index in schedule.indices {
+          if schedule[index].status != "completed" && schedule[index].rigid {
+            let rigid_block = schedule[index]
+
+            var missed = true
+
+            for window_idx in windows.indices{
+              if(blockInWindow(block: rigid_block, window: windows[window_idx])){
+                // remove the window that already existed, replace it with new windows
+                let new_later_part_window = Window(start: rigid_block.time + rigid_block.duration, end: windows[window_idx].end)
+                windows.insert(new_later_part_window, at: window_idx+1)
+                windows[window_idx].end = rigid_block.time
+                schedule[index].status = "completed"
+
+                missed = false
+                break
+              }
+            }
+
+            if(missed){
+              print("SAD, you misseed a rigid task. here is the task:")
+              print(schedule[index].name)
+            showAlert(title: "Sad", text: "It seems you have misseed a rigid task. here is the task: \(schedule[index].name)", actionlabel: "Dismiss")
+              schedule[index].status = "missed rigid task"
+            }
+
+          }
+        }
+        // non_rigid_tasks.sort(by: getPriority)
+        // sort non-rigid tasks by priority...
+
+        schedule.sort(by: >)
+
+        for index in schedule.indices {
+          if schedule[index].status != "completed" && !schedule[index].rigid {
+
+            var scheduled = false
+
+            for window_idx in windows.indices{
+              if(blockFitsInWindow(block: schedule[index], window: windows[window_idx])){
+                // remove the window that already existed, replace it with new windows
+                // update start time
+                schedule[index].time = windows[window_idx].start
+                schedule[index].status = "completed"
+                windows[window_idx].start += schedule[index].duration
+
+                scheduled = true
+                break
+              }
+            }
+
+            if(!scheduled){
+              print("SAD, wasn't able to fit a task into your day. here is the task:")
+              print(schedule[index].name)
+
+              schedule[index].status = "notCompleted"
+            }
+
+          }
+        }
+
+        print(schedule)
+        current_schedule.empty()
+        var scheduleBlock: Block
+        var totalTime: Int
+        var totalDuration: Int
+        for doubleBlock in schedule {
+            totalTime = Int(doubleBlock.time*60)
+            if(doubleBlock.time.truncatingRemainder(dividingBy: 1) != 0){
+                totalTime+=1
+            }
+            totalDuration = Int(doubleBlock.duration*60)
+            if(doubleBlock.duration.truncatingRemainder(dividingBy: 1) != 0){
+                totalDuration-=1
+            }
+            scheduleBlock = Block(time: Time(minute: totalTime%60, hour: totalTime/60), duration: Time(minute: totalDuration%60, hour: totalDuration/60), completionDuration: Time.empty, name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
+            current_schedule.blocks.append(scheduleBlock)
+        
+        }
+        current_schedule.save()
     }
-    
+    func calcTime(currentTime: Double) {
+      // print(schedule) //  prints the original schedule for comparison
+      // calculates the total amount of time left to spend on activies that are not rigid
+      var timeLeft = 24.0 - currentTime
+      for index in schedule.indices{
+        if schedule[index].status != "completed" && schedule[index].rigid == true{
+          timeLeft = timeLeft - schedule[index].duration
+        }
+      }
+
+      var totalTime = 0.0 // original sum of the non-rigid activity times
+      var totalPriority = 0.0 // sum of the non-rigid priority values
+      // var indexOfFirst = 100 // index of the first "yet to be done" element of schedule
+      var counter = 0.0 //  # of "yet to be done" non-rigid activities
+      for index in schedule.indices{
+        if schedule[index].status != "completed" && schedule[index].rigid == false{
+          totalTime = totalTime + schedule[index].duration // sums the original durations
+          totalPriority = totalPriority + schedule[index].priority
+          counter = counter + 1.0
+        }
+      }
+      for index in schedule.indices{
+        if schedule[index].status != "completed" && schedule[index].rigid == false{
+           schedule[index].duration = (schedule[index].duration * timeLeft / totalTime) * (schedule[index].priority * counter / totalPriority) // caculates the new durations
+           schedule[index].duration = schedule[index].duration.truncate()
+        }
+      }
+    }
+    func blockInWindow(block:DoubleBlock , window: Window) -> Bool{
+      return block.time >= window.start && block.time + block.duration <= window.end
+    }
+
+    func blockFitsInWindow(block:DoubleBlock , window: Window) -> Bool{
+      return block.duration <= window.end - window.start
+    }
+    func getPriority(block : DoubleBlock) -> Double{
+      return block.priority;
+    }
+  
     func showAlert(title: String , text: String, actionlabel: String) {
         let alert = UIAlertController(title: title, message: text,  preferredStyle: UIAlertController.Style.alert)
         
@@ -292,7 +433,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 90
     }
     
-
+   
     /*
     // MARK: - Navigation
 
@@ -303,4 +444,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
     
+}
+// MARK: - Algorithm Extensions
+extension Double
+{
+    func truncate()-> Double
+    {
+        return Double(floor(pow(10.0, Double(2)) * self)/pow(10.0, Double(2)))
+    }
+}
+
+
+extension StringProtocol {
+    func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.lowerBound
+    }
+    func endIndex<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
+        range(of: string, options: options)?.upperBound
+    }
+    func indices<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Index] {
+        var indices: [Index] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                indices.append(range.lowerBound)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return indices
+    }
+    func ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var startIndex = self.startIndex
+        while startIndex < endIndex,
+            let range = self[startIndex...]
+                .range(of: string, options: options) {
+                result.append(range)
+                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
 }
