@@ -125,19 +125,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             updateUIState()
             return
         }
-        if nextBlock.status != "missed rigid task" || nextBlock.status != "notCompleted" {
+        if nextBlock.status == "missed rigid task" {
             updateUIState()
             return
         }
         print(nextBlock.status)
-        assert(nextBlock.status == "notStarted", "Block has been started")
+        assert(nextBlock.status == "notStarted" || nextBlock.status == "notCompleted", "Block has been started")
         if timeDiff < 0{
             //alert that user is behind schedule
             showAlert(title: "Hmm..", text: "It seems you are a bit behind schedule. Don't worry, just start the next block when you are ready!", actionlabel: "Dismiss")
         }
         else{
             //alert when schedule starts = "We'll notify you when to start this schedule, or you can start now and we can add the extra time in"
-            showAlert(title: "Wow", text: "It seems you have some time before the next block starts. You can start now, or we can notify you when it's time to begin!", actionlabel: "Dismiss")
+            showAlert(title: "Hey", text: "It seems you have some time before the next block starts. You can start now, or we can notify you when it's time to begin!", actionlabel: "Dismiss")
             //schedule notification for block start
             nextBlock.scheduleStartNotif(timeUntil: Time(minutes: timeDiff))
         }
@@ -154,7 +154,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         containerView.isHidden = false
         nameLabel.text = "Current Task:  \(currentBlock.name)"
         //WillStart
-        if currentBlock.status == "willStart"{
+        if currentBlock.status == "willStart"  || currentBlock.status == "notCompleted"{
             startEndButton.setTitle("Start", for: .normal)
             startTimeLabel.text = "Start Time:  \(currentBlock.time.timeText())"
             var timeUntilStart = "0 min"
@@ -182,7 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             timeLeftLabel.text = "Time Until End:  \(timeUntilEnd)"
         }
         //EMPTY
-        else if currentBlock.status == "nil" || currentBlock.status == "missed rigid task" || currentBlock.status == "notCompleted"{
+        else if currentBlock.status == "nil" || currentBlock.status == "missed rigid task"{
             containerView.isHidden = true
             print("Current Block is empty")
         }
@@ -272,7 +272,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let new_later_part_window = Window(start: rigid_block.time + rigid_block.duration, end: windows[window_idx].end)
                 windows.insert(new_later_part_window, at: window_idx+1)
                 windows[window_idx].end = rigid_block.time
-                schedule[index].status = "completed"
+                schedule[index].status = "notCompleted"
 
                 missed = false
                 break
@@ -303,7 +303,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // remove the window that already existed, replace it with new windows
                 // update start time
                 schedule[index].time = windows[window_idx].start
-                schedule[index].status = "completed"
+                schedule[index].status = "notCompleted"
                 windows[window_idx].start += schedule[index].duration
 
                 scheduled = true
@@ -315,7 +315,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
               print("SAD, wasn't able to fit a task into your day. here is the task:")
               print(schedule[index].name)
 
-              schedule[index].status = "notCompleted"
+              schedule[index].status = "missed rigid task"
             }
 
           }
@@ -328,17 +328,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var totalDuration: Int
         for doubleBlock in schedule {
             totalTime = Int(doubleBlock.time*60)
-            if(doubleBlock.time.truncatingRemainder(dividingBy: 1) != 0){
-                totalTime+=1
-            }
+            //if(doubleBlock.time.truncatingRemainder(dividingBy: 1) != 0){totalTime+=1}
             totalDuration = Int(doubleBlock.duration*60)
-            if(doubleBlock.duration.truncatingRemainder(dividingBy: 1) != 0){
-                totalDuration-=1
-            }
+            //if(doubleBlock.duration.truncatingRemainder(dividingBy: 1) != 0){totalDuration-=1}
             scheduleBlock = Block(time: Time(minute: totalTime%60, hour: totalTime/60), duration: Time(minute: totalDuration%60, hour: totalDuration/60), completionDuration: Time.empty, name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
             current_schedule.blocks.append(scheduleBlock)
         
         }
+        current_schedule.blocks = current_schedule.blocks.sorted(by: {$0.time.toMinutes()<$1.time.toMinutes()})
         current_schedule.save()
     }
     func calcTime(currentTime: Double) {

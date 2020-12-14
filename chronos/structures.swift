@@ -206,7 +206,7 @@ struct GeneratedSchedule : Codable{
     func nextBlock() -> Block{
         //returns the first block in the list of blocks in which status is not "complete"
         for block in self.blocks{
-            if block.status != "completed"{
+            if block.status != "completed" && block.status != "missed rigid task"{
                 return block
             }
         }
