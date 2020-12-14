@@ -130,7 +130,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         print(nextBlock.status)
-        assert(nextBlock.status == "notStarted" || nextBlock.status == "notCompleted", "Block has been started")
+        assert(nextBlock.status == "notStarted", "Block has been started")
         if timeDiff < 0{
             //alert that user is behind schedule
             showAlert(title: "Hmm..", text: "It seems you are a bit behind schedule. Don't worry, just start the next block when you are ready!", actionlabel: "Dismiss")
@@ -154,7 +154,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         containerView.isHidden = false
         nameLabel.text = "Current Task:  \(currentBlock.name)"
         //WillStart
-        if currentBlock.status == "willStart"  || currentBlock.status == "notCompleted"{
+        if currentBlock.status == "willStart"{
             startEndButton.setTitle("Start", for: .normal)
             startTimeLabel.text = "Start Time:  \(currentBlock.time.timeText())"
             var timeUntilStart = "0 min"
@@ -272,7 +272,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let new_later_part_window = Window(start: rigid_block.time + rigid_block.duration, end: windows[window_idx].end)
                 windows.insert(new_later_part_window, at: window_idx+1)
                 windows[window_idx].end = rigid_block.time
-                schedule[index].status = "notCompleted"
+                schedule[index].status = "notStarted"
 
                 missed = false
                 break
@@ -303,7 +303,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // remove the window that already existed, replace it with new windows
                 // update start time
                 schedule[index].time = windows[window_idx].start
-                schedule[index].status = "notCompleted"
+                schedule[index].status = "notStarted"
                 windows[window_idx].start += schedule[index].duration
 
                 scheduled = true
@@ -413,7 +413,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         else if repr_block.status == "willStart"{
             cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.tophalf.fill")
-            cell.layer.borderColor = UIColor.yellow.cgColor
+            cell.layer.borderColor = UIColor.systemOrange.cgColor
         }
         else if repr_block.status == "didStart"{
             cell.statusIndicatorImage.image = UIImage(systemName: "hourglass")
@@ -422,6 +422,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         else if repr_block.status == "completed"{
             cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.bottomhalf.fill")
             cell.layer.borderColor = UIColor.blue.cgColor
+        }
+        else if repr_block.status == "missed rigid task"{
+            cell.statusIndicatorImage.image = UIImage(systemName: "hourglass.bottomhalf.fill")
+            cell.layer.borderColor = UIColor.red.cgColor
         }
         
         //Minor UI Enhancements
