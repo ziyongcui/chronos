@@ -282,7 +282,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if(missed){
               print("SAD, you misseed a rigid task. here is the task:")
               print(schedule[index].name)
-            showAlert(title: "Sad", text: "It seems you have misseed a rigid task. here is the task: \(schedule[index].name)", actionlabel: "Dismiss")
+              showAlert(title: "Sad", text: "It seems you have misseed a rigid task. here is the task: \(schedule[index].name)", actionlabel: "Dismiss")
               schedule[index].status = "missed rigid task"
             }
 
@@ -345,8 +345,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
       // print(schedule) //  prints the original schedule for comparison
       // calculates the total amount of time left to spend on activies that are not rigid
       var timeLeft = 24.0 - currentTime
+        let tempWindow = Window(start: currentTime, end: 24)
       for index in schedule.indices{
-        if schedule[index].status != "completed" && schedule[index].rigid == true{
+        if schedule[index].status != "completed" && schedule[index].rigid == true && blockFitsInWindow(block: schedule[index], window: tempWindow){
           timeLeft = timeLeft - schedule[index].duration
         }
       }
@@ -362,9 +363,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
           counter = counter + 1.0
         }
       }
+        var maxDuration: Double
       for index in schedule.indices{
         if schedule[index].status != "completed" && schedule[index].rigid == false{
+            maxDuration=schedule[index].duration
            schedule[index].duration = (schedule[index].duration * timeLeft / totalTime) * (schedule[index].priority * counter / totalPriority) // caculates the new durations
+            if maxDuration<schedule[index].duration{schedule[index].duration=maxDuration}
            schedule[index].duration = schedule[index].duration.truncate()
         }
       }
