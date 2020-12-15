@@ -27,7 +27,16 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
         }
-        assert(idealSchedules.count > 0, "Cannot select from no schedules.")
+        if idealSchedules.count==0
+        {
+            let createdSchedule = IdealSchedule(name: "No Schedules Made!", blocks: [], days: [], targetDate: Date(), daysUntilDeadline: 0)
+            createdSchedule.save()
+            if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
+                idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+            }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
+        //assert(idealSchedules.count > 0, "Cannot select from no schedules.")
         //ViewDidLoad CollectionView Setup
         
         //for cell sizing
@@ -51,6 +60,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return idealSchedules.count
     }
     
@@ -66,10 +76,17 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         cell.scheduleDays.text = dayString
-        cell.startLabel.text = "Start time: \(schedule.blocks[0].time.timeText())"
-        let lastBlock = schedule.blocks[schedule.blocks.count-1]
-        let endTime = lastBlock.time.add(otherTime: lastBlock.duration)
-        cell.endLabel.text = "End time: \(endTime.durationText())"
+        if schedule.blocks.count == 0
+        {
+            cell.startLabel.text = ""
+            cell.endLabel.text = ""
+        }
+        else{
+            cell.startLabel.text = "Start time: \(schedule.blocks[0].time.timeText())"
+            let lastBlock = schedule.blocks[schedule.blocks.count-1]
+            let endTime = lastBlock.time.add(otherTime: lastBlock.duration)
+            cell.endLabel.text = "End time: \(endTime.durationText())"
+        }
         cell.layer.backgroundColor = UIColor.green.cgColor
         cell.layer.cornerRadius = 15.0
         if selectedIndex==indexPath.item{

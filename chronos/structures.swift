@@ -48,6 +48,7 @@ struct Block : Codable, Equatable{
             the block should begin, registers a local notification
             to remind the user when to begin block
         */
+        
         let content = UNMutableNotificationContent()
         content.title = "Start"
         content.subtitle = "It is time to begin '\(self.name)'"
@@ -206,7 +207,7 @@ struct GeneratedSchedule : Codable{
     func nextBlock() -> Block{
         //returns the first block in the list of blocks in which status is not "complete"
         for block in self.blocks{
-            if block.status != "completed" && block.status != "missed rigid task"{
+            if block.status != "completed" && block.status != "missed rigid task" && block.status != "missed non-rigid task"{
                 return block
             }
         }

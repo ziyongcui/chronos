@@ -16,9 +16,15 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     var idealSchedules : Array<IdealSchedule> = []
     let propertyListDecoder = PropertyListDecoder()
     
+    
     //MARK: -HANDLING VIEW LOADS AND RE-ENTRY
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        reload()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         //load blocks from (sample) save
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
@@ -26,6 +32,7 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
         else{
             //handle no schedules scenario
         }
+        
         //Add notification to update after dismiss
         NotificationCenter.default.addObserver(self, selector: #selector(IdealScheduleViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
         //tableView setup

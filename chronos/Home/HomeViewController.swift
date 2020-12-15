@@ -125,7 +125,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             updateUIState()
             return
         }
-        if nextBlock.status == "missed rigid task" {
+        if nextBlock.status == "missed rigid task" || nextBlock.status == "missed non-rigid task" {
             updateUIState()
             return
         }
@@ -153,8 +153,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let currentBlock = current_schedule.nextBlock()
         containerView.isHidden = false
         nameLabel.text = "Current Task:  \(currentBlock.name)"
+        if currentBlock.status == "notStarted"{
+            self.current_schedule.changeStatus(block: currentBlock, status: "willStart")
+            self.current_schedule.save()
+            blockTableView.reloadData()
+        }
         //WillStart
-        if currentBlock.status == "willStart"{
+        if currentBlock.status == "willStart" {
             startEndButton.setTitle("Start", for: .normal)
             startTimeLabel.text = "Start Time:  \(currentBlock.time.timeText())"
             var timeUntilStart = "0 min"
@@ -256,7 +261,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             doubleDuration = doubleDuration.truncate()
             schedule.append(DoubleBlock(time: doubleTime, duration: doubleDuration, name: block.name, rigid: block.rigid, priority: Double(block.priority), status: block.status))
         }
-        currentDoubleTime = Double(currentTime.toMinutes()/60) + (Double(currentTime.toMinutes()%60)/60)
+        currentDoubleTime = Double(currentTime.toMinutes()/60) + ((Double(currentTime.toMinutes()%60)+1.0)/60) 
         calcTime(currentTime: currentDoubleTime)
         var windows = [Window(start: currentDoubleTime, end: 24)]
         
@@ -292,7 +297,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // sort non-rigid tasks by priority...
 
         schedule.sort(by: >)
-
+        
         for index in schedule.indices {
           if schedule[index].status != "completed" && !schedule[index].rigid {
 
@@ -310,12 +315,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 break
               }
             }
-
             if(!scheduled){
-              print("SAD, wasn't able to fit a task into your day. here is the task:")
-              print(schedule[index].name)
-
-              schedule[index].status = "missed rigid task"
+                print("SAD, wasn't able to fit a task into your day. here is the task:")
+                print(schedule[index].name)
+                schedule[index].status = "missed non-rigid task"
+                
             }
 
           }
@@ -324,14 +328,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print(schedule)
         current_schedule.empty()
         var scheduleBlock: Block
-        var totalTime: Int
-        var totalDuration: Int
+        var totalTime: Double
+        var totalDuration: Double
         for doubleBlock in schedule {
-            totalTime = Int(doubleBlock.time*60)
+            totalTime = doubleBlock.time*60
             //if(doubleBlock.time.truncatingRemainder(dividingBy: 1) != 0){totalTime+=1}
-            totalDuration = Int(doubleBlock.duration*60)
+            totalDuration = doubleBlock.duration*60
             //if(doubleBlock.duration.truncatingRemainder(dividingBy: 1) != 0){totalDuration-=1}
-            scheduleBlock = Block(time: Time(minute: totalTime%60, hour: totalTime/60), duration: Time(minute: totalDuration%60, hour: totalDuration/60), completionDuration: Time.empty, name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
+            scheduleBlock = Block(time: Time(minute: Int(totalTime.truncatingRemainder(dividingBy: 60)), hour: Int(totalTime/60)), duration: Time(minute: Int(totalDuration.truncatingRemainder(dividingBy: 60)), hour: Int(totalDuration/60)), completionDuration: Time.empty, name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
             current_schedule.blocks.append(scheduleBlock)
         
         }
@@ -344,7 +348,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
       var timeLeft = 24.0 - currentTime
         let tempWindow = Window(start: currentTime, end: 24)
       for index in schedule.indices{
-        if schedule[index].status != "completed" && schedule[index].rigid == true && blockFitsInWindow(block: schedule[index], window: tempWindow){
+        if schedule[index].status != "completed" && schedule[index].rigid == true && blockInWindow(block: schedule[index], window: tempWindow){
           timeLeft = timeLeft - schedule[index].duration
         }
       }
@@ -373,9 +377,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func blockInWindow(block:DoubleBlock , window: Window) -> Bool{
       return block.time >= window.start && block.time + block.duration <= window.end
     }
-
+    //MARK: WEIRD BUG FIX ATTEMPT
     func blockFitsInWindow(block:DoubleBlock , window: Window) -> Bool{
-      return block.duration <= window.end - window.start
+        var newWindow = window
+        newWindow.end+=1
+        return block.duration <= newWindow.end - newWindow.start
     }
     func getPriority(block : DoubleBlock) -> Double{
       return block.priority;
