@@ -117,6 +117,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func startNextBlock(){
         let nextBlock = self.current_schedule.nextBlock()
         let timeDiff = currentTime.timeUntil(otherTime: nextBlock.time).toMinutes()
+       
         //Ensure that block should be "started"
         guard nextBlock != Block.empty  else {
             //condition fails if schedule reaches end
@@ -134,6 +135,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if timeDiff < 0{
             //alert that user is behind schedule
             showAlert(title: "Hmm..", text: "It seems you are a bit behind schedule. Don't worry, just start the next block when you are ready!", actionlabel: "Dismiss")
+        }
+        else if timeDiff == 0
+        {
+            showAlert(title: "Wow!", text: "It seems you are right on time for your next block! You can start now if you are ready.", actionlabel: "Dismiss")
         }
         else{
             //alert when schedule starts = "We'll notify you when to start this schedule, or you can start now and we can add the extra time in"
@@ -261,7 +266,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             doubleDuration = doubleDuration.truncate()
             schedule.append(DoubleBlock(time: doubleTime, duration: doubleDuration, name: block.name, rigid: block.rigid, priority: Double(block.priority), status: block.status))
         }
-        currentDoubleTime = Double(currentTime.toMinutes()/60) + ((Double(currentTime.toMinutes()%60)+1.0)/60) 
+        currentDoubleTime = Double(currentTime.toMinutes()/60) + ((Double(currentTime.toMinutes()%60))/60)
         calcTime(currentTime: currentDoubleTime)
         var windows = [Window(start: currentDoubleTime, end: 24)]
         
@@ -380,7 +385,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: WEIRD BUG FIX ATTEMPT
     func blockFitsInWindow(block:DoubleBlock , window: Window) -> Bool{
         var newWindow = window
-        newWindow.end+=1
+        newWindow.end+=0.016
         return block.duration <= newWindow.end - newWindow.start
     }
     func getPriority(block : DoubleBlock) -> Double{
