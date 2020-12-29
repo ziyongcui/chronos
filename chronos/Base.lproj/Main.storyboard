@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -50,6 +50,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEq-Id-mvw" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="185"/>
+        </scene>
+        <!--Schedule Analytics-->
+        <scene sceneID="hXS-VF-ufH">
+            <objects>
+                <viewController id="5qO-6W-ZvZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jv3-aW-qc6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cVb-OH-xMN">
+                                <rect key="frame" x="20" y="84" width="374" height="603"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PaR-gM-p9Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PaR-gM-p9Q" firstAttribute="trailing" secondItem="cVb-OH-xMN" secondAttribute="trailing" constant="20" id="09l-tf-0YH"/>
+                            <constraint firstItem="cVb-OH-xMN" firstAttribute="top" secondItem="PaR-gM-p9Q" secondAttribute="top" constant="40" id="EzO-cW-UcX"/>
+                            <constraint firstItem="PaR-gM-p9Q" firstAttribute="bottom" secondItem="cVb-OH-xMN" secondAttribute="bottom" id="fMl-PJ-Vmu"/>
+                            <constraint firstItem="cVb-OH-xMN" firstAttribute="leading" secondItem="PaR-gM-p9Q" secondAttribute="leading" constant="20" id="vRB-eo-8oB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Schedule Analytics" id="lIZ-Ey-YY4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lab-yM-2IE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="933"/>
+        </scene>
+        <!--Analytics-->
+        <scene sceneID="dtZ-6G-CzX">
+            <objects>
+                <navigationController id="Uj9-SY-Udd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Analytics" image="number" catalog="system" id="xrH-9P-DFO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TOq-Ki-oqn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5qO-6W-ZvZ" kind="relationship" relationship="rootViewController" id="es4-4w-hW2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6t-BV-KU3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003" y="933"/>
         </scene>
         <!--Add Block View Controller-->
         <scene sceneID="0Nf-AK-Cvv">
@@ -656,6 +701,7 @@
                     <connections>
                         <segue destination="fnv-S3-asq" kind="relationship" relationship="viewControllers" id="hJ5-Ni-kOM"/>
                         <segue destination="IZW-OO-WeR" kind="relationship" relationship="viewControllers" id="laF-80-LjX"/>
+                        <segue destination="Uj9-SY-Udd" kind="relationship" relationship="viewControllers" id="YXg-5u-6SR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UeT-lF-Knf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1095,6 +1141,7 @@
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="hourglass.bottomhalf.fill" catalog="system" width="109" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="number" catalog="system" width="128" height="124"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

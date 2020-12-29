@@ -197,6 +197,39 @@ struct GeneratedSchedule : Codable{
         try?encodedSchedule?.write(to: URLs.currentSchedule)
         //print("current schedule saved")
     }
+    func doneSave(){
+        var decodedSchedules : Array<GeneratedSchedule> = []
+        if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
+            decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
+            //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
+            var didReplace : Bool = false
+            
+            if(decodedSchedules.count-1 < 0)
+            {
+                decodedSchedules.append(self)
+            }
+            else
+            {
+                    for i in 0...(decodedSchedules.count-1){
+                        print(i)
+                        if decodedSchedules[i].name == self.name{
+                            decodedSchedules[i] = self
+                            didReplace = true
+                        }
+                    }
+                    if !didReplace{
+                        decodedSchedules.append(self)
+                    }
+                }
+                
+                    //a list of decodedSchedules does not exist yet
+            
+                
+            }
+            
+        let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
+        try?encodedSchedules?.write(to: URLs.finishedSchedules)
+    }
     mutating func empty(){
         self.blocks = []
     }
@@ -333,6 +366,8 @@ struct Time : Codable, Equatable{
 //MARK:- DATA DIRECTORIES
 struct URLs{
     static let idealSchedules = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("idealSchedules").appendingPathExtension("plist")
+    
+    static let finishedSchedules = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("generatedSchedules").appendingPathExtension("plist")
     
     static let currentSchedule = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("currentSchedule").appendingPathExtension("plist")
     

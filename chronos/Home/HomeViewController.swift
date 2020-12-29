@@ -194,6 +194,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //EMPTY
         else if currentBlock.status == "nil" || currentBlock.status == "missed rigid task"{
             containerView.isHidden = true
+            current_schedule.doneSave()
             print("Current Block is empty")
         }
         else{
@@ -331,7 +332,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
 
         print(schedule)
+        
         current_schedule.empty()
+
         var scheduleBlock: Block
         var totalTime: Double
         var totalDuration: Double
