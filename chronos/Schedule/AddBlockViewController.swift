@@ -108,7 +108,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             showAlert(title: "Hmm..", text: "It seems your new block conflicts with pre-existing blocks. Don't worry, just change your start time or duration.", actionlabel: "Dismiss")
             return
         }
-        let createdBlock = Block(time: startTime, duration: durationTime, completionDuration: Time.empty, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
+        let createdBlock = Block(time: startTime, duration: durationTime, completionDuration: durationTime, name: name.text!, rigid: selectedRigidity!, priority: selectedPriority!, status: "not attempted")
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
         idealSchedule.blocks = idealSchedule.blocks.sorted(by: {$0.time.toMinutes()<$1.time.toMinutes()})

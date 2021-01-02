@@ -29,7 +29,7 @@ struct Block : Codable, Equatable{
     static let empty = Block(time: Time.empty, duration: Time.empty, completionDuration: Time.empty, name: "", rigid: false, priority: -1, status: "nil")
     
     func endTime() -> Time{
-        return self.time.add(otherTime: self.duration)
+        return self.time.add(otherTime: self.completionDuration)
     }
     func delete(indexPath: IndexPath){
             
@@ -106,6 +106,7 @@ struct DoubleBlock : Codable, Comparable{
     var duration : Double // c
     // var completionDuration : Int
     //
+    var priorDuration : Double
     var name : String
     var rigid : Bool
     var priority : Double
@@ -206,27 +207,27 @@ struct GeneratedSchedule : Codable{
             decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
             //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
             var didReplace : Bool = false
-            
-            if(decodedSchedules.count-1 < 0)
-            {
-                decodedSchedules.append(self)
-            }
-            else
-            {
-                    for i in 0...(decodedSchedules.count-1){
-                        print(i)
-                        if decodedSchedules[i].name == self.name{
-                            decodedSchedules[i] = self
-                            didReplace = true
+            if self.blocks.count > 0 {
+                if(decodedSchedules.count-1 < 0)
+                {
+                    decodedSchedules.append(self)
+                }
+                else
+                {
+                        for i in 0...(decodedSchedules.count-1){
+                            print(i)
+                            if decodedSchedules[i].name == self.name{
+                                decodedSchedules[i] = self
+                                didReplace = true
+                            }
+                        }
+                        if !didReplace{
+                            decodedSchedules.append(self)
                         }
                     }
-                    if !didReplace{
-                        decodedSchedules.append(self)
-                    }
-                }
-                
+            }
+            else {}
                     //a list of decodedSchedules does not exist yet
-            
                 
             }
             
@@ -272,7 +273,7 @@ struct GeneratedSchedule : Codable{
     mutating func changeDuration(block: Block, duration: Time){
         //changes duration spent on block
         let replaceIndex = self.blocks.firstIndex(of: block)
-        self.blocks[replaceIndex!].duration = duration
+        self.blocks[replaceIndex!].completionDuration = duration
     }
 }
 //MARK:- GENERATED SCHEDULE

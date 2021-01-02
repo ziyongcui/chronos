@@ -70,23 +70,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="42b-rF-ZIx">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="42b-rF-ZIx">
                                                     <rect key="frame" x="25" y="11" width="324" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-Ao-xqx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="105" height="35"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="108" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-ox-T8Q">
-                                                            <rect key="frame" x="105" y="0.0" width="120.5" height="35"/>
+                                                            <rect key="frame" x="108" y="0.0" width="108" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dur." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KE-Dx-Cae">
-                                                            <rect key="frame" x="225.5" y="0.0" width="98.5" height="35"/>
+                                                            <rect key="frame" x="216" y="0.0" width="108" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -141,9 +141,54 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60d-k7-NZ8">
                                 <rect key="frame" x="20" y="128" width="374" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" id="llO-f5-D9j">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RKh-6r-cnF">
+                                            <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-Px-tg9" customClass="PieChartView" customModule="chronos">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="bJs-Px-tg9" secondAttribute="height" multiplier="1:1" id="V7p-44-c0i"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ of _ tasks completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-Kg-IxV">
+                                                    <rect key="frame" x="0.0" y="240" width="177" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tdf-MC-JMd">
+                                            <rect key="frame" x="197" y="0.0" width="177" height="240"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJ5-Lo-a14" customClass="PieChartView" customModule="chronos">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="MJ5-Lo-a14" secondAttribute="height" multiplier="1:1" id="flc-cr-d6f"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ of _ Desired Minutes Spent on Tasks!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQy-GT-Sav">
+                                                    <rect key="frame" x="0.0" y="240" width="177" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="240" id="u0u-wH-nbx"/>
+                                    </constraints>
+                                </stackView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GeneratedScheduleCell" rowHeight="78" id="Fnb-5b-WVp" customClass="GeneratedScheduleTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="78"/>
+                                        <rect key="frame" x="0.0" y="268" width="374" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fnb-5b-WVp" id="p2h-R5-whG">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
@@ -175,19 +220,23 @@
                         <constraints>
                             <constraint firstItem="YkZ-aZ-nT5" firstAttribute="trailing" secondItem="60d-k7-NZ8" secondAttribute="trailing" constant="20" id="Y4K-ut-jbb"/>
                             <constraint firstItem="YkZ-aZ-nT5" firstAttribute="bottom" secondItem="60d-k7-NZ8" secondAttribute="bottom" id="YTd-Qy-VQk"/>
-                            <constraint firstItem="60d-k7-NZ8" firstAttribute="top" secondItem="YkZ-aZ-nT5" secondAttribute="top" constant="40" id="jUR-bx-3CS"/>
+                            <constraint firstItem="60d-k7-NZ8" firstAttribute="top" secondItem="YkZ-aZ-nT5" secondAttribute="top" constant="40" id="rdn-bh-pjf"/>
                             <constraint firstItem="60d-k7-NZ8" firstAttribute="leading" secondItem="YkZ-aZ-nT5" secondAttribute="leading" constant="20" id="zL1-SG-IXx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schedule Analytics" id="wZi-no-Y15"/>
                     <connections>
+                        <outlet property="minuteChartView" destination="MJ5-Lo-a14" id="Fh1-cJ-aCM"/>
+                        <outlet property="minutesLabel" destination="tQy-GT-Sav" id="xAg-6H-Mzd"/>
+                        <outlet property="pieChartView" destination="bJs-Px-tg9" id="idE-Al-kl8"/>
                         <outlet property="tableView" destination="60d-k7-NZ8" id="ZKj-pL-pVF"/>
+                        <outlet property="tasksLabel" destination="f5K-Kg-IxV" id="ybQ-8x-syI"/>
                         <segue destination="lT4-gh-2no" kind="show" identifier="GeneratedScheduleToDetail" id="cKM-cN-ebO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHd-wk-fgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="933"/>
+            <point key="canvasLocation" x="66.666666666666671" y="932.8125"/>
         </scene>
         <!--Analytics-->
         <scene sceneID="dtZ-6G-CzX">
@@ -987,23 +1036,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLC-4V-cRI">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLC-4V-cRI">
                                                     <rect key="frame" x="25" y="11" width="324" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8l-h1-qQH">
-                                                            <rect key="frame" x="0.0" y="7.5" width="117" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="7.5" width="108" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY3-G6-IIo">
-                                                            <rect key="frame" x="117" y="9" width="113" height="17"/>
+                                                            <rect key="frame" x="108" y="9" width="108" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dur." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KL-dE-pz9">
-                                                            <rect key="frame" x="230" y="9" width="94" height="17"/>
+                                                            <rect key="frame" x="216" y="9" width="108" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

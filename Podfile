@@ -5,6 +5,7 @@ target 'chronos' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'SwiftEntryKit', '1.2.3'
+ 
   # Pods for chronos
 
   target 'chronosTests' do

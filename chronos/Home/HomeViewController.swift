@@ -258,14 +258,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Called when a block is completed/time expired and when view appears
         var doubleTime: Double
         var doubleDuration: Double
+        var doublePriorDuration: Double
         var currentDoubleTime: Double
         schedule = []
         for block in current_schedule.blocks {
             doubleTime = Double(block.time.toMinutes()/60) + (Double(block.time.toMinutes()%60)/60)
-            doubleDuration = Double(block.duration.toMinutes()/60) + (Double(block.duration.toMinutes()%60)/60)
+            doubleDuration = Double(block.completionDuration.toMinutes()/60) + (Double(block.duration.toMinutes()%60)/60)
+            doublePriorDuration = Double(block.duration.toMinutes()/60) + (Double(block.duration.toMinutes()%60)/60)
             doubleTime = doubleTime.truncate()
             doubleDuration = doubleDuration.truncate()
-            schedule.append(DoubleBlock(time: doubleTime, duration: doubleDuration, name: block.name, rigid: block.rigid, priority: Double(block.priority), status: block.status))
+            schedule.append(DoubleBlock(time: doubleTime, duration: doubleDuration, priorDuration: doublePriorDuration, name: block.name, rigid: block.rigid, priority: Double(block.priority), status: block.status))
         }
         currentDoubleTime = Double(currentTime.toMinutes()/60) + ((Double(currentTime.toMinutes()%60))/60)
         calcTime(currentTime: currentDoubleTime)
@@ -338,12 +340,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         var scheduleBlock: Block
         var totalTime: Double
         var totalDuration: Double
+        var totalPriorDuration: Double
         for doubleBlock in schedule {
             totalTime = doubleBlock.time*60
             //if(doubleBlock.time.truncatingRemainder(dividingBy: 1) != 0){totalTime+=1}
             totalDuration = doubleBlock.duration*60
+            totalPriorDuration = doubleBlock.priorDuration*60
             //if(doubleBlock.duration.truncatingRemainder(dividingBy: 1) != 0){totalDuration-=1}
-            scheduleBlock = Block(time: Time(minute: Int(totalTime.truncatingRemainder(dividingBy: 60)), hour: Int(totalTime/60)), duration: Time(minute: Int(totalDuration.truncatingRemainder(dividingBy: 60)), hour: Int(totalDuration/60)), completionDuration: Time.empty, name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
+            scheduleBlock = Block(time: Time(minute: Int(totalTime.truncatingRemainder(dividingBy: 60)), hour: Int(totalTime/60)), duration: Time(minute: Int(totalPriorDuration.truncatingRemainder(dividingBy: 60)), hour: Int(totalPriorDuration/60)), completionDuration: Time(minute: Int(totalDuration.truncatingRemainder(dividingBy: 60)), hour: Int(totalDuration/60)), name: doubleBlock.name, rigid: doubleBlock.rigid, priority: Int(doubleBlock.priority), status: doubleBlock.status)
             current_schedule.blocks.append(scheduleBlock)
         
         }
@@ -418,7 +422,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let repr_block = current_schedule.blocks[indexPath.row]
         cell.titleLabel.text = repr_block.name
         cell.timeLabel.text = repr_block.time.timeText()
-        cell.durationLabel.text = repr_block.duration.durationText()
+        cell.durationLabel.text = repr_block.completionDuration.durationText()
         
         //IMPLEMENT SOME LOGIC HERE TO DIFFERENTIATE CELLS BY STATUS
         if repr_block.status == "notStarted"{

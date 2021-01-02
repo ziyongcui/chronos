@@ -8,8 +8,11 @@
 import UIKit
 
 class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    @IBOutlet var pieChartView: PieChartView!
+    @IBOutlet var minuteChartView: PieChartView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tasksLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
 
     var selectedSchedule : GeneratedSchedule? = nil
     var generatedSchedules : Array<GeneratedSchedule> = []
@@ -21,8 +24,35 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         //load data here
         reload()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        let percentages = calcPercent()
+        let completed = percentages.0
+        let unfinished = percentages.1
+        let completedInt = percentages.2
+        let totalInt = percentages.3
+        pieChartView.slices = [
+            Slice(percent: CGFloat(unfinished), color: UIColor.systemGray),
+            Slice(percent: CGFloat(completed), color: UIColor.systemBlue)
+            
+        ]
+        pieChartView.animateChart()
+        tasksLabel.text = "\(completedInt)/\(totalInt) Tasks Finished!"
+        let minutePercentages = calcPercentMinutes()
+        let completedMinutes = minutePercentages.0
+        let unfinishedMinutes = minutePercentages.1
+        let completedMinutesInt = minutePercentages.2
+        let totalMinutesInt = minutePercentages.3
+        minuteChartView.slices = [
+            Slice(percent: CGFloat(unfinishedMinutes), color: UIColor.systemGray),
+            Slice(percent: CGFloat(completedMinutes), color: UIColor.systemBlue)
+            
+        ]
+        minuteChartView.animateChart()
+        minutesLabel.text = "\(completedMinutesInt)/\(totalMinutesInt) Desired Minutes Spent Working!"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         //load blocks from (sample) save
         if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
@@ -32,11 +62,46 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
             //handle no schedules scenario
         }
         
-       
+        
         
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    func calcPercent() -> (Double, Double, Int, Int){
+        var completedTasks = 0
+        var unfinishedTasks = 0
+        var totalTasks = 0
+        for generatedSchedule in generatedSchedules{
+            for block in generatedSchedule.blocks{
+                if block.status == "completed"
+                {
+                    completedTasks+=1
+                }
+                else{
+                    unfinishedTasks+=1
+                }
+                totalTasks+=1
+            }
+        }
+        print(Double(completedTasks)/Double(totalTasks))
+        return (Double(completedTasks)/Double(totalTasks), Double(unfinishedTasks)/Double(totalTasks), completedTasks, totalTasks)
+    }
+    func calcPercentMinutes() -> (Double, Double, Int, Int){
+        var completedMinutes = 0
+        var unfinishedMinutes = 0
+        var totalMinutes = 0
+        for generatedSchedule in generatedSchedules{
+            for block in generatedSchedule.blocks{
+                if block.status == "completed"
+                {
+                    completedMinutes+=block.completionDuration.toMinutes()
+                }
+                totalMinutes+=block.duration.toMinutes()
+            }
+        }
+        unfinishedMinutes = totalMinutes - completedMinutes
+        return (Double(completedMinutes)/Double(totalMinutes), Double(unfinishedMinutes)/Double(totalMinutes), completedMinutes, totalMinutes)
     }
     @objc func reload(){
         if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
@@ -117,6 +182,9 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
             destination.generatedSchedule = self.selectedSchedule
         }
     }
+    
+    
+   
     
 }
 

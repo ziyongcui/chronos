@@ -51,7 +51,7 @@ class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "GeneratedBlockCell", for: indexPath) as! GeneratedBlockTableViewCell
         cell.titleLabel.text = idealBlocks[indexPath.section].name
         cell.timeLabel.text = idealBlocks[indexPath.section].time.timeText()
-        cell.durationLabel.text = idealBlocks[indexPath.section].duration.durationText()
+        cell.durationLabel.text = idealBlocks[indexPath.section].completionDuration.durationText()
         cell.layer.cornerRadius = 0
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 3
