@@ -46,6 +46,8 @@
 		8B4C0F2824859FAD001DE8B9 /* chronosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C0F2724859FAD001DE8B9 /* chronosUITests.swift */; };
 		CFD7DCDBF172477C0DF2310F /* Pods_chronosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A31A66D7409369A1D7C0221 /* Pods_chronosTests.framework */; };
 		E93AAAD524DF0BDC0032ED16 /* FloatingLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93AAAD424DF0BDC0032ED16 /* FloatingLabelInput.swift */; };
+		E94A5940259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */; };
+		E94A5945259BF1C10053FEE2 /* GeneratedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		C084F6BF95CA358CB24B7BF5 /* Pods_chronos_chronosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chronos_chronosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C880F6312FD7E04FF2CB54FF /* Pods-chronos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronos.debug.xcconfig"; path = "Target Support Files/Pods-chronos/Pods-chronos.debug.xcconfig"; sourceTree = "<group>"; };
 		E93AAAD424DF0BDC0032ED16 /* FloatingLabelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelInput.swift; sourceTree = "<group>"; };
+		E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedScheduleViewController.swift; sourceTree = "<group>"; };
+		E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDetailViewController.swift; sourceTree = "<group>"; };
 		F660B37111A056206A957715 /* Pods-chronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronosTests.debug.xcconfig"; path = "Target Support Files/Pods-chronosTests/Pods-chronosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +202,6 @@
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8731AFCE24981685007D6289 /* AddScheduleViewController.swift */,
-				86E97EEF24928FE800E192FA /* tableViewCells.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -231,9 +234,11 @@
 				8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */,
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
+				86E97EEF24928FE800E192FA /* tableViewCells.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
 				0F696ED624C5219300CDA1BA /* Home */,
 				8731AFCD2497D3A8007D6289 /* Schedule */,
+				E94A593E259BEF000053FEE2 /* New Group */,
 				8709474D248C230900B3F047 /* Tutorial */,
 				8B4C0F0E24859FAD001DE8B9 /* Assets.xcassets */,
 				87094756248C32F000B3F047 /* Tutorial.xcassets */,
@@ -274,6 +279,15 @@
 				4AF08790546BD9A7AF85BBC3 /* Pods-chronosTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E94A593E259BEF000053FEE2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */,
+				E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +542,7 @@
 				8675874924A3289900D93788 /* HomeViewController.swift in Sources */,
 				0F696EDF24C5537200CDA1BA /* ScheduleCollectionViewCell.swift in Sources */,
 				87094763248C359500B3F047 /* UIApplication-activetraitcollection.swift in Sources */,
+				E94A5940259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift in Sources */,
 				8731BB4224BD851900167E4F /* MultiPickerDialog.swift in Sources */,
 				0F696EDD24C523FA00CDA1BA /* TimesUpViewController.swift in Sources */,
 				87094759248C333300B3F047 /* TutorialItem.swift in Sources */,
@@ -538,6 +553,7 @@
 				8731AFCA24920C65007D6289 /* test.swift in Sources */,
 				8669239C2489901D00D95EC3 /* IdealScheduleViewController.swift in Sources */,
 				87094751248C286100B3F047 /* GradientView.swift in Sources */,
+				E94A5945259BF1C10053FEE2 /* GeneratedDetailViewController.swift in Sources */,
 				87094753248C28CB00B3F047 /* UIView-FadeIn.swift in Sources */,
 				0F696EDA24C521F200CDA1BA /* ProgressUpdateViewController.swift in Sources */,
 				8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */,

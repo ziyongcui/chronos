@@ -170,7 +170,10 @@ struct IdealSchedule : Codable{
     func generateSchedule() -> GeneratedSchedule{
         //input includes data from analysis of previous data
         //reminder: pass ideal schedule with the gen sched - implement later
-        var sched = GeneratedSchedule(name: self.name, blocks: self.blocks, date: Date(), accuracy: 0)
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .short
+        var sched = GeneratedSchedule(name: "\(formatter1.string(from: today)) - \(self.name)", blocks: self.blocks, date: Date(), accuracy: 0)
         for block in sched.blocks{
             sched.changeStatus(block: block, status: "notStarted")
         }
@@ -229,6 +232,16 @@ struct GeneratedSchedule : Codable{
             
         let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
         try?encodedSchedules?.write(to: URLs.finishedSchedules)
+    }
+    func delete(indexPath: IndexPath){
+        var decodedSchedules : Array<GeneratedSchedule> = []
+        if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
+            decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
+            decodedSchedules.remove(at: indexPath.row)
+            
+            let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
+            try?encodedSchedules?.write(to: URLs.finishedSchedules)
+    }
     }
     mutating func empty(){
         self.blocks = []
@@ -323,13 +336,13 @@ struct Time : Codable, Equatable{
             minuteString = "0\(self.minute)"
         }
         if self.hour > 12{
-            return "\(self.hour-12):\(minuteString) P.M"
+            return "\(self.hour-12):\(minuteString) PM"
         }
         else if self.hour == 12{
-            return "\(self.hour):\(minuteString) P.M"
+            return "\(self.hour):\(minuteString) PM"
         }
         else{
-            return "\(self.hour):\(minuteString) A.M"
+            return "\(self.hour):\(minuteString) AM"
         }
             
     }
