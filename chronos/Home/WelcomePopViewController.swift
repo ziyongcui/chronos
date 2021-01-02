@@ -16,7 +16,24 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     let propertyListDecoder = PropertyListDecoder()
     var idealSchedules : Array<IdealSchedule> = []
     var selectedIndex : Int = 0
-    
+    override func viewDidAppear(_ animated: Bool) {
+        //load in schedules-data to be displayed by collectionview
+        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
+            idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+        }
+        print(idealSchedules)
+        if idealSchedules.count==0
+        {
+            let createdSchedule = IdealSchedule(name: "No Schedules Made!", blocks: [], days: [], targetDate: Date(), daysUntilDeadline: 0)
+            createdSchedule.save()
+            if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
+                idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+                print(idealSchedules)
+            }
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            print(idealSchedules)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //Light UI Setup
@@ -27,14 +44,17 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
         }
+        print(idealSchedules)
         if idealSchedules.count==0
         {
             let createdSchedule = IdealSchedule(name: "No Schedules Made!", blocks: [], days: [], targetDate: Date(), daysUntilDeadline: 0)
             createdSchedule.save()
             if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
                 idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
+                print(idealSchedules)
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            print(idealSchedules)
         }
         //assert(idealSchedules.count > 0, "Cannot select from no schedules.")
         //ViewDidLoad CollectionView Setup

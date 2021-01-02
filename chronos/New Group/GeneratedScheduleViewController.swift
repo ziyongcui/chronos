@@ -30,11 +30,19 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         let unfinished = percentages.1
         let completedInt = percentages.2
         let totalInt = percentages.3
-        pieChartView.slices = [
-            Slice(percent: CGFloat(unfinished), color: UIColor.systemGray),
-            Slice(percent: CGFloat(completed), color: UIColor.systemBlue)
-            
-        ]
+        if totalInt > 0 {
+            pieChartView.slices = [
+                Slice(percent: CGFloat(unfinished), color: UIColor.systemGray),
+                Slice(percent: CGFloat(completed), color: UIColor.systemBlue)
+                
+            ]
+        }
+        else{
+            pieChartView.slices = [
+                Slice(percent: 1.0, color: UIColor.systemGray)
+                
+            ]
+        }
         pieChartView.animateChart()
         tasksLabel.text = "\(completedInt)/\(totalInt) Tasks Finished!"
         let minutePercentages = calcPercentMinutes()
@@ -42,11 +50,20 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         let unfinishedMinutes = minutePercentages.1
         let completedMinutesInt = minutePercentages.2
         let totalMinutesInt = minutePercentages.3
-        minuteChartView.slices = [
-            Slice(percent: CGFloat(unfinishedMinutes), color: UIColor.systemGray),
-            Slice(percent: CGFloat(completedMinutes), color: UIColor.systemBlue)
-            
-        ]
+        if totalMinutesInt > 0
+        {
+            minuteChartView.slices = [
+                Slice(percent: CGFloat(unfinishedMinutes), color: UIColor.systemGray),
+                Slice(percent: CGFloat(completedMinutes), color: UIColor.systemBlue)
+                
+            ]
+        }
+        else {
+            minuteChartView.slices = [
+                Slice(percent: 1.0, color: UIColor.systemGray)
+            ]
+        }
+        
         minuteChartView.animateChart()
         minutesLabel.text = "\(completedMinutesInt)/\(totalMinutesInt) Desired Minutes Spent Working!"
     }
@@ -101,6 +118,9 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
             }
         }
         unfinishedMinutes = totalMinutes - completedMinutes
+        if unfinishedMinutes<0 {
+            unfinishedMinutes=0
+        }
         return (Double(completedMinutes)/Double(totalMinutes), Double(unfinishedMinutes)/Double(totalMinutes), completedMinutes, totalMinutes)
     }
     @objc func reload(){

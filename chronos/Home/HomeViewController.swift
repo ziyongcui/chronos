@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var startEndButton: UIButton!
+    @IBOutlet weak var TimeButton: UIButton!
+    @IBOutlet weak var UpdateButton: UIButton!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var timeLeftLabel: UILabel!
     
@@ -31,7 +33,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         //Initialize clock and currentTime
         startClock()
-        
+        TimeButton.isHidden = true
+        UpdateButton.isHidden = true
         //load saved schedule, if exists
         //REMINDER: remove schedule from memory if schedules date is not current date
         if let retrievedSchedule = try?Data(contentsOf: URLs.currentSchedule){

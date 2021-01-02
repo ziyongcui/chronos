@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIF-KP-NAz">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -15,18 +15,18 @@
             <objects>
                 <viewController title="LaunchScreen" id="cIF-KP-NAz" customClass="LaunchScreenViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6EN-9i-B6h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="250" image="IMG_8245" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-fe-uqj">
-                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <rect key="frame" x="37.5" y="208.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="0Py-Hy-vU5"/>
                                     <constraint firstAttribute="width" constant="250" id="iTn-vv-bJ7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chronos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktS-p1-wob">
-                                <rect key="frame" x="81.5" y="256" width="251" height="32"/>
+                                <rect key="frame" x="62" y="141.5" width="251" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                         <constraints>
                             <constraint firstItem="lWb-fe-uqj" firstAttribute="top" secondItem="ktS-p1-wob" secondAttribute="bottom" constant="35" id="Ax8-2M-UPA"/>
                             <constraint firstItem="lWb-fe-uqj" firstAttribute="centerY" secondItem="6EN-9i-B6h" secondAttribute="centerY" id="U76-9t-V63"/>
-                            <constraint firstItem="lWb-fe-uqj" firstAttribute="centerX" secondItem="6EN-9i-B6h" secondAttribute="centerX" id="Wyk-6u-Hap"/>
+                            <constraint firstItem="lWb-fe-uqj" firstAttribute="centerX" secondItem="6EN-9i-B6h" secondAttribute="centerX" constant="-25" id="Wyk-6u-Hap"/>
                             <constraint firstItem="ktS-p1-wob" firstAttribute="width" secondItem="lWb-fe-uqj" secondAttribute="width" multiplier="1.004" id="ear-JY-k0H"/>
                             <constraint firstItem="ktS-p1-wob" firstAttribute="centerX" secondItem="6EN-9i-B6h" secondAttribute="centerX" id="zhJ-Mj-XAP"/>
                         </constraints>
@@ -56,37 +56,37 @@
             <objects>
                 <viewController id="lT4-gh-2no" customClass="GeneratedDetailViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0aN-JK-3gF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-9Y-Hlz">
-                                <rect key="frame" x="20" y="128" width="374" height="685"/>
+                                <rect key="frame" x="20" y="84" width="335" height="534"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneratedBlockCell" rowHeight="57" id="7Wj-14-oSX" customClass="GeneratedBlockTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="335" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Wj-14-oSX" id="Ic5-qs-FRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="42b-rF-ZIx">
-                                                    <rect key="frame" x="25" y="11" width="324" height="35"/>
+                                                    <rect key="frame" x="21" y="11" width="293" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL9-Ao-xqx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="108" height="35"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="97.5" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZe-ox-T8Q">
-                                                            <rect key="frame" x="108" y="0.0" width="108" height="35"/>
+                                                            <rect key="frame" x="97.5" y="0.0" width="98" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dur." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KE-Dx-Cae">
-                                                            <rect key="frame" x="216" y="0.0" width="108" height="35"/>
+                                                            <rect key="frame" x="195.5" y="0.0" width="97.5" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -135,28 +135,28 @@
             <objects>
                 <viewController id="bcI-9a-Vm8" customClass="GeneratedScheduleViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qY8-Vu-t3i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="60d-k7-NZ8">
-                                <rect key="frame" x="20" y="128" width="374" height="685"/>
+                                <rect key="frame" x="20" y="84" width="335" height="534"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" id="llO-f5-D9j">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="240"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RKh-6r-cnF">
-                                            <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="157.5" height="240"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-Px-tg9" customClass="PieChartView" customModule="chronos">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJs-Px-tg9" customClass="PieChartView" customModule="chronos">
+                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bJs-Px-tg9" secondAttribute="height" multiplier="1:1" id="V7p-44-c0i"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ of _ tasks completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-Kg-IxV">
-                                                    <rect key="frame" x="0.0" y="240" width="177" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="157.5" width="157.5" height="82.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -164,17 +164,17 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tdf-MC-JMd">
-                                            <rect key="frame" x="197" y="0.0" width="177" height="240"/>
+                                            <rect key="frame" x="177.5" y="0.0" width="157.5" height="240"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJ5-Lo-a14" customClass="PieChartView" customModule="chronos">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="240"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="MJ5-Lo-a14" secondAttribute="height" multiplier="1:1" id="flc-cr-d6f"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ of _ Desired Minutes Spent on Tasks!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQy-GT-Sav">
-                                                    <rect key="frame" x="0.0" y="240" width="177" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="157.5" width="157.5" height="82.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -188,14 +188,14 @@
                                 </stackView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GeneratedScheduleCell" rowHeight="78" id="Fnb-5b-WVp" customClass="GeneratedScheduleTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="374" height="78"/>
+                                        <rect key="frame" x="0.0" y="268" width="335" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fnb-5b-WVp" id="p2h-R5-whG">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generated Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQe-G2-aWg">
-                                                    <rect key="frame" x="30" y="11" width="305" height="56"/>
+                                                    <rect key="frame" x="26" y="11" width="274" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -244,7 +244,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uj9-SY-Udd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Analytics" image="number" catalog="system" id="xrH-9P-DFO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TOq-Ki-oqn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -260,11 +260,11 @@
             <objects>
                 <viewController id="59r-Yw-tpu" customClass="AddBlockViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bih-Ez-fRb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-f6-QFX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem title="New Block" id="kso-0X-XaJ">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="njl-Qn-pT2">
@@ -281,38 +281,38 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="c9e-ck-cEV">
-                                <rect key="frame" x="15" y="104" width="384" height="159"/>
+                                <rect key="frame" x="15" y="104" width="345" height="159"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Block Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-2t-eYF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XUO-zD-1IN">
-                                        <rect key="frame" x="0.0" y="69" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="69" width="345" height="21"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Time" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwI-iR-vfF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DGx-j5-F0p" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="192" height="21"/>
+                                                <rect key="frame" x="172.5" y="0.0" width="172.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-fP-xtF">
-                                        <rect key="frame" x="0.0" y="138" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="138" width="345" height="21"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Priority" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xy4-gT-D2y" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rigidity" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLS-xs-MIH" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                                <rect key="frame" x="192" y="0.0" width="192" height="21"/>
+                                                <rect key="frame" x="172.5" y="0.0" width="172.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -352,11 +352,11 @@
             <objects>
                 <viewController id="fnv-S3-asq" customClass="HomeViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eWU-XT-wFh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGO-uA-4im">
-                                <rect key="frame" x="100" y="54" width="214" height="25"/>
+                                <rect key="frame" x="100" y="10" width="175" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Psb-wk-qm0"/>
                                 </constraints>
@@ -365,7 +365,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 A.M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwd-Ve-tVF">
-                                <rect key="frame" x="20" y="84" width="374" height="50"/>
+                                <rect key="frame" x="20" y="40" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fw8-N2-zi0"/>
@@ -375,10 +375,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DtE-Dv-gOh">
-                                <rect key="frame" x="25" y="145" width="364" height="497"/>
+                                <rect key="frame" x="25" y="101" width="325" height="346"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lSv-Xd-Un3">
-                                    <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -386,14 +386,14 @@
                                 </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BlockCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BlockCell" rowHeight="86" id="CRt-2y-MIY" customClass="BlockTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="364" height="86"/>
+                                        <rect key="frame" x="0.0" y="72" width="325" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CRt-2y-MIY" id="pp8-ie-j1R">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d85-sI-O6z">
-                                                    <rect key="frame" x="199.5" y="11" width="84.5" height="64"/>
+                                                    <rect key="frame" x="164.5" y="11" width="84.5" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 A.M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywN-I0-PoG">
                                                             <rect key="frame" x="0.0" y="0.0" width="84.5" height="27"/>
@@ -413,13 +413,13 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Up!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJH-Jv-ViQ">
-                                                    <rect key="frame" x="20" y="14" width="169.5" height="58"/>
+                                                    <rect key="frame" x="16" y="14" width="138.5" height="58"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass.bottomhalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-8t-xPN">
-                                                    <rect key="frame" x="314" y="29" width="30" height="27.5"/>
+                                                    <rect key="frame" x="279" y="29" width="30" height="27.5"/>
                                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="I5n-xh-xcm"/>
@@ -449,31 +449,31 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqz-sU-Iys">
-                                <rect key="frame" x="20" y="134" width="374" height="1"/>
+                                <rect key="frame" x="20" y="90" width="335" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="0iU-zH-PPC"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vOK-Je-0Ux">
-                                <rect key="frame" x="0.0" y="768" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="573" width="375" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru3-xy-PuG">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
                                         <state key="normal" title="Time"/>
                                         <connections>
                                             <segue destination="uhr-mk-dHz" kind="presentation" modalPresentationStyle="overCurrentContext" id="qqI-DJ-F19"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQy-rT-Qjs">
-                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <rect key="frame" x="125" y="0.0" width="125" height="30"/>
                                         <state key="normal" title="Welcome"/>
                                         <connections>
                                             <segue destination="aoV-ga-GmR" kind="presentation" modalPresentationStyle="overCurrentContext" id="D04-bC-K9q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="311-P8-VGh">
-                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
+                                        <rect key="frame" x="250" y="0.0" width="125" height="30"/>
                                         <state key="normal" title="Update"/>
                                         <connections>
                                             <segue destination="fy2-I7-jKk" kind="presentation" modalPresentationStyle="overFullScreen" id="mUL-fz-4Ap"/>
@@ -482,22 +482,22 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-EL-hFU">
-                                <rect key="frame" x="205" y="743.5" width="4.5" height="20.5"/>
+                                <rect key="frame" x="185.5" y="548.5" width="4.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-0N-Vzy">
-                                <rect key="frame" x="25" y="651" width="364" height="82.5"/>
+                                <rect key="frame" x="25" y="456" width="325" height="82.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Task: BlockName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBL-4p-gaV">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3b-vJ-3XJ">
-                                        <rect key="frame" x="302" y="20.5" width="62" height="62"/>
+                                        <rect key="frame" x="263" y="20.5" width="62" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="RYn-lL-yIQ"/>
                                             <constraint firstAttribute="width" secondItem="x3b-vJ-3XJ" secondAttribute="height" multiplier="1:1" id="eFp-Zl-UPb"/>
@@ -585,6 +585,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="NHV-13-5BM"/>
                     <connections>
+                        <outlet property="TimeButton" destination="ru3-xy-PuG" id="3t1-wa-1vd"/>
+                        <outlet property="UpdateButton" destination="311-P8-VGh" id="W3T-12-Afe"/>
                         <outlet property="blockTableView" destination="DtE-Dv-gOh" id="SXf-cD-dTB"/>
                         <outlet property="clockLabel" destination="cwd-Ve-tVF" id="jra-c6-1Hg"/>
                         <outlet property="containerView" destination="zAb-0N-Vzy" id="Bfa-PM-UEX"/>
@@ -603,11 +605,11 @@
             <objects>
                 <viewController title="scheduleSelectPopup" id="aoV-ga-GmR" customClass="WelcomePopViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Py5-UB-2fs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Pv-Uz-Y71">
-                                <rect key="frame" x="45.5" y="171.99999999999955" width="323" height="520"/>
+                                <rect key="frame" x="26" y="171.99999999999955" width="323" height="520"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="5f6-Gl-Ezk">
                                         <rect key="frame" x="88" y="10" width="147" height="35"/>
@@ -783,7 +785,7 @@
             <objects>
                 <viewController id="uhr-mk-dHz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yEc-BC-zbD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlu-gy-yn9">
@@ -872,22 +874,22 @@
             <objects>
                 <viewController id="zmx-mU-km8" customClass="IdealScheduleViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zak-kc-j0K">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Rd-ow-VvL">
-                                <rect key="frame" x="20" y="128" width="374" height="685"/>
+                                <rect key="frame" x="20" y="84" width="335" height="534"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealScheduleCell" rowHeight="78" id="NpJ-I7-DcC" customClass="IdealScheduleTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="78"/>
+                                        <rect key="frame" x="0.0" y="28" width="335" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NpJ-I7-DcC" id="5QI-XW-Z2K">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="308" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ideal Schedule Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-jm-xoa">
-                                                    <rect key="frame" x="30" y="11" width="161" height="56"/>
+                                                    <rect key="frame" x="26" y="11" width="161" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -938,11 +940,11 @@
             <objects>
                 <viewController title="Add Schedule View Controller" id="kSs-mR-TwG" customClass="AddScheduleViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGi-Hf-9ch">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-rH-DZV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <items>
                                     <navigationItem title="New Schedule" id="dhl-zV-fa9">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="P1V-VL-sUB">
@@ -959,10 +961,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="0ju-I7-t8c">
-                                <rect key="frame" x="15" y="104" width="384" height="159"/>
+                                <rect key="frame" x="15" y="104" width="345" height="159"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Schedule Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-cA-dRi" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
@@ -971,7 +973,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weekdays" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kJ-av-vsF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="69" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="69" width="345" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -981,7 +983,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Number of Days" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3A-N9-XYK" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="138" width="384" height="21"/>
+                                        <rect key="frame" x="0.0" y="138" width="345" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -1022,37 +1024,37 @@
             <objects>
                 <viewController id="Fxj-fx-ZSe" customClass="IdealDetailViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SII-j1-Bko">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oDv-cI-3TY">
-                                <rect key="frame" x="20" y="128" width="374" height="685"/>
+                                <rect key="frame" x="20" y="84" width="335" height="534"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IdealBlockCell" rowHeight="57" id="Ewu-nc-mHq" customClass="IdealBlockTableViewCell" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="335" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ewu-nc-mHq" id="7ng-u5-A6m">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLC-4V-cRI">
-                                                    <rect key="frame" x="25" y="11" width="324" height="35"/>
+                                                    <rect key="frame" x="21" y="11" width="293" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8l-h1-qQH">
-                                                            <rect key="frame" x="0.0" y="7.5" width="108" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="7.5" width="97.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY3-G6-IIo">
-                                                            <rect key="frame" x="108" y="9" width="108" height="17"/>
+                                                            <rect key="frame" x="97.5" y="9" width="98" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dur." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KL-dE-pz9">
-                                                            <rect key="frame" x="216" y="9" width="108" height="17"/>
+                                                            <rect key="frame" x="195.5" y="9" width="97.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1108,14 +1110,14 @@
             <objects>
                 <viewController title="Tutorial Host View Controller" id="lkD-Yx-t5k" customClass="TutorialHostViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nb7-ed-4cy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Xk3-fv-fya">
-                                <rect key="frame" x="146" y="814.5" width="122.5" height="27.5"/>
+                                <rect key="frame" x="126.5" y="619.5" width="122.5" height="27.5"/>
                             </pageControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EU-0e-vz8">
-                                <rect key="frame" x="20" y="49" width="374" height="765.5"/>
+                                <rect key="frame" x="16" y="5" width="343" height="614.5"/>
                                 <connections>
                                     <segue destination="UKg-47-nXp" kind="embed" id="qm7-df-lxa"/>
                                 </connections>
@@ -1154,20 +1156,20 @@
             <objects>
                 <viewController storyboardIdentifier="TutorialItemViewController" title="Tutorial Item View Controller" id="4wY-uD-QLo" customClass="TutorialItemViewController" customModule="chronos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9Y-4H-h18">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="335" placeholderIntrinsicHeight="224" image="paperplane" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FKx-0t-I8h">
-                                <rect key="frame" x="20" y="44.5" width="374" height="223.5"/>
+                                <rect key="frame" x="20" y="0.5" width="335" height="223.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-ce-xm5">
-                                <rect key="frame" x="20" y="288" width="374" height="30"/>
+                                <rect key="frame" x="20" y="244" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" editable="NO" text="Main Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-s5-LHR">
-                                <rect key="frame" x="20" y="318" width="374" height="544"/>
+                                <rect key="frame" x="20" y="274" width="335" height="393"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -1206,7 +1208,7 @@
             <objects>
                 <viewController id="fy2-I7-jKk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kik-Hy-bjT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2Q-fh-tIE">
@@ -1278,7 +1280,7 @@
                     <tabBarItem key="tabBarItem" title="Schedules" image="calendar" catalog="system" id="F8g-hQ-0MW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tAB-Jf-4xb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemBlueColor"/>
                     </navigationBar>
