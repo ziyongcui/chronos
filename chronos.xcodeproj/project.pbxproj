@@ -49,7 +49,7 @@
 		E94A5940259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */; };
 		E94A5945259BF1C10053FEE2 /* GeneratedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */; };
 		E94A5A3825A057570053FEE2 /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94A5A3725A057570053FEE2 /* PieChartView.xib */; };
-		E94A5A7F25A65D580053FEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5A7E25A65D580053FEE2 /* PieChartView.swift */; };
+		E94A5A9C25A65EB40053FEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +124,7 @@
 		E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDetailViewController.swift; sourceTree = "<group>"; };
 		E94A596625A0346A0053FEE2 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E94A5A3725A057570053FEE2 /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PieChartView.xib; path = "../../../../Downloads/piechart_ios-master/PieChart/PieChartView.xib"; sourceTree = "<group>"; };
-		E94A5A7E25A65D580053FEE2 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PieChartView.swift; path = ../../../../Downloads/PieChartView.swift; sourceTree = "<group>"; };
+		E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		F660B37111A056206A957715 /* Pods-chronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronosTests.debug.xcconfig"; path = "Target Support Files/Pods-chronosTests/Pods-chronosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +208,7 @@
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8731AFCE24981685007D6289 /* AddScheduleViewController.swift */,
+				E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */,
-				E94A5A7E25A65D580053FEE2 /* PieChartView.swift */,
 				E94A5A3725A057570053FEE2 /* PieChartView.xib */,
 				E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */,
 			);
@@ -568,7 +568,7 @@
 				8709475F248C33B100B3F047 /* TutorialPageViewController.swift in Sources */,
 				0F77892424C7CB6700F0CDFF /* BlockTableViewCell.swift in Sources */,
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
-				E94A5A7F25A65D580053FEE2 /* PieChartView.swift in Sources */,
+				E94A5A9C25A65EB40053FEE2 /* PieChartView.swift in Sources */,
 				8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */,
 				86E97EF024928FE800E192FA /* tableViewCells.swift in Sources */,
 				E93AAAD524DF0BDC0032ED16 /* FloatingLabelInput.swift in Sources */,
