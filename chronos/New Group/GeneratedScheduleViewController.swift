@@ -39,7 +39,8 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         }
         else{
             pieChartView.slices = [
-                Slice(percent: 1.0, color: UIColor.systemGray)
+                Slice(percent: 0.5, color: UIColor.systemGray),
+                Slice(percent: 0.5, color: UIColor.systemGray)
                 
             ]
         }
@@ -58,9 +59,11 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
                 
             ]
         }
-        else {
+        else{
             minuteChartView.slices = [
-                Slice(percent: 1.0, color: UIColor.systemGray)
+                Slice(percent: 0.5, color: UIColor.systemGray),
+                Slice(percent: 0.5, color: UIColor.systemGray)
+                
             ]
         }
         
