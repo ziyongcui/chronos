@@ -30,7 +30,21 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         let unfinished = percentages.1
         let completedInt = percentages.2
         let totalInt = percentages.3
-        if totalInt > 0 {
+        if completedInt >= totalInt && totalInt != 0 {
+            pieChartView.slices = [
+                Slice(percent: 0.5, color: UIColor.systemBlue),
+                Slice(percent: 0.5, color: UIColor.systemBlue)
+                
+            ]
+        }
+        else if unfinished >= 1 && totalInt != 0 {
+            pieChartView.slices = [
+                Slice(percent: 0.5, color: UIColor.systemGray),
+                Slice(percent: 0.5, color: UIColor.systemGray)
+                
+            ]
+        }
+        else if totalInt > 0 {
             pieChartView.slices = [
                 Slice(percent: CGFloat(unfinished), color: UIColor.systemGray),
                 Slice(percent: CGFloat(completed), color: UIColor.systemBlue)
@@ -51,7 +65,21 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         let unfinishedMinutes = minutePercentages.1
         let completedMinutesInt = minutePercentages.2
         let totalMinutesInt = minutePercentages.3
-        if totalMinutesInt > 0
+        if completedMinutesInt >= totalMinutesInt && totalMinutesInt != 0 {
+            minuteChartView.slices = [
+                Slice(percent: 0.5, color: UIColor.systemBlue),
+                Slice(percent: 0.5, color: UIColor.systemBlue)
+                
+            ]
+        }
+        else if unfinishedMinutes >= 1 && totalMinutesInt != 0 {
+            minuteChartView.slices = [
+                Slice(percent: 0.5, color: UIColor.systemGray),
+                Slice(percent: 0.5, color: UIColor.systemGray)
+                
+            ]
+        }
+        else if totalMinutesInt > 0
         {
             minuteChartView.slices = [
                 Slice(percent: CGFloat(unfinishedMinutes), color: UIColor.systemGray),
