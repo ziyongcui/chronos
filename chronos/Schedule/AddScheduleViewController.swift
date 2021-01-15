@@ -171,8 +171,9 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
         guard name.text != nil && daysSelected != nil else{return}
         
         //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, blocks: [], days: daySelected, targetDate: Date(), daysUntilDeadline: daysSelected!)
-        createdSchedule.save()
+        let createdSchedule = IdealSchedule(name: name.text!, days: daySelected, targetDate: Date())
+        idealSchedules.append(createdSchedule)
+        IdealSchedule.save()
         
         dismiss(animated: true){
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)

@@ -10,6 +10,7 @@ import Foundation
 import UserNotifications
 let propertyListEncoder = PropertyListEncoder()
 let propertyListDecoder = PropertyListDecoder()
+var idealSchedules : Array<IdealSchedule> = []
 
 //MARK:- EVENT BLOCK
 struct Block : Codable, Equatable{
@@ -17,7 +18,6 @@ struct Block : Codable, Equatable{
     var time : Time
     var duration : Time
     var completionDuration : Time
-    
     var name : String
     var rigid : Bool
     var priority : Int
@@ -31,6 +31,8 @@ struct Block : Codable, Equatable{
     func endTime() -> Time{
         return self.time.add(otherTime: self.completionDuration)
     }
+    
+    /*
     func delete(indexPath: IndexPath){
             
         var decodedBlocks : Array<Block> = []
@@ -42,6 +44,7 @@ struct Block : Codable, Equatable{
             try?encodedSchedules?.write(to: URLs.currentSchedule)
       }
     }
+    */
     
     func scheduleStartNotif(timeUntil: Time){
         /* takes in a Time struct representing the time until
@@ -80,8 +83,8 @@ struct Block : Codable, Equatable{
             lhs.status == rhs.status
     }
     
-
 }
+
 
 struct DoubleBlock : Codable, Comparable{
     static func > (lhs: DoubleBlock, rhs: DoubleBlock) -> Bool {
@@ -114,142 +117,134 @@ struct DoubleBlock : Codable, Comparable{
     // //status = "completed", "failed", "postponed", "not attempted" etc.
     var status : String
 }
+ 
 
 //MARK:- IDEAL SCHEDULE
-struct IdealSchedule : Codable{
+class IdealSchedule : Codable {
+    
     var name : String
     var blocks : Array<Block>
-    
-    //[Monday,Tuesday] etc.
     var days : Array<String>
     var targetDate : Date
     var daysUntilDeadline : Int
-    func delete(indexPath: IndexPath){
-        var decodedSchedules : Array<IdealSchedule> = []
-        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-            decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-            decodedSchedules.remove(at: indexPath.row)
-            
-            let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
-            try?encodedSchedules?.write(to: URLs.idealSchedules)
+    var attempts : Array<Schedule>
+    
+    /// Static Ideal Schedule - For Development Purposes
+    static let EMPTY = IdealSchedule(name: "No Schedules Made!", days: [], targetDate: Date())
+    
+    /// Initializes an empty ideal schedule - Used in  AddScheduleViewController
+    ///     - Constructor adds the instantiated ideal schedule
+    init(name: String, days: Array<String>, targetDate: Date) {
+        self.name = name
+        self.blocks = []
+        self.days = days
+        self.targetDate = targetDate
+        // TODO: Add calculation for days until deadline
+        self.daysUntilDeadline = 0
+        self.attempts = []
     }
+    
+    /// Commented out for now - The idealSchedules header may be unnecessary
+    /*
+    static func save(idealSchedules: Array<IdealSchedule>) {
+        let encodedSchedules = try?propertyListEncoder.encode(idealSchedules)
+        try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
-    func save(){
-        var decodedSchedules : Array<IdealSchedule> = []
-        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-            decodedSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-            //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
-            var didReplace : Bool = false
-            
-            if(decodedSchedules.count-1 < 0)
-            {
-                decodedSchedules.append(self)
-            }
-            else
-            {
-                    for i in 0...(decodedSchedules.count-1){
-                        print(i)
-                        if decodedSchedules[i].name == self.name{
-                            decodedSchedules[i] = self
-                            didReplace = true
-                        }
-                    }
-                    if !didReplace{
-                        decodedSchedules.append(self)
-                    }
-                }
-                
-                    //a list of decodedSchedules does not exist yet
-            
-                
-            }
-            
-        let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
+    */
+    
+    static func save() {
+        let encodedSchedules = try?propertyListEncoder.encode(idealSchedules)
         try?encodedSchedules?.write(to: URLs.idealSchedules)
     }
     
-    func generateSchedule() -> GeneratedSchedule{
-        //input includes data from analysis of previous data
-        //reminder: pass ideal schedule with the gen sched - implement later
-        let today = Date()
-        let formatter1 = DateFormatter()
-        formatter1.dateStyle = .short
-        var sched = GeneratedSchedule(name: "\(formatter1.string(from: today)) - \(self.name)", blocks: self.blocks, date: Date(), accuracy: 0)
-        for block in sched.blocks{
-            sched.changeStatus(block: block, status: "notStarted")
-        }
-        return sched
+    /// Generates a Schedule based on the IdealSchedule
+    func generateSchedule() -> Schedule {
+        return Schedule(ideal: self)
     }
 }
 
-//MARK:- GENERATED SCHEDULE
-struct GeneratedSchedule : Codable{
+// MARK:- SCHEDULE (DAILY SCHEDULE)
+class Schedule : Codable {
+
+    /// The IdealSchedule that the Schedule is based on
+    var ideal : IdealSchedule
+    
+    /// An identification method for a specific schedule - may not be needed
+    /// Should be removed later to reduce code complexity
     var name : String
-    var blocks: Array<Block>
     
-    //the date for which this schedule applies to
+    /// An array of blocks representing the schedule
+    /// These blocks may be modified depending on user interactions, adjustment alg, etc.
+    var blocks : Array<Block>
+    
+    /// The date for which this schedule applies to
     var date : Date
-    //user modification to schedule e.g adding,removing blocks
-    var modifications : [String:Array<Block>] = [:]
-    //accuracy could also be double or float - for analysis
-    var accuracy : Int
-    static let empty = GeneratedSchedule(name: "Blank", blocks: [], date: Date(), accuracy: -1)
     
+    /// User modifications to schedule e.g adding,removing blocks - NOT YET IMPLEMENTED
+    var modifications : [String:Array<Block>] = [:]
+    
+    /// accuracy could also be double or float - used for analysis
+    var accuracy : Int
+    
+    /// static empty default schedule - used to load blank home screen
+    ///     - Also used to check if valid schedule is active
+    static let EMPTY = Schedule()
+    
+    /// Creates a schedule based on an ideal schedule
+    init (ideal : IdealSchedule) {
+        self.ideal = ideal
+        self.blocks = ideal.blocks
+        self.date = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .short
+        self.name = "\(formatter1.string(from: self.date)) - \(self.ideal.name)"
+        //Default value should be changed later
+        accuracy = 0
+        for block in self.blocks{
+            changeStatus(block: block, status: "notStarted")
+        }
+    }
+    
+    private init () {
+        self.ideal = IdealSchedule.EMPTY
+        self.blocks = []
+        self.date = Date()
+        self.name = ""
+        self.accuracy = 0
+    }
+    
+    /// Saves the schedule into currentSchedule data directory
     func save(){
-        //function to save current progress and schedule for the current day
         let encodedSchedule = try?propertyListEncoder.encode(self)
         try?encodedSchedule?.write(to: URLs.currentSchedule)
-        //print("current schedule saved")
+        print("current schedule saved")
     }
-    func doneSave(){
-        var decodedSchedules : Array<GeneratedSchedule> = []
-        if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
-            decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
-            //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
-            var didReplace : Bool = false
-            if self.blocks.count > 0 {
-                if(decodedSchedules.count-1 < 0)
-                {
-                    decodedSchedules.append(self)
-                }
-                else
-                {
-                        for i in 0...(decodedSchedules.count-1){
-                            print(i)
-                            if decodedSchedules[i].name == self.name{
-                                decodedSchedules[i] = self
-                                didReplace = true
-                            }
-                        }
-                        if !didReplace{
-                            decodedSchedules.append(self)
-                        }
-                    }
-            }
-            else {}
-                    //a list of decodedSchedules does not exist yet
-                
-            }
-            
-        let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
-        try?encodedSchedules?.write(to: URLs.finishedSchedules)
+    
+    /// Saves the schedule for later analysis
+    ///     - This is done by appending the schedule to an Array of attempted schedules
+    ///     - Should be called upon completion of the schedule or if day restarts
+    ///     - The schedule is stored in an attribute of IdealSchedule for the sake of reducing complexity.
+    ///             - Each IdealSchedule contains a list of 'attempted' Schedules that can be used for analysis
+    ///             - Prevents analysis of schedules that do not have IdealSchedules (deleted/removed by user)
+    func log(){
+        self.ideal.attempts.append(self)
+        IdealSchedule.save()
     }
+    /*
     func delete(indexPath: IndexPath){
         var decodedSchedules : Array<GeneratedSchedule> = []
         if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
             decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
             decodedSchedules.remove(at: indexPath.row)
-            
             let encodedSchedules = try?propertyListEncoder.encode(decodedSchedules)
             try?encodedSchedules?.write(to: URLs.finishedSchedules)
+        }
     }
-    }
-    mutating func empty(){
+ */
+    
+    /// Removes all blocks in the schedule. - May not be needed.
+    func empty(){
         self.blocks = []
-    }
-    func log(){
-        //function adds the generatedSchedule to Array<generatedSchedule>
-        //saves the array for analytics purposes
     }
     func nextBlock() -> Block{
         //returns the first block in the list of blocks in which status is not "complete"
@@ -260,23 +255,24 @@ struct GeneratedSchedule : Codable{
         }
         return Block.empty
     }
-    mutating func changeStatus(block: Block, status: String){
+    func changeStatus(block: Block, status: String){
         //changes status of block
         let replaceIndex = self.blocks.firstIndex(of: block)
         self.blocks[replaceIndex!].status = status
     }
-    mutating func changeTime(block: Block, time: Time){
+    func changeTime(block: Block, time: Time){
         //changes status of block
         let replaceIndex = self.blocks.firstIndex(of: block)
         self.blocks[replaceIndex!].time = time
     }
-    mutating func changeDuration(block: Block, duration: Time){
+    func changeDuration(block: Block, duration: Time){
         //changes duration spent on block
         let replaceIndex = self.blocks.firstIndex(of: block)
         self.blocks[replaceIndex!].completionDuration = duration
     }
 }
-//MARK:- GENERATED SCHEDULE
+
+//MARK:- Window
 struct Window {
     var start : Double
     var end : Double
@@ -380,8 +376,6 @@ struct Time : Codable, Equatable{
 //MARK:- DATA DIRECTORIES
 struct URLs{
     static let idealSchedules = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("idealSchedules").appendingPathExtension("plist")
-    
-    static let finishedSchedules = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("generatedSchedules").appendingPathExtension("plist")
     
     static let currentSchedule = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("currentSchedule").appendingPathExtension("plist")
     

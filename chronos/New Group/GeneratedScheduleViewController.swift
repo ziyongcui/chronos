@@ -14,8 +14,8 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tasksLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
 
-    var selectedSchedule : GeneratedSchedule? = nil
-    var generatedSchedules : Array<GeneratedSchedule> = []
+    var selectedSchedule : Schedule? = nil
+    var generatedSchedules : Array<Schedule> = []
     let propertyListDecoder = PropertyListDecoder()
     
     

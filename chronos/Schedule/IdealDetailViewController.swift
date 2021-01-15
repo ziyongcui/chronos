@@ -63,18 +63,14 @@ class IdealDetailViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            print(indexPath.section)
             // remove the item from the data model
             //idealBlocks[indexPath.section].delete(indexPath: indexPath)
-
             idealBlocks.remove(at: indexPath.section)
-                        // delete the table view row
+            // delete the table view row
             idealSchedule.blocks = idealBlocks
-            idealSchedule.save()
+            IdealSchedule.save()
             //tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
-            
-
         } else if editingStyle == .insert {
             // Not used in our example, but if you were adding a new row, this is where you would do it.
         }

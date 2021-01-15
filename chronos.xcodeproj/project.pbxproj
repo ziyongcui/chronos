@@ -20,7 +20,7 @@
 		866923A02489905F00D95EC3 /* IdealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */; };
 		866923A22489907900D95EC3 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866923A12489907900D95EC3 /* AddBlockViewController.swift */; };
 		8675874924A3289900D93788 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675874824A3289900D93788 /* HomeViewController.swift */; };
-		86E97EF024928FE800E192FA /* tableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E97EEF24928FE800E192FA /* tableViewCells.swift */; };
+		86E97EF024928FE800E192FA /* IdealBlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */; };
 		8709474C248C221400B3F047 /* Homeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474B248C221400B3F047 /* Homeview.swift */; };
 		8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8709474E248C27AE00B3F047 /* Storyboarded.swift */; };
 		87094751248C286100B3F047 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87094750248C286100B3F047 /* GradientView.swift */; };
@@ -48,7 +48,6 @@
 		E93AAAD524DF0BDC0032ED16 /* FloatingLabelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93AAAD424DF0BDC0032ED16 /* FloatingLabelInput.swift */; };
 		E94A5940259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */; };
 		E94A5945259BF1C10053FEE2 /* GeneratedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */; };
-		E94A5A3825A057570053FEE2 /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94A5A3725A057570053FEE2 /* PieChartView.xib */; };
 		E94A5A9C25A65EB40053FEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +86,7 @@
 		8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealDetailViewController.swift; sourceTree = "<group>"; };
 		866923A12489907900D95EC3 /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
 		8675874824A3289900D93788 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		86E97EEF24928FE800E192FA /* tableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCells.swift; sourceTree = "<group>"; };
+		86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdealBlockTableViewCell.swift; sourceTree = "<group>"; };
 		8709474B248C221400B3F047 /* Homeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeview.swift; sourceTree = "<group>"; };
 		8709474E248C27AE00B3F047 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		87094750248C286100B3F047 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedScheduleViewController.swift; sourceTree = "<group>"; };
 		E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDetailViewController.swift; sourceTree = "<group>"; };
 		E94A596625A0346A0053FEE2 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E94A5A3725A057570053FEE2 /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PieChartView.xib; path = "../../../../Downloads/piechart_ios-master/PieChart/PieChartView.xib"; sourceTree = "<group>"; };
 		E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		F660B37111A056206A957715 /* Pods-chronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronosTests.debug.xcconfig"; path = "Target Support Files/Pods-chronosTests/Pods-chronosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +206,7 @@
 				8669239F2489905F00D95EC3 /* IdealDetailViewController.swift */,
 				866923A12489907900D95EC3 /* AddBlockViewController.swift */,
 				8731AFCE24981685007D6289 /* AddScheduleViewController.swift */,
+				86E97EEF24928FE800E192FA /* IdealBlockTableViewCell.swift */,
 				E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */,
 			);
 			path = Schedule;
@@ -241,7 +240,6 @@
 				8B4C0F0524859FAD001DE8B9 /* AppDelegate.swift */,
 				8B4C0F0724859FAD001DE8B9 /* SceneDelegate.swift */,
 				8B4C0F0B24859FAD001DE8B9 /* Main.storyboard */,
-				86E97EEF24928FE800E192FA /* tableViewCells.swift */,
 				8669239524898F3500D95EC3 /* LaunchScreenViewController.swift */,
 				0F696ED624C5219300CDA1BA /* Home */,
 				8731AFCD2497D3A8007D6289 /* Schedule */,
@@ -292,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */,
-				E94A5A3725A057570053FEE2 /* PieChartView.xib */,
 				E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */,
 			);
 			path = "New Group";
@@ -408,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4C0F0F24859FAD001DE8B9 /* Assets.xcassets in Resources */,
-				E94A5A3825A057570053FEE2 /* PieChartView.xib in Resources */,
 				87094757248C32F000B3F047 /* Tutorial.xcassets in Resources */,
 				87094755248C328100B3F047 /* Tutorial.json in Resources */,
 				8B4C0F0D24859FAD001DE8B9 /* Main.storyboard in Resources */,
@@ -570,7 +566,7 @@
 				8709474F248C27AE00B3F047 /* Storyboarded.swift in Sources */,
 				E94A5A9C25A65EB40053FEE2 /* PieChartView.swift in Sources */,
 				8709475D248C339900B3F047 /* TutorialHostViewController.swift in Sources */,
-				86E97EF024928FE800E192FA /* tableViewCells.swift in Sources */,
+				86E97EF024928FE800E192FA /* IdealBlockTableViewCell.swift in Sources */,
 				E93AAAD524DF0BDC0032ED16 /* FloatingLabelInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,7 +736,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 27346XW87H;
+				DEVELOPMENT_TEAM = 8A2RFZ4TMZ;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,7 +744,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = www.paulmuser.chronos;
+				PRODUCT_BUNDLE_IDENTIFIER = www.paulmuser.chronos.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -764,7 +760,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 27346XW87H;
+				DEVELOPMENT_TEAM = 8A2RFZ4TMZ;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -772,7 +768,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = www.paulmuser.chronos;
+				PRODUCT_BUNDLE_IDENTIFIER = www.paulmuser.chronos.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

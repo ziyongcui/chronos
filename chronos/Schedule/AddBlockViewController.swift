@@ -112,7 +112,7 @@ class AddBlockViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //Improve Insert func (check for time conflicts etc.)
         idealSchedule.blocks.append(createdBlock)
         idealSchedule.blocks = idealSchedule.blocks.sorted(by: {$0.time.toMinutes()<$1.time.toMinutes()})
-        idealSchedule.save()
+        IdealSchedule.save()
         
         dismiss(animated: true){
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)

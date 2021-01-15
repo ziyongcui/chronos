@@ -13,32 +13,19 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
 
     var selectedSchedule : IdealSchedule? = nil
-    var idealSchedules : Array<IdealSchedule> = []
-    let propertyListDecoder = PropertyListDecoder()
     
-    
-    //MARK: -HANDLING VIEW LOADS AND RE-ENTRY
-    @objc func loadList(notification: NSNotification){
-        //load data here
-        reload()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        //load blocks from (sample) save
-        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-            idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-        }
-        else{
-            //handle no schedules scenario
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(IdealScheduleViewController.reload), name: NSNotification.Name(rawValue: "load"), object: nil)
         
         //Add notification to update after dismiss
         NotificationCenter.default.addObserver(self, selector: #selector(IdealScheduleViewController.reload), name: NSNotification.Name(rawValue: "dismissedForm"), object: nil)
+        
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
     @objc func reload(){
         if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
             idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
@@ -90,15 +77,9 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
-            // remove the item from the data model
-            idealSchedules[indexPath.section].delete(indexPath: indexPath)
-
-            
-                        // delete the table view row
-            print(idealSchedules)
             //tableView.deleteRows(at: [indexPath], with: .fade)
             idealSchedules.remove(at: indexPath.section)
+            IdealSchedule.save()
             print(idealSchedules)
             tableView.reloadData()
             //tableView.deleteRows(at: [indexPath], with: .fade)
@@ -107,7 +88,6 @@ class IdealScheduleViewController: UIViewController, UITableViewDelegate, UITabl
             // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
-
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

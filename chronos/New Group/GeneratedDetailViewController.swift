@@ -11,7 +11,7 @@ import UIKit
 class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var generatedSchedule : GeneratedSchedule!
+    var generatedSchedule : Schedule!
     var idealBlocks : Array<Block> = []
     let propertyListDecoder = PropertyListDecoder()
     

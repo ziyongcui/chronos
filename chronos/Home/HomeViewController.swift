@@ -22,8 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var timeLeftLabel: UILabel!
     
-    var current_schedule : GeneratedSchedule = GeneratedSchedule.empty
-    
+    var current_schedule : Schedule = Schedule.EMPTY
     var timer = Timer()
     var currentTime = Time()
     
@@ -38,9 +37,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //load saved schedule, if exists
         //REMINDER: remove schedule from memory if schedules date is not current date
         if let retrievedSchedule = try?Data(contentsOf: URLs.currentSchedule){
-            current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
+            let decodedSchedule = try!propertyListDecoder.decode(Schedule.self, from: retrievedSchedule)
+            let formatter = DateFormatter()
+            formatter.timeStyle = .none
+            formatter.dateStyle = .short
+            let decodedDate = formatter.string(from: decodedSchedule.date)
+            let currentDate = formatter.string(from: Date())
+            if (decodedDate == currentDate) {
+                current_schedule = decodedSchedule
+            }
         }
-        
         
         //set current_schedule
         blockTableView.delegate = self
@@ -70,8 +76,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //load schedule UI
         let retrievedSchedule = try!Data(contentsOf: URLs.currentSchedule)
-        self.current_schedule = try!propertyListDecoder.decode(GeneratedSchedule.self, from: retrievedSchedule)
-        updateSchedule()
+        self.current_schedule = try!propertyListDecoder.decode(Schedule.self, from: retrievedSchedule)
         blockTableView.reloadData()
         
         //request notifications auth
@@ -92,6 +97,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Begin notif cycle
         startNextBlock()
     }
+    
     func startClock(){
         self.currentTime.getCurrentTime()
         clockLabel.text = self.currentTime.timeText()
@@ -110,14 +116,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard currentBlock != Block.empty else {return}
         guard currentBlock.status != "expired" else{return}
         //if time completes then change block status and call updateUIState
-        if currentBlock.status == "didStart" && currentBlock.endTime()==currentTime{
+        if (currentBlock.status == "didStart" && currentBlock.endTime() == currentTime) {
             self.current_schedule.changeStatus(block: currentBlock, status: "expired")
             self.current_schedule.save()
         }
         updateUIState()
     }
     
-    func startNextBlock(){
+    func startNextBlock() {
         let nextBlock = self.current_schedule.nextBlock()
         let timeDiff = currentTime.timeUntil(otherTime: nextBlock.time).toMinutes()
        
@@ -197,7 +203,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //EMPTY
         else if currentBlock.status == "nil" || currentBlock.status == "missed rigid task"{
             containerView.isHidden = true
-            current_schedule.doneSave()
+            current_schedule.log()
             print("Current Block is empty")
         }
         else{
@@ -217,6 +223,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             //set start time of block to current time
             self.current_schedule.changeTime(block: currentBlock, time: currentTime)
             //adjust rest of start time of the rest of the blocks if needed
+            //updateSchedule()
             //change status to "didStart"
             self.current_schedule.changeStatus(block: currentBlock, status: "didStart")
             self.current_schedule.save()
@@ -229,6 +236,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             currentBlock.scheduleEndNotif()
             return
         }
+        
         else if buttonTitle == "End"{
             //check time
             //show warning if user is ending early
@@ -254,9 +262,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func changeBlockStatus(){
         //NOT YET IMPLEMENTED - CALLS UI TO UPDATE BLOCK STATUS
     }
+    
+    
     //MARK: Algorithm Implementation
     var schedule: Array<DoubleBlock> = []
-    func updateSchedule(){
+    func updateSchedule() {
         //UPDATES the view and adjust blocks etc. based on time
         //Called when a block is completed/time expired and when view appears
         var doubleTime: Double
@@ -357,6 +367,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         current_schedule.blocks = current_schedule.blocks.sorted(by: {$0.time.toMinutes()<$1.time.toMinutes()})
         current_schedule.save()
     }
+    
     func calcTime(currentTime: Double) {
       // print(schedule) //  prints the original schedule for comparison
       // calculates the total amount of time left to spend on activies that are not rigid
@@ -401,7 +412,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getPriority(block : DoubleBlock) -> Double{
       return block.priority;
     }
-  
+
+    
     func showAlert(title: String , text: String, actionlabel: String) {
         let alert = UIAlertController(title: title, message: text,  preferredStyle: UIAlertController.Style.alert)
         
@@ -410,11 +422,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     //MARK: TABLE VIEW SETUP
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return current_schedule.blocks.count
     }
@@ -455,6 +467,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.layer.borderWidth = 4.0
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
@@ -470,46 +483,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
     
-}
-// MARK: - Algorithm Extensions
-extension Double
-{
-    func truncate()-> Double
-    {
-        return Double(floor(pow(10.0, Double(2)) * self)/pow(10.0, Double(2)))
-    }
-}
-
-
-extension StringProtocol {
-    func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
-        range(of: string, options: options)?.lowerBound
-    }
-    func endIndex<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
-        range(of: string, options: options)?.upperBound
-    }
-    func indices<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Index] {
-        var indices: [Index] = []
-        var startIndex = self.startIndex
-        while startIndex < endIndex,
-            let range = self[startIndex...]
-                .range(of: string, options: options) {
-                indices.append(range.lowerBound)
-                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return indices
-    }
-    func ranges<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> [Range<Index>] {
-        var result: [Range<Index>] = []
-        var startIndex = self.startIndex
-        while startIndex < endIndex,
-            let range = self[startIndex...]
-                .range(of: string, options: options) {
-                result.append(range)
-                startIndex = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return result
-    }
 }

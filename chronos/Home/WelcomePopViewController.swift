@@ -13,52 +13,23 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var popupContainer: UIView!
     @IBOutlet weak var scheduleCollectionView: UICollectionView!
     @IBOutlet weak var beginDayButton: UIButton!
-    let propertyListDecoder = PropertyListDecoder()
-    var idealSchedules : Array<IdealSchedule> = []
     var selectedIndex : Int = 0
-    override func viewDidAppear(_ animated: Bool) {
-        //load in schedules-data to be displayed by collectionview
-        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-            idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-        }
-        print(idealSchedules)
-        if idealSchedules.count==0
-        {
-            let createdSchedule = IdealSchedule(name: "No Schedules Made!", blocks: [], days: [], targetDate: Date(), daysUntilDeadline: 0)
-            createdSchedule.save()
-            if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-                idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-                print(idealSchedules)
-            }
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-            print(idealSchedules)
-        }
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Light UI Setup
         popupContainer.layer.cornerRadius = 15.0
         //MAYBE SET ADJUSTFONTSIZETOFITWIDTH TO TRUE (low prio)
-        
-        //load in schedules-data to be displayed by collectionview
-        if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-            idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-        }
-        print(idealSchedules)
-        if idealSchedules.count==0
-        {
-            let createdSchedule = IdealSchedule(name: "No Schedules Made!", blocks: [], days: [], targetDate: Date(), daysUntilDeadline: 0)
-            createdSchedule.save()
-            if let retrievedSchedules = try?Data(contentsOf: URLs.idealSchedules){
-                idealSchedules = try!propertyListDecoder.decode(Array<IdealSchedule>.self, from: retrievedSchedules)
-                print(idealSchedules)
-            }
+
+        if idealSchedules.count == 0 {
+            let temp = IdealSchedule(name: "No Schedules Made!", days: [], targetDate: Date())
+            idealSchedules.append(temp)
+            IdealSchedule.save()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-            print(idealSchedules)
         }
-        //assert(idealSchedules.count > 0, "Cannot select from no schedules.")
-        //ViewDidLoad CollectionView Setup
+        assert(idealSchedules.count > 0, "Cannot select from no schedules.")
         
+        /// ViewDidLoad CollectionView Setup
         //for cell sizing
         let cellWidth = 5*(scheduleCollectionView.bounds.size.width/8)
         let cellHeight = scheduleCollectionView.bounds.size.height - 40
@@ -74,7 +45,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         scheduleCollectionView.allowsSelection = true
     }
     
-//MARK: COLLECTIONVIEW SETUP
+    //MARK: COLLECTIONVIEW SETUP
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -153,9 +124,8 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     @IBAction func beginDay(_ sender: Any) {
-        var save_schedule = GeneratedSchedule.empty
         let selectedSchedule = idealSchedules[selectedIndex]
-        save_schedule = selectedSchedule.generateSchedule()
+        let save_schedule = selectedSchedule.generateSchedule()
         save_schedule.save()
         dismiss(animated: true){
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ScheduleSelected"), object: nil)
