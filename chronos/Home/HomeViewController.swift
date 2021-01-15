@@ -308,7 +308,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if(missed){
               print("SAD, you misseed a rigid task. here is the task:")
               print(schedule[index].name)
-              showAlert(title: "Sad", text: "It seems you have misseed a rigid task. here is the task: \(schedule[index].name)", actionlabel: "Dismiss")
+              showAlert(title: "Hmm...", text: "It seems you have misseed a rigid task. here is the task: \(schedule[index].name)", actionlabel: "Dismiss")
               schedule[index].status = "missed rigid task"
             }
 
