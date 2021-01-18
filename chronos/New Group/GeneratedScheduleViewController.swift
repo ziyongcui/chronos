@@ -15,7 +15,7 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var minutesLabel: UILabel!
 
     var selectedSchedule : Schedule? = nil
-    var generatedSchedules : Array<Schedule> = []
+    var schedules : Array<Schedule> = []
     let propertyListDecoder = PropertyListDecoder()
     
     
@@ -24,6 +24,7 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         //load data here
         reload()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         let percentages = calcPercent()
         let completed = percentages.0
@@ -101,27 +102,33 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //When does this notification get called?
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        //load blocks from (sample) save
+        
+        /*
+         - Comment doesn't seem to address the function of this section of code
+         - The code below accomplishes the same thing, but with the new abstractions.
+        //load blocks from save
         if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
             generatedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
         }
         else{
             //handle no schedules scenario
         }
-        
-        
+         */
+        schedules = getSchedules()
         
         //tableView setup
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
     func calcPercent() -> (Double, Double, Int, Int){
         var completedTasks = 0
         var unfinishedTasks = 0
         var totalTasks = 0
-        for generatedSchedule in generatedSchedules{
-            for block in generatedSchedule.blocks{
+        for schedule in schedules{
+            for block in schedule.blocks{
                 if block.status == "completed"
                 {
                     completedTasks+=1
@@ -135,11 +142,12 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         print(Double(completedTasks)/Double(totalTasks))
         return (Double(completedTasks)/Double(totalTasks), Double(unfinishedTasks)/Double(totalTasks), completedTasks, totalTasks)
     }
+    
     func calcPercentMinutes() -> (Double, Double, Int, Int){
         var completedMinutes = 0
         var unfinishedMinutes = 0
         var totalMinutes = 0
-        for generatedSchedule in generatedSchedules{
+        for generatedSchedule in schedules{
             for block in generatedSchedule.blocks{
                 if block.status == "completed"
                 {
@@ -155,17 +163,24 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         return (Double(completedMinutes)/Double(totalMinutes), Double(unfinishedMinutes)/Double(totalMinutes), completedMinutes, totalMinutes)
     }
     @objc func reload(){
-        if let retrievedSchedules = try?Data(contentsOf: URLs.finishedSchedules){
-            generatedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedSchedules)
-        }
+        schedules = getSchedules()
         tableView.reloadData()
+    }
+    
+    /// Function added to reduce code repetition.
+    func getSchedules() -> Array<Schedule> {
+        var temp : Array<Schedule> = []
+        for ideal in idealSchedules {
+            temp += ideal.attempts
+        }
+        return temp
     }
     
     //MARK: - TABLE VIEW CONFIGURATION
     
     //makes each item an individual section to utilize header spacing
     func numberOfSections(in tableView: UITableView) -> Int {
-        return generatedSchedules.count
+        return schedules.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -185,7 +200,7 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     //Instantiate Reusable Cell for each of the user's ideal schedules
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GeneratedScheduleCell", for: indexPath) as! GeneratedScheduleTableViewCell
-        cell.titleLabel.text = generatedSchedules[indexPath.section].name
+        cell.titleLabel.text = schedules[indexPath.section].name
         
         //some small UI enhancing
     
@@ -198,23 +213,22 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     
     //code to run when cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSchedule = generatedSchedules[indexPath.section]
+        selectedSchedule = schedules[indexPath.section]
         self.performSegue(withIdentifier: "GeneratedScheduleToDetail", sender: nil)
     }
     // this method handles row deletion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        
         if editingStyle == .delete {
             
-            // remove the item from the data model
-            generatedSchedules[indexPath.section].delete(indexPath: indexPath)
-
+            let willBeRemoved = schedules[indexPath.section]
+            let removeIndex = willBeRemoved.ideal.attempts.firstIndex(where: {$0 === willBeRemoved})
+            willBeRemoved.ideal.attempts.remove(at: removeIndex!)
             
                         // delete the table view row
-            print(generatedSchedules)
             //tableView.deleteRows(at: [indexPath], with: .fade)
-            generatedSchedules.remove(at: indexPath.section)
-            print(generatedSchedules)
+            schedules.remove(at: indexPath.section)
             tableView.reloadData()
             //tableView.deleteRows(at: [indexPath], with: .fade)
 
@@ -230,7 +244,7 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
         if segue.identifier == "GeneratedScheduleToDetail"{
             guard selectedSchedule != nil else{return}
             let destination = segue.destination as! GeneratedDetailViewController
-            destination.generatedSchedule = self.selectedSchedule
+            destination.schedule = self.selectedSchedule
         }
     }
     

@@ -11,15 +11,15 @@ import UIKit
 class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var generatedSchedule : Schedule!
-    var idealBlocks : Array<Block> = []
+    var schedule : Schedule!
+    var blocks : Array<Block> = []
     let propertyListDecoder = PropertyListDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //setup using passed idealSchedule
-        idealBlocks = generatedSchedule.blocks
-        self.navigationItem.title = generatedSchedule.name
+        blocks = schedule.blocks
+        self.navigationItem.title = schedule.name
         
         //tableView setup
         tableView.delegate = self
@@ -31,7 +31,7 @@ class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - TABLE VIEW CONFIGURATION
     func numberOfSections(in tableView: UITableView) -> Int {
-        return idealBlocks.count
+        return blocks.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -49,14 +49,14 @@ class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GeneratedBlockCell", for: indexPath) as! GeneratedBlockTableViewCell
-        cell.titleLabel.text = idealBlocks[indexPath.section].name
-        cell.timeLabel.text = idealBlocks[indexPath.section].time.timeText()
-        cell.durationLabel.text = idealBlocks[indexPath.section].completionDuration.durationText()
+        cell.titleLabel.text = blocks[indexPath.section].name
+        cell.timeLabel.text = blocks[indexPath.section].time.timeText()
+        cell.durationLabel.text = blocks[indexPath.section].completionDuration.durationText()
         cell.layer.cornerRadius = 0
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.layer.borderWidth = 3
         cell.selectionStyle = .none
-        let repr_block = idealBlocks[indexPath.section]
+        let repr_block = blocks[indexPath.section]
         if repr_block.status == "notStarted"{
             
             cell.layer.borderColor = UIColor.clear.cgColor
@@ -84,6 +84,8 @@ class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITa
     
     
     @objc func reload(){
+        /*
+         Schedule structure has been changed to a class, by passing a pointer to the object, removes the need to iterate through all the schedules which may be slow and inefficient. Instead, simply update blocks to the updated array.
         if let retrievedGeneratedSchedule = try?Data(contentsOf: URLs.finishedSchedules){
             let decodedSchedules = try!propertyListDecoder.decode(Array<GeneratedSchedule>.self, from: retrievedGeneratedSchedule)
             for schedule in decodedSchedules{
@@ -92,7 +94,8 @@ class GeneratedDetailViewController: UIViewController, UITableViewDelegate, UITa
                 }
             }
         }
-        idealBlocks = generatedSchedule.blocks
+         */
+        blocks = schedule.blocks
         tableView.reloadData()
     }
     
