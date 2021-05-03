@@ -124,23 +124,22 @@ class IdealSchedule : Codable {
     
     var name : String
     var blocks : Array<Block>
-    var days : Array<String>
-    var targetDate : Date
-    var daysUntilDeadline : Int
+    ///var days : Array<String>
+    ///var targetDate : Date
+    ///var daysUntilDeadline : Int
+    var desc : String
     var attempts : Array<Schedule>
     
     /// Static Ideal Schedule - For Development Purposes
-    static let EMPTY = IdealSchedule(name: "No Schedules Made!", days: [], targetDate: Date())
+    static let EMPTY = IdealSchedule(name: "No Schedules Made!", desc : "You have not created any ideal schedules yet, go to the schedules tab to create new schedules and add blocks in them.")
     
     /// Initializes an empty ideal schedule - Used in  AddScheduleViewController
     ///     - Constructor adds the instantiated ideal schedule
-    init(name: String, days: Array<String>, targetDate: Date) {
+    init(name: String, desc : String) {
         self.name = name
         self.blocks = []
-        self.days = days
-        self.targetDate = targetDate
+        self.desc = desc
         // TODO: Add calculation for days until deadline
-        self.daysUntilDeadline = 0
         self.attempts = []
     }
     

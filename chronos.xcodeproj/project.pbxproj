@@ -49,6 +49,7 @@
 		E94A5940259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */; };
 		E94A5945259BF1C10053FEE2 /* GeneratedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */; };
 		E94A5A9C25A65EB40053FEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */; };
+		E978E2C4263D080700A90B99 /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E978E2C3263D080700A90B99 /* PieChartView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDetailViewController.swift; sourceTree = "<group>"; };
 		E94A596625A0346A0053FEE2 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E94A5A9B25A65EB40053FEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		E978E2C3263D080700A90B99 /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PieChartView.xib; path = "../../../../Downloads/piechart_ios-master/PieChart/PieChartView.xib"; sourceTree = "<group>"; };
 		F660B37111A056206A957715 /* Pods-chronosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chronosTests.debug.xcconfig"; path = "Target Support Files/Pods-chronosTests/Pods-chronosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				E94A5944259BF1C10053FEE2 /* GeneratedDetailViewController.swift */,
+				E978E2C3263D080700A90B99 /* PieChartView.xib */,
 				E94A593F259BEF2B0053FEE2 /* GeneratedScheduleViewController.swift */,
 			);
 			path = "New Group";
@@ -405,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4C0F0F24859FAD001DE8B9 /* Assets.xcassets in Resources */,
+				E978E2C4263D080700A90B99 /* PieChartView.xib in Resources */,
 				87094757248C32F000B3F047 /* Tutorial.xcassets in Resources */,
 				87094755248C328100B3F047 /* Tutorial.json in Resources */,
 				8B4C0F0D24859FAD001DE8B9 /* Main.storyboard in Resources */,
@@ -736,7 +740,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8A2RFZ4TMZ;
+				DEVELOPMENT_TEAM = 27346XW87H;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -760,7 +764,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8A2RFZ4TMZ;
+				DEVELOPMENT_TEAM = 27346XW87H;
 				INFOPLIST_FILE = chronos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

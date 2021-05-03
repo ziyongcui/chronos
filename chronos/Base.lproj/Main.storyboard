@@ -661,20 +661,10 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-j8-XHa">
-                                                            <rect key="frame" x="8" y="55" width="174" height="50"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="19" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-j8-XHa">
+                                                            <rect key="frame" x="8" y="55" width="174" height="100"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="Kvm-ge-8Qq"/>
-                                                            </constraints>
-                                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Days: Mon, Tu, Wed, Th, Fri, Sat, Sun" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGE-no-cFj">
-                                                            <rect key="frame" x="8" y="125" width="174" height="55"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="55" id="6Rz-hU-fGE"/>
+                                                                <constraint firstAttribute="height" constant="100" id="Kvm-ge-8Qq"/>
                                                             </constraints>
                                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -682,7 +672,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7e-yX-byW">
-                                                            <rect key="frame" x="8" y="190" width="174" height="25"/>
+                                                            <rect key="frame" x="8" y="165" width="174" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="nGN-tJ-pdc"/>
                                                             </constraints>
@@ -692,7 +682,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyn-JL-2HU">
-                                                            <rect key="frame" x="8" y="225" width="174" height="25"/>
+                                                            <rect key="frame" x="8" y="200" width="174" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="fRC-Zh-6aW"/>
                                                             </constraints>
@@ -709,14 +699,11 @@
                                                         <constraint firstItem="RLX-nV-tVI" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="20" id="MTb-qz-ty5"/>
                                                         <constraint firstItem="v7e-yX-byW" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="OUO-ns-ehC"/>
                                                         <constraint firstItem="RLX-nV-tVI" firstAttribute="top" secondItem="gsH-Pd-y7R" secondAttribute="top" constant="10" id="Qfy-gL-LTl"/>
-                                                        <constraint firstItem="BGE-no-cFj" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="RTM-Je-Xdx"/>
+                                                        <constraint firstItem="v7e-yX-byW" firstAttribute="top" secondItem="KSH-j8-XHa" secondAttribute="bottom" constant="10" id="TUr-hh-awB"/>
                                                         <constraint firstAttribute="trailing" secondItem="RLX-nV-tVI" secondAttribute="trailing" constant="20" id="UBA-cN-HJ7"/>
-                                                        <constraint firstItem="v7e-yX-byW" firstAttribute="top" secondItem="BGE-no-cFj" secondAttribute="bottom" constant="10" id="VrQ-XV-gCa"/>
-                                                        <constraint firstAttribute="trailing" secondItem="BGE-no-cFj" secondAttribute="trailing" constant="8" id="WWG-9L-zwQ"/>
                                                         <constraint firstItem="KSH-j8-XHa" firstAttribute="top" secondItem="RLX-nV-tVI" secondAttribute="bottom" constant="5" id="btv-rh-37s"/>
                                                         <constraint firstItem="KSH-j8-XHa" firstAttribute="leading" secondItem="gsH-Pd-y7R" secondAttribute="leading" constant="8" id="gSf-Co-IVo"/>
                                                         <constraint firstAttribute="trailing" secondItem="v7e-yX-byW" secondAttribute="trailing" constant="8" id="jD1-UW-daL"/>
-                                                        <constraint firstItem="BGE-no-cFj" firstAttribute="top" secondItem="KSH-j8-XHa" secondAttribute="bottom" constant="20" id="rTQ-kg-3np"/>
                                                         <constraint firstAttribute="trailing" secondItem="wyn-JL-2HU" secondAttribute="trailing" constant="8" id="tdh-5E-gAZ"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
@@ -724,7 +711,6 @@
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 <connections>
                                                     <outlet property="endLabel" destination="wyn-JL-2HU" id="1Je-H9-txH"/>
-                                                    <outlet property="scheduleDays" destination="BGE-no-cFj" id="r9b-g1-bap"/>
                                                     <outlet property="scheduleDesc" destination="KSH-j8-XHa" id="Cju-gI-g3s"/>
                                                     <outlet property="scheduleTitle" destination="RLX-nV-tVI" id="adg-wc-oUD"/>
                                                     <outlet property="startLabel" destination="v7e-yX-byW" id="wN1-UC-AjO"/>
@@ -969,36 +955,17 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="0ju-I7-t8c">
-                                <rect key="frame" x="15" y="104" width="384" height="159"/>
+                                <rect key="frame" x="15" y="104" width="384" height="90"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Schedule Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-cA-dRi" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="blockOtherMethods:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="417-Gz-Ub9"/>
-                                            <action selector="enableOtherMethods:" destination="kSs-mR-TwG" eventType="editingDidEnd" id="a6U-o1-xJx"/>
-                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weekdays" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kJ-av-vsF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMY-rb-8zF" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="69" width="384" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="touchUpInside" id="B30-hg-beL"/>
-                                            <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="primaryActionTriggered" id="F4f-mZ-Gjn"/>
-                                            <action selector="showOptionsAction:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="Nwy-m3-Lcu"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Number of Days" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3A-N9-XYK" customClass="FloatingLabelInput" customModule="chronos" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="138" width="384" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="primaryActionTriggered" id="FjY-cC-VwP"/>
-                                            <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="touchUpInside" id="fwr-9d-Jdy"/>
-                                            <action selector="showOptionsActionDays:" destination="kSs-mR-TwG" eventType="editingDidBegin" id="uBg-ee-Tva"/>
-                                        </connections>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -1018,8 +985,7 @@
                     <connections>
                         <outlet property="ADD" destination="N8C-3f-JqR" id="0uW-8Z-kVv"/>
                         <outlet property="CANCEL" destination="P1V-VL-sUB" id="wVx-Rt-QQU"/>
-                        <outlet property="day" destination="0kJ-av-vsF" id="KNg-wQ-dO9"/>
-                        <outlet property="days" destination="d3A-N9-XYK" id="ERR-Bu-6z8"/>
+                        <outlet property="desc" destination="CMY-rb-8zF" id="r02-T7-sMM"/>
                         <outlet property="name" destination="lpo-cA-dRi" id="Xoa-jR-tBo"/>
                     </connections>
                 </viewController>

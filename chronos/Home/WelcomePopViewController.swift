@@ -22,7 +22,7 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         //MAYBE SET ADJUSTFONTSIZETOFITWIDTH TO TRUE (low prio)
 
         if idealSchedules.count == 0 {
-            let temp = IdealSchedule(name: "No Schedules Made!", days: [], targetDate: Date())
+            let temp = IdealSchedule(name: "No Schedules Made!", desc: "You have not created any ideal schedules yet, go to the schedules tab to create new schedules and add blocks in them.")
             idealSchedules.append(temp)
             IdealSchedule.save()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -59,14 +59,15 @@ class WelcomePopViewController: UIViewController, UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScheduleCell", for: indexPath) as! ScheduleCollectionViewCell
         let schedule = idealSchedules[indexPath.item]
         cell.scheduleTitle.text = schedule.name
-        var dayString = "For days:"
-        for day in schedule.days{
+        //let dayString = "For days:"
+        /*for day in schedule.days{
             dayString += " \(day)"
             if day != schedule.days[schedule.days.count-1]{
                 dayString += ","
             }
-        }
-        cell.scheduleDays.text = dayString
+        }*/
+        cell.scheduleDesc.text = schedule.desc
+        //cell.scheduleDays.text = dayString
         if schedule.blocks.count == 0
         {
             cell.startLabel.text = ""

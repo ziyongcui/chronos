@@ -9,135 +9,19 @@
 import UIKit
 class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var days: UITextField!
-    var daysSelected : Int?
+    @IBOutlet weak var desc: UITextField!
+    //@IBOutlet weak var days: UITextField!
+    //var daysSelected : Int?
     @IBOutlet weak var ADD: UIBarButtonItem!
     @IBOutlet weak var CANCEL: UIBarButtonItem!
-    @IBOutlet weak var day: UITextField!
-    var preSelectedValues : [String] = []
-    var daySelected : [String] = []
+    //@IBOutlet weak var day: UITextField!
+    //var preSelectedValues : [String] = []
+    //var daySelected : [String] = []
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    @IBAction func blockOtherMethods(_ sender: Any) {
-        
-            days.isEnabled = false
-            day.isEnabled = false
-        
-       
-    }
-    @IBAction func enableOtherMethods(_ sender: Any) {
-        
-            days.isEnabled = true
-            day.isEnabled = true
-        
-       
-    }
-    @IBAction func showOptionsActionDays(_ sender: Any) {
-       
-        let pickerData : [[String:String]] = [
-            [
-                "value": "1",
-                "display": "1"
-            ],
-            [
-                "value": "2",
-                "display": "2"
-            ],
-            [
-                "value": "3",
-                "display": "3"
-            ],
-            [
-                "value": "4",
-                "display": "4"
-            ],
-            [
-                "value": "5",
-                "display": "5"
-            ],
-            [
-                "value": "6",
-                "display": "6"
-            ],
-            [
-                "value": "7",
-                "display": "7"
-            ],
-            [
-                "value": "8",
-                "display": "8"
-            ],
-            [
-                "value": "9",
-                "display": "9"
-            ],
-            [
-                "value": "10",
-                "display": "10"
-            ]
-            
-        ]
-        
-       
-        
-        SinglePickerDialog().show(title: "Pick Days",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
-            values -> Void in
-            print("callBack \(values)")
-            self.preSelectedValues = values.compactMap {return $0["value"]}
-            
-            let displayValues = values.compactMap {return $0["display"]}
-            self.days.text = "\(displayValues.joined(separator: ", "))"
-            self.daysSelected = Int(displayValues[0])
-            
-        }
-    }
-    @IBAction func showOptionsAction(_ sender: Any) {
-        let pickerData : [[String:String]] = [
-            [
-                "value":"Monday",
-                "display":"Monday"
-            ],
-            [
-                "value": "Tuesday",
-                "display":"Tuesday"
-            ],
-            [
-                "value": "Wednesday",
-                "display":"Wednesday"
-            ],
-            [
-                "value":"Thursday",
-                "display":"Thursday"
-            ],
-            [
-                "value": "Friday",
-                "display":"Friday"
-            ],
-            [
-                "value": "Saturday",
-                "display":"Saturday"
-            ],
-            [
-                "value": "Sunday",
-                "display":"Sunday"
-            ]
-            
-        ]
-        
-        
-        MultiPickerDialog().show(title: "Pick Day",doneButtonTitle:"Select", cancelButtonTitle:"Cancel" ,options: pickerData, selected:  preSelectedValues) {
-            values -> Void in
-            print("callBack \(values)")
-            self.preSelectedValues = values.compactMap {return $0["value"]}
-            
-            let displayValues = values.compactMap {return $0["display"]}
-            self.day.text = "\(displayValues.joined(separator: ", "))"
-            self.daySelected = displayValues
-            
-        }
-    }
+    
     
     let propertyListEncoder = PropertyListEncoder()
     let propertyListDecoder = PropertyListDecoder()
@@ -168,10 +52,10 @@ class AddScheduleViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func Add(_ sender: UIBarButtonItem) {
 
-        guard name.text != nil && daysSelected != nil else{return}
+        guard name.text != nil && desc.text != nil else{return}
         
         //saving schedule
-        let createdSchedule = IdealSchedule(name: name.text!, days: daySelected, targetDate: Date())
+        let createdSchedule = IdealSchedule(name: name.text!, desc: desc.text!)
         idealSchedules.append(createdSchedule)
         IdealSchedule.save()
         
