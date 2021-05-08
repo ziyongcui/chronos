@@ -171,7 +171,7 @@ class GeneratedScheduleViewController: UIViewController, UITableViewDelegate, UI
     func getSchedules() -> Array<Schedule> {
         var temp : Array<Schedule> = []
         for ideal in idealSchedules {
-            temp += ideal.attempts
+            temp.append(contentsOf: ideal.attempts)
         }
         return temp
     }

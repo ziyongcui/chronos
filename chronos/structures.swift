@@ -120,7 +120,7 @@ struct DoubleBlock : Codable, Comparable{
  
 
 //MARK:- IDEAL SCHEDULE
-class IdealSchedule : Codable {
+struct IdealSchedule : Codable {
     
     var name : String
     var blocks : Array<Block>
@@ -226,9 +226,33 @@ class Schedule : Codable {
     ///             - Each IdealSchedule contains a list of 'attempted' Schedules that can be used for analysis
     ///             - Prevents analysis of schedules that do not have IdealSchedules (deleted/removed by user)
     func log(){
-        self.ideal.attempts.append(self)
+        //replaces(updates) existing schedule of the same name or appends if no schedule of the same name exists
+        var didReplace : Bool = false
+        if self.blocks.count > 0 {
+            if(self.ideal.attempts.count-1 < 0)
+            {
+                self.ideal.attempts.append(self)
+            }
+            else
+            {
+                for i in 0...(self.ideal.attempts.count-1){
+                    print(i)
+                    if self.ideal.attempts[i].name == self.name{
+                        self.ideal.attempts[i] = self
+                        didReplace = true
+                    }
+                }
+                if !didReplace{
+                    self.ideal.attempts.append(self)
+                }
+            }
+        }
+        else {}
+        //a list of decodedSchedules does not exist yet
         IdealSchedule.save()
     }
+    
+
     /*
     func delete(indexPath: IndexPath){
         var decodedSchedules : Array<GeneratedSchedule> = []
